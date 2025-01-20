@@ -13,6 +13,7 @@ public enum MsgConstants {
 
     MSG_TASK_DONE("\t Nice! I've marked this task as done:\n"),
     MSG_TASK_UNDONE("\t Ok, I've marked this task as not done yet:\n"),
+    MSG_TASK_DELETE("\t Noted. I've removed this task: \n"),
 
     MSG_EMPTY("EMPTY"),
 
@@ -30,6 +31,7 @@ public enum MsgConstants {
     CMD_LIST("list"),
     CMD_MARK("mark"),
     CMD_UNMARK("unmark"),
+    CMD_DELETE("delete"),
     CMD_TODO("todo"),
     CMD_DEADLINE("deadline"),
     CMD_EVENT("event"),
@@ -40,6 +42,7 @@ public enum MsgConstants {
     // Tasks regex.
     TASK_MARK("mark -?\\d+"),
     TASK_UNMARK("unmark -?\\d+"),
+    TASK_DELETE("delete -?\\d+"),
     TASK_TODO("todo .+"),
     TASK_DEADLINE("deadline .+ /by .+"),
     TASK_EVENT("event .+ /from .+ /to .+");
