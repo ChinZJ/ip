@@ -58,7 +58,7 @@ public class CommandParser {
                         if ((index >= 0) && (index < tasks.size())) {
                             if (cmd.equals(MsgConstants.CMD_MARK.getString())) {
                                 message = tasks.mark(index);
-                            } else{
+                            } else {
                                 message = tasks.unmark(index);
                             }
                         } else {
@@ -67,10 +67,34 @@ public class CommandParser {
                     } else {
                         throw new InvalidInputException();
                     }
-                } catch (NumberFormatException  e) {
+                } catch (NumberFormatException e) {
                     (new InvalidInputException()).unknownMark(cmd, tasks.size());
                 } catch (InvalidInputException e) {
                     e.unknownMark(cmd, tasks.size());
+                }
+            } else if (input.startsWith(MsgConstants.CMD_DELETE.getString())) {
+                try {
+                    if (input.matches(MsgConstants.TASK_DELETE.getString())) {
+                        // Recall to convert to 1 based indexing
+                        // NumberFormatException may be thrown here during int parsing
+                        int index = Integer.parseInt(
+                                input.substring(ValConstants.TASK_DELETE_IDX.getVal()))
+                                - ValConstants.TASK_FIX_IDX.getVal();
+
+                        // Ensure integer is valid
+                        if ((index >= 0) && (index < tasks.size())) {
+                            message = tasks.remove(index);
+                        } else {
+                            throw new InvalidInputException();
+                        }
+                    } else {
+                        throw new InvalidInputException();
+                    }
+                } catch (NumberFormatException e) {
+                    (new InvalidInputException())
+                            .unknownMark(MsgConstants.CMD_DELETE.getString(), tasks.size());
+                } catch (InvalidInputException e) {
+                    e.unknownMark(MsgConstants.CMD_DELETE.getString(), tasks.size());
                 }
             } else if (input.startsWith(MsgConstants.CMD_TODO.getString())) {
                 // "todo" command.
