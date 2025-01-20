@@ -6,13 +6,15 @@ public enum MsgConstants {
     MSG_FAREWELL("\t Bye. Hope to see you again soon!\n"),
 
     MSG_EMPTY_LIST("\t There are currently no tasks!\n"),
-    MSG_CURRENT_TASKS("\t Here are the tasks in your list:"),
+    MSG_CURRENT_TASKS("\t Here are the tasks in your list:\n"),
     MSG_ADD("\t Got it. I've added this task: \n"),
     MSG_CURRENT_SIZE_P1("\t Now you have "),
     MSG_CURRENT_SIZE_P2(" tasks in the list.\n"),
 
     MSG_TASK_DONE("\t Nice! I've marked this task as done:\n"),
     MSG_TASK_UNDONE("\t Ok, I've marked this task as not done yet:\n"),
+
+    MSG_EMPTY("EMPTY"),
 
     // For unexpected inputs
     MSG_INVALID_CMD_P1("\t OOPS!!! The format of "),
@@ -33,7 +35,7 @@ public enum MsgConstants {
     CMD_EVENT("event"),
     CMD_BY(" /by "),
     CMD_FROM(" /from "),
-     CMD_TO(" /to "),
+    CMD_TO(" /to "),
 
     // Tasks regex.
     TASK_MARK("mark -?\\d+"),
