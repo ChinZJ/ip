@@ -1,6 +1,14 @@
 import java.lang.Exception;
 
 public class CommandParser {
+    /**
+     * Main method for parsing commands.
+     * Invalid inputs are handled as excpetions by the method.
+     *
+     * @param input User input. May be valid or invalid
+     * @param tasks TaskList containing list of tasks.
+     * @return message for Botling to print where applicable.
+     */
     public static String parse(String input, TaskList tasks) {
         String message = MsgConstants.MSG_EMPTY.getString(); // Dummy initialization.
         try {

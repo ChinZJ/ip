@@ -29,14 +29,15 @@ public class Task {
         this.isDone = done;
     }
 
+    /**
+     * tostring() method.
+     */
     public String toString() {
         return this.name;
     }
 
     /**
      * Updates the status of the task.
-     *
-     * @param isDone
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;

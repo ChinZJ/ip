@@ -5,22 +5,27 @@ public class InvalidInputException extends Exception {
         super();
     }
 
-    public InvalidInputException(String message) {
-        super(message);
-    }
-
+    /**
+     * Message when command is unknown.
+     */
     public void unknownCmd() {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_UNKNOWN.getString()
                 + MsgConstants.MSG_LINE.getString());
     }
 
+    /**
+     * Message when list syntax is not fulfilled.
+     */
     public void unknownList() {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_UNKNOWN.getString()
                 + MsgConstants.MSG_LINE.getString());
     }
 
+    /**
+     * Message when mark / unmark syntax is not fulfilled.
+     */
     public void unknownMark(String name, int size) {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_CMD_P1.getString()
@@ -30,6 +35,9 @@ public class InvalidInputException extends Exception {
                 + MsgConstants.MSG_LINE.getString());
     }
 
+    /**
+     * Message when todo syntax is not fulfilled.
+     */
     public void unknownTodo() {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_CMD_P1.getString()
@@ -39,6 +47,9 @@ public class InvalidInputException extends Exception {
                 + MsgConstants.MSG_LINE.getString());
     }
 
+    /**
+     * Message when deadline syntax is not fulfilled.
+     */
     public void unknownDeadline() {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_CMD_P1.getString()
@@ -48,6 +59,9 @@ public class InvalidInputException extends Exception {
                 + MsgConstants.MSG_LINE.getString());
     }
 
+    /**
+     * Message when event syntax is not fulfilled.
+     */
     public void unknownEvent() {
         System.out.println(MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_INVALID_CMD_P1.getString()
