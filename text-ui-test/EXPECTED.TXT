@@ -1,7 +1,354 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+	____________________________________________________________
+	 Hello! I'm Botling
+	 What can I do for you?
+	____________________________________________________________
+
+	____________________________________________________________
+	 There are currently no tasks!
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 0
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 0
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of todo should be todo <name>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 Now you have 1 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [D][ ]deadline_by (by: hehehehaw)
+	 Now you have 2 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 Now you have 3 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 Now you have 4 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 Now you have 5 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 Now you have 6 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 Now you have 7 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 Now you have 8 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 Now you have 9 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 Now you have 10 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 Now you have 11 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 Now you have 12 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 Now you have 13 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 Now you have 14 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Got it. I've added this task: 
+	 [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 Now you have 15 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 Here are the tasks in your list:
+	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ]deadline_by (by: hehehehaw)
+	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 10. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 Nice! I've marked this task as done:
+		 [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 Here are the tasks in your list:
+	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ]deadline_by (by: hehehehaw)
+	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 10. [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	____________________________________________________________
+
+	____________________________________________________________
+	 Nice! I've marked this task as done:
+		 [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 Here are the tasks in your list:
+	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ]deadline_by (by: hehehehaw)
+	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 10. [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	____________________________________________________________
+
+	____________________________________________________________
+	 Ok, I've marked this task as not done yet:
+		 [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of unmark should be unmark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 Here are the tasks in your list:
+	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ]deadline_by (by: hehehehaw)
+	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 10. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! This command does not exist(yet).
+	____________________________________________________________
+
+	____________________________________________________________
+	 Bye. Hope to see you again soon!
+	____________________________________________________________
 

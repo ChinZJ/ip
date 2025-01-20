@@ -1,0 +1,64 @@
+list
+
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+mark -99
+mark 999
+
+todo
+todo !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+
+deadline
+deadline deadline_by /by hehehehaw
+deadline deadline_by/byhehehehaw
+deadline deadline_from_to /from shodif /to saldjfli
+deadline deadline_from_to/fromshodif/tosaldjfli
+deadline deadline_by_from_to /by /from klasjfd1#$ /to )(*&^%$
+deadline deadline_by_from_to/by/fromklasjfd1#$/to)(*&^%$
+deadline deadline_by_event_from_to /by laksdf event /from alisdjf /to sadkfjlsd
+deadline deadline_by_event_from_to/bylaksdfevent/fromalisdjf/tosadkfjlsd
+deadline deadline_by_by /by asldkfjs /by alsdifjli
+deadline deadline_by_by/byasldkfjs/byalsdifjli
+deadline deadline_by_deadline_by /by deadline /by deadline
+deadline deadline_by_deadline_by/bydeadline/bydeadline
+
+event
+event event_from_to /from 324dfudoif /to lasdfj2934i0
+event event_from_to/from324dfudoif/tolasdfj2934i0
+event event_by /by Q#@#$@!%$@
+event event_by/byQ#@#$@!%$@
+event event_by_from_to /by flksajfd!@$#%! /from \t ASDFSF@#$@#$ /to ASDF@#$#$!
+event event_by_from_to/byflksajfd!@$#%!/from\tASDFSF@#$@#$/toASDF@#$#$!
+event event_from_by_to /from deadline /by sladkjf!#$! /to asdf@$%@%\\
+event event_from_by_to/fromdeadline/bysladkjf!#$!/toasdf@$%@%\\
+event event_from_from_to_to /from lksSADFG@$R /from ASDF@$@# /to sdflkjlg#$%@#$ /to SDFGF%@$^$@%
+event event_from_from_to_to/fromlksSADFG@$R/fromASDF@$@#/tosdflkjlg#$%@#$/toSDFGF%@$^$@%
+event event_from_to_from_to /from asdljf#!$@ /to ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$
+event event_from_to_from_to/from asdljf#!$@/toASDOKJASO@#OK$!#$/fromASDFSSDFW@#$@/toSADF@#$@#$
+event event_from_to_to_from /from SDGK@#$ @$!ASFDS /to ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf
+event event_from_to_to_from/fromSDGK@#$@$!ASFDS/toASDF@#$!/WQTQ@$R\\qwflkjq/to@#$!ASKDF/fromASDFS#!$!\\//sadf
+event event_to_from_from_to /to SFDOGK@!$#% /from assd1#$ /from \\lsjdfn\nq2r /to /sfdlikslf224
+event event_to_from_from_to/toSFDOGK@!$#%/fromassd1#$/from\\lsjdfn\nq2r/to/sfdlikslf224
+event event_to_from_to_from /to sadkfj!@#%$ /from \a/sfdwte';2 /to \lasjdf/134sdf kASMDF /from ASDF/.,csxRET
+event event_to_from_to_from/tosadkfj!@#%$/from\a/sfdwte';2/to\lasjdf/134sdfkASMDF/fromASDF/.,csxRET
+event event_to_to_from_from /to ASDF!#$/sdf\dsttmn\ /to \n\n\t\t /from /ask;dfjw /from ASDF!#$
+event event_to_to_from_from/toASDF!#$/sdf\dsttmn\/to\n\n\t\t/from/ask;dfjw/fromASDF!#$
+event event_from_to_event_from_to /from alsdjf134 /to saldj1341 event /from @!#SDF /to ASDG!#$
+event event_from_to_event_from_to/fromalsdjf134/tosaldj1341event/from@!#SDF/toASDG!#$
+
+list
+
+mark 10
+mark 20
+list
+mark 10
+mark 20
+list
+unmark 10
+unmark 30
+list
+mark @!#$%^YRTGFSH sdfge245
+mark 200 2341
+mark 5147483647
+mark -5147483647
+
+bye
