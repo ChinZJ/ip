@@ -27,6 +27,10 @@ public class Task {
         this.isDone = done;
     }
 
+    public String toString() {
+        return this.name;
+    }
+
     /**
      * Updates the status of the task.
      *
