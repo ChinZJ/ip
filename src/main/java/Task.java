@@ -7,16 +7,17 @@ public class Task {
     /**
      * Default constructor for Task object.
      * Assumes that the task is not done.
+     * Utilizes base constructor (see below).
      *
      * @param name Name of task.
      */
     public Task(String name) {
-        this.name = name;
-        isDone = Task.TASK_UNDONE;
+        this(name, Task.TASK_UNDONE);
     }
 
     /**
-     * Alternate constructor for Task object.
+     * Base constructor for Task object.
+     * Allows for full specification of Task object construction.
      *
      * @param name Name of task.
      * @param done Status of task.
