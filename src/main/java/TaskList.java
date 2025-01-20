@@ -11,18 +11,18 @@ public class TaskList {
         isActive = true;
     }
 
-    public void list() {
+    public String list() {
+        String message = MsgConstants.MSG_LINE.getString();
         if (this.size() == 0) {
-            System.out.print(MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_EMPTY_LIST.getString());
+            message += MsgConstants.MSG_EMPTY_LIST.getString();
         } else {
-            System.out.println(MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_CURRENT_TASKS.getString());
+            message += MsgConstants.MSG_CURRENT_TASKS.getString();
             for (int i = 0; i < this.size(); i++) {
-                System.out.println("\t " + (i + 1) + ". " + this.get(i).getTaskStatus());
+                message += "\t " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
             }
         }
-        System.out.println(MsgConstants.MSG_LINE.getString());
+        message += MsgConstants.MSG_LINE.getString();
+        return message;
     }
 
     public void hasClose() {
@@ -41,19 +41,20 @@ public class TaskList {
         return tasks.size();
     }
 
-    public void mark(int index) {
-        tasks.get(index).updateTask(TASK_IS_DONE);
+    public String mark(int index) {
+        return tasks.get(index).updateTask(TASK_IS_DONE);
     }
 
-    public void unmark(int index) {
-        tasks.get(index).updateTask(!TASK_IS_DONE);
+    public String unmark(int index) {
+        return tasks.get(index).updateTask(!TASK_IS_DONE);
     }
 
-    public void add(Task newTask) {
+    public String add(Task newTask) {
         tasks.add(newTask);
-        System.out.println(MsgConstants.MSG_LINE.getString()
+        String message = MsgConstants.MSG_LINE.getString()
                 + MsgConstants.MSG_ADD.getString() + "\t " + newTask.getTaskStatus() + "\n"
                 + MsgConstants.MSG_CURRENT_SIZE_P1.getString() + this.size()
-                + MsgConstants.MSG_CURRENT_SIZE_P2.getString() + MsgConstants.MSG_LINE.getString());
+                + MsgConstants.MSG_CURRENT_SIZE_P2.getString() + MsgConstants.MSG_LINE.getString();
+        return message;
     }
 }

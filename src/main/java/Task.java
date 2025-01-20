@@ -1,3 +1,5 @@
+import java.lang.Exception;
+
 public class Task {
     private static final boolean TASK_UNDONE = false;
 
@@ -36,8 +38,22 @@ public class Task {
      *
      * @param isDone
      */
-    public void updateTask(boolean isDone) {
+    public String updateTask(boolean isDone) {
         this.isDone = isDone;
+        String message = "";
+        if (isDone) {
+            message = MsgConstants.MSG_LINE.getString()
+                    + MsgConstants.MSG_TASK_DONE.getString()
+                    + "\t\t " + this.getTaskStatus() + "\n"
+                    + MsgConstants.MSG_LINE.getString();
+        } else {
+            message = MsgConstants.MSG_LINE.getString()
+                    + MsgConstants.MSG_TASK_UNDONE.getString()
+                    + "\t\t " + this.getTaskStatus() + "\n"
+                    + MsgConstants.MSG_LINE.getString();
+        }
+        return message;
+
     }
 
     /**
