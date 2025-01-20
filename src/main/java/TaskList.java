@@ -57,4 +57,15 @@ public class TaskList {
                 + MsgConstants.MSG_CURRENT_SIZE_P2.getString() + MsgConstants.MSG_LINE.getString();
         return message;
     }
+
+    public String remove(int index) {
+        Task task = tasks.get(index);
+        tasks.remove(index);
+        String message = MsgConstants.MSG_LINE.getString()
+                + MsgConstants.MSG_TASK_DELETE.getString()
+                + "\t " + task.getTaskStatus() + "\n"
+                + MsgConstants.MSG_CURRENT_SIZE_P1.getString() + this.size()
+                + MsgConstants.MSG_CURRENT_SIZE_P2.getString() + MsgConstants.MSG_LINE.getString();
+        return message;
+    }
 }
