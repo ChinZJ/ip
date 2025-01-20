@@ -273,75 +273,99 @@
 	____________________________________________________________
 
 	____________________________________________________________
-	 Nice! I've marked this task as done:
-		 [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 OOPS!!! The format of delete should be delete <X>, where X is a positive integer <= 15
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of delete should be delete <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of delete should be delete <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of delete should be delete <X>, where X is a positive integer <= 15
+	____________________________________________________________
+
+	____________________________________________________________
+	 Noted. I've removed this task: 
+	 [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 Now you have 14 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Noted. I've removed this task: 
+	 [D][ ]deadline_by (by: hehehehaw)
+	 Now you have 13 tasks in the list.
+	____________________________________________________________
+
+	____________________________________________________________
+	 Nice! I've marked this task as done:
+		 [E][X] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	____________________________________________________________
+
+	____________________________________________________________
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________
 	 Here are the tasks in your list:
 	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by (by: hehehehaw)
-	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 10. [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 10. [E][X] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
 	 Ok, I've marked this task as not done yet:
-		 [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+		 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of unmark should be unmark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of unmark should be unmark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________
 	 Here are the tasks in your list:
 	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by (by: hehehehaw)
-	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 10. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 10. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________
-	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 15
+	 OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 13
 	____________________________________________________________
 
 	____________________________________________________________

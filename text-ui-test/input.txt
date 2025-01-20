@@ -50,6 +50,12 @@ list
 mark 10
 mark 20
 list
+delete
+delete 5147483647
+delete -5147483647
+delete !$12413513sdlkgj 3%#%
+delete 10
+delete 2
 mark 10
 mark 20
 list
