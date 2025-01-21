@@ -1,13 +1,13 @@
+/**
+ * Events object that has a start date and an end date.
+ */
 public class Events extends Task {
+
     private String from;
     private String to;
 
     /**
      * Default constructor.
-     *
-     * @param name
-     * @param from
-     * @param to
      */
     public Events(String name, String from, String to) {
         super(name);

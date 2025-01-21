@@ -1,4 +1,8 @@
+/**
+ * Deadlines object that has a completion date.
+ */
 public class Deadlines extends Task {
+
     private String by;
 
     /**

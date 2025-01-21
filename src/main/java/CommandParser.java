@@ -24,10 +24,10 @@ public class CommandParser {
      *
      * @param input User input. May be valid or invalid
      * @param tasks TaskList containing list of tasks.
-     * @return message for Botling to pass messagess to UI object to handle.
+     * @return message for Botling to pass messages to UI object to handle.
      */
     public String parse(String input, TaskList tasks) {
-        String message = ""; // Dummy initialization
+        String message; // Dummy initialization
         try {
             if (input.startsWith(CmdConst.CMD_BYE.getString())) {
                 // "bye" command.
@@ -106,9 +106,8 @@ public class CommandParser {
             }
         } catch (InvalidInputException e) {
             message = MsgGen.unknownCmd();
-        } finally {
-            return message;
         }
+        return message;
     }
 
     /**
@@ -129,7 +128,7 @@ public class CommandParser {
      * Method for parsing mark inputs.
      * Despite their similarities, mark() and unmark() will not have a common method base
      * due to the fact that the final method call to TaskList is different.
-     * This results in unecessary if else block statements.
+     * This results in unnecessary if else block statements.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
@@ -152,7 +151,7 @@ public class CommandParser {
     * Method for parsing unmark inputs.
      * Despite their similarities, mark() and unmark() will not have a common method base
      * due to the fact that the final method call to TaskList is different.
-     * This results in unecessary if else block statements.
+     * This results in unnecessary if else block statements.
      *
      * @throws NumberFormatException if syntax is correct but input is not an integer.
      * @throws InvalidInputException if syntax is not recognized.

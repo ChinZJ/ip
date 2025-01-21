@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Main class where application starts.
+ */
 public class Botling {
     /**
      * Generates objects required for program to function.

@@ -28,10 +28,16 @@ public enum CmdConst {
 
     private final String message;
 
+    /**
+     * Default constructor
+     */
     CmdConst(String message) {
         this.message = message;
     }
 
+    /**
+     * Returns message in String type.
+     */
     public String getString() {
         return message;
     }

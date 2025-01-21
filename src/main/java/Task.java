@@ -1,9 +1,10 @@
-import java.lang.Exception;
-
+/**
+ * Parent class for child classes to extend.
+ */
 public class Task {
     private static final boolean TASK_UNDONE = false;
 
-    private String name;
+    private final String name;
     private boolean isDone;
 
     /**
@@ -41,7 +42,7 @@ public class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        String message = "";
+        String message;
         if (isDone) {
             message = "\t\t " + this.getTaskStatus() + "\n";
         } else {
