@@ -1,169 +1,262 @@
-import java.lang.Exception;
-
+/**
+ * Parses user input and instructs the ui object to generate and print messages appropriately.
+ */
 public class CommandParser {
+
+
+    public CommandParser() {
+    }
+
     /**
-     * Main method for parsing commands.
-     * Invalid inputs are handled as excpetions by the method.
+     * Generates start up message and checks for any history.
+     *
+     * @param tasks TaskList to restore progress if any.
+     *
+     * @return message for Botling, inclusive of startup amd if any history is recovered.
+     */
+    public String start(TaskList tasks) {
+        return MsgGen.greet();
+    }
+
+    /**
+     * Main method for parsing user input.
+     * Invalid inputs will throw a InvalidInputException.
      *
      * @param input User input. May be valid or invalid
      * @param tasks TaskList containing list of tasks.
-     * @return message for Botling to print where applicable.
+     * @return message for Botling to pass messagess to UI object to handle.
      */
-    public static String parse(String input, TaskList tasks) {
-        String message = MsgConstants.MSG_EMPTY.getString(); // Dummy initialization.
+    public String parse(String input, TaskList tasks) {
+        String message = ""; // Dummy initialization
         try {
-            if (input.startsWith(MsgConstants.CMD_BYE.getString())) {
+            if (input.startsWith(CmdConst.CMD_BYE.getString())) {
                 // "bye" command.
                 try {
-                    if (input.equals(MsgConstants.CMD_BYE.getString())) {
-                        tasks.hasClose();
-                        message = MsgConstants.MSG_LINE.getString()
-                                + MsgConstants.MSG_FAREWELL.getString()
-                                + MsgConstants.MSG_LINE.getString();
-                    } else {
-                        throw new InvalidInputException();
-                    }
+                        message = bye(input, tasks);
                 } catch (InvalidInputException e) {
-                    e.unknownCmd();
+                    message = MsgGen.unknownCmd();
                 }
-            } else if (input.startsWith(MsgConstants.CMD_LIST.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_LIST.getString())) {
                 // "list" command.
                 try {
-                    if (input.equals(MsgConstants.CMD_LIST.getString())) {
-                        // Either empty or contains something.
-                        message = tasks.list();
+                    if (input.equals(CmdConst.CMD_LIST.getString())) {
+                        message = MsgGen.list(tasks.list());
                     } else {
                         throw new InvalidInputException();
                     }
                 } catch (InvalidInputException e) {
-                    e.unknownList();
+                    message = MsgGen.unknownList();
                 }
-            } else if (input.startsWith(MsgConstants.CMD_MARK.getString())
-                    || input.startsWith(MsgConstants.CMD_UNMARK.getString())) {
-                // "mark" or "unmark" command.
-                // Expects only one positive integer.
-                String cmd = "";
-                int cmdIdx = 0;
-                int cmdFixIdx = ValConstants.TASK_FIX_IDX.getVal();
-                if (input.startsWith(MsgConstants.CMD_MARK.getString())) {
-                    cmd = MsgConstants.CMD_MARK.getString();
-                    cmdIdx = ValConstants.TASK_MARK_IDX.getVal();
-                } else {
-                    cmd = MsgConstants.CMD_UNMARK.getString();
-                    cmdIdx = ValConstants.TASK_UNMARK_IDX.getVal();
-                }
-
+            } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
+                // "mark" command.
                 try {
-                    if (input.matches(MsgConstants.TASK_MARK.getString())
-                            || input.matches(MsgConstants.TASK_UNMARK.getString())) {
-                        // Recall to convert to 1 based indexing
-                        // NumberFormatException may be thrown here during int parsing
-                        int index = Integer.parseInt(
-                                input.substring(cmdIdx))
-                                - cmdFixIdx;
-
-                        // Ensure integer is valid
-                        if ((index >= 0) && (index < tasks.size())) {
-                            if (cmd.equals(MsgConstants.CMD_MARK.getString())) {
-                                message = tasks.mark(index);
-                            } else {
-                                message = tasks.unmark(index);
-                            }
-                        } else {
-                            throw new InvalidInputException();
-                        }
-                    } else {
-                        throw new InvalidInputException();
-                    }
-                } catch (NumberFormatException e) {
-                    (new InvalidInputException()).unknownMark(cmd, tasks.size());
-                } catch (InvalidInputException e) {
-                    e.unknownMark(cmd, tasks.size());
+                    message = MsgGen.mark(mark(input, tasks));
+                } catch (NumberFormatException | InvalidInputException e) {
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
+                            CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                    + String.valueOf(tasks.size()));
                 }
-            } else if (input.startsWith(MsgConstants.CMD_DELETE.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_UNMARK.getString())) {
+                // "unmark" command.
                 try {
-                    if (input.matches(MsgConstants.TASK_DELETE.getString())) {
-                        // Recall to convert to 1 based indexing
-                        // NumberFormatException may be thrown here during int parsing
-                        int index = Integer.parseInt(
-                                input.substring(ValConstants.TASK_DELETE_IDX.getVal()))
-                                - ValConstants.TASK_FIX_IDX.getVal();
-
-                        // Ensure integer is valid
-                        if ((index >= 0) && (index < tasks.size())) {
-                            message = tasks.remove(index);
-                        } else {
-                            throw new InvalidInputException();
-                        }
-                    } else {
-                        throw new InvalidInputException();
-                    }
-                } catch (NumberFormatException e) {
-                    (new InvalidInputException())
-                            .unknownMark(MsgConstants.CMD_DELETE.getString(), tasks.size());
-                } catch (InvalidInputException e) {
-                    e.unknownMark(MsgConstants.CMD_DELETE.getString(), tasks.size());
+                    message = MsgGen.unmark(unmark(input, tasks));
+                } catch (NumberFormatException | InvalidInputException e) {
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
+                            CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                    + String.valueOf(tasks.size()));
                 }
-            } else if (input.startsWith(MsgConstants.CMD_TODO.getString())) {
+            }  else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
+                // "delete" command.
+                try {
+                    message = delete(input, tasks);
+                    message = MsgGen.delete(message, tasks.size());
+                } catch (NumberFormatException | InvalidInputException e) {
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
+                            CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                    + String.valueOf(tasks.size()));
+                }
+            } else if (input.startsWith(CmdConst.CMD_TODO.getString())) {
                 // "todo" command.
-                // Expects any description
                 try {
-                    if (input.matches(MsgConstants.TASK_TODO.getString())) {
-                        Task newTask = new ToDo(input.substring(ValConstants.TASK_TODO_IDX.getVal()));
-                        message = tasks.add(newTask);
-                    } else {
-                        throw new InvalidInputException();
-                    }
+                    message = todo(input, tasks);
+                    message = MsgGen.add(message, tasks.size());
                 } catch (InvalidInputException e) {
-                    e.unknownTodo();
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_TODO.getString(),
+                            CmdConst.MSG_INVALID_CMD_TODO.getString());
                 }
-            } else if (input.startsWith(MsgConstants.CMD_DEADLINE.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_DEADLINE.getString())) {
+                // "deadline" command.
                 try {
-                    if (input.matches(MsgConstants.TASK_DEADLINE.getString())) {
-                        // Deadline has a /by specification, greedily take the first in sequence.
-                        String withoutDeadline = input.substring(ValConstants.TASK_DEADLINE_IDX.getVal());
-                        int by_idx = withoutDeadline.indexOf(MsgConstants.CMD_BY.getString());
-                        String deadlineName = withoutDeadline.substring(0, by_idx);
-                        String by = withoutDeadline.substring(by_idx + ValConstants.TASK_BY_IDX.getVal());
-                        Task newTask = new Deadlines(deadlineName, by);
-
-                        message = tasks.add(newTask);
-                    } else {
-                        throw new InvalidInputException();
-                    }
+                    message = deadline(input, tasks);
+                    message = MsgGen.add(message, tasks.size());
                 } catch (InvalidInputException e) {
-                    e.unknownDeadline();
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_DEADLINE.getString(),
+                            CmdConst.MSG_INVALID_CMD_DEADLINE.getString());
                 }
-            } else if (input.startsWith(MsgConstants.CMD_EVENT.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_EVENT.getString())) {
                 try {
-                    if (input.matches(MsgConstants.TASK_EVENT.getString())) {
-                        // Event has /from and /to specification.
-                        // Greedily take the first in sequential order.
-                        String withoutEvent = input.substring(ValConstants.TASK_EVENT_IDX.getVal());
-                        int from_idx = withoutEvent.indexOf(MsgConstants.CMD_FROM.getString());
-                        String eventName = withoutEvent.substring(0, from_idx);
-                        String remainingSplit = withoutEvent.substring(from_idx
-                                + ValConstants.TASK_FROM_IDX.getVal());
-                        int to_idx = remainingSplit.indexOf(MsgConstants.CMD_TO.getString());
-                        String eventFrom = remainingSplit.substring(0, to_idx);
-                        String eventTo = remainingSplit.substring(to_idx
-                                + ValConstants.TASK_TO_IDX.getVal());
-
-                        Task newTask = new Events(eventName, eventFrom, eventTo);
-                        message = tasks.add(newTask);
-                    } else {
-                        throw new InvalidInputException();
-                    }
+                    message = event(input, tasks);
+                    message = MsgGen.add(message,tasks.size());
                 } catch (InvalidInputException e) {
-                    e.unknownEvent();
+                    message = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
+                            CmdConst.MSG_INVALID_CMD_EVENT.getString());
                 }
             } else {
                 throw new InvalidInputException();
             }
         } catch (InvalidInputException e) {
-            e.unknownCmd();
+            message = MsgGen.unknownCmd();
         } finally {
             return message;
         }
     }
+
+    /**
+     * Method for parsing bye inputs.
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String bye(String input, TaskList tasks) throws InvalidInputException {
+        if (input.equals(CmdConst.CMD_BYE.getString())) {
+            tasks.hasClose();
+            return MsgGen.bye();
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing mark inputs.
+     * Despite their similarities, mark() and unmark() will not have a common method base
+     * due to the fact that the final method call to TaskList is different.
+     * This results in unecessary if else block statements.
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String mark(String input, TaskList tasks)
+            throws NumberFormatException, InvalidInputException {
+        if (input.matches(CmdConst.TASK_MARK.getString())) {
+            int index = Integer.parseInt(input.substring(ValConstants.TASK_MARK_IDX.getVal()))
+                    - ValConstants.TASK_FIX_IDX.getVal();
+            if ((index >= 0) && (index < tasks.size())) {
+                return tasks.mark(index);
+            } else {
+                throw new InvalidInputException();
+            }
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+    * Method for parsing unmark inputs.
+     * Despite their similarities, mark() and unmark() will not have a common method base
+     * due to the fact that the final method call to TaskList is different.
+     * This results in unecessary if else block statements.
+     *
+     * @throws NumberFormatException if syntax is correct but input is not an integer.
+     * @throws InvalidInputException if syntax is not recognized.
+    */
+    private String unmark(String input, TaskList tasks)
+            throws NumberFormatException, InvalidInputException {
+        if (input.matches(CmdConst.TASK_UNMARK.getString())) {
+            int index = Integer.parseInt(input.substring(ValConstants.TASK_UNMARK_IDX.getVal()))
+                    - ValConstants.TASK_FIX_IDX.getVal();
+            if ((index >= 0) && (index < tasks.size())) {
+                return tasks.unmark(index);
+            } else {
+                throw new InvalidInputException();
+            }
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing delete inputs.
+     *
+     * @throws NumberFormatException if syntax is correct but input is not an integer.
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String delete(String input, TaskList tasks)
+            throws NumberFormatException, InvalidInputException {
+        if (input.matches(CmdConst.TASK_DELETE.getString())) {
+            // Recall to convert to 1 based indexing
+            // NumberFormatException may be thrown here during int parsing
+            int index = Integer.parseInt(
+                    input.substring(ValConstants.TASK_DELETE_IDX.getVal()))
+                    - ValConstants.TASK_FIX_IDX.getVal();
+
+            // Ensure integer is valid
+            if ((index >= 0) && (index < tasks.size())) {
+                return tasks.remove(index);
+            } else {
+                throw new InvalidInputException();
+            }
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing todo inputs.
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String todo(String input, TaskList tasks) throws InvalidInputException {
+        if (input.matches(CmdConst.TASK_TODO.getString())) {
+            Task newTask = new ToDo(input.substring(ValConstants.TASK_TODO_IDX.getVal()));
+            return tasks.add(newTask);
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing deadline inputs
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String deadline(String input, TaskList tasks) throws InvalidInputException {
+        if (input.matches(CmdConst.TASK_DEADLINE.getString())) {
+            // Deadline has a /by specification, greedily take the first in sequence.
+            String withoutDeadline = input.substring(ValConstants.TASK_DEADLINE_IDX.getVal());
+            int by_idx = withoutDeadline.indexOf(CmdConst.CMD_BY.getString());
+            String deadlineName = withoutDeadline.substring(0, by_idx);
+            String by = withoutDeadline.substring(by_idx + ValConstants.TASK_BY_IDX.getVal());
+            Task newTask = new Deadlines(deadlineName, by);
+
+            return tasks.add(newTask);
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing event inputs.
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String event(String input, TaskList tasks) throws InvalidInputException {
+        if (input.matches(CmdConst.TASK_EVENT.getString())) {
+            // Event has /from and /to specification.
+            // Greedily take the first in sequential order.
+            String withoutEvent = input.substring(ValConstants.TASK_EVENT_IDX.getVal());
+            int from_idx = withoutEvent.indexOf(CmdConst.CMD_FROM.getString());
+            String eventName = withoutEvent.substring(0, from_idx);
+            String remainingSplit = withoutEvent.substring(from_idx
+                    + ValConstants.TASK_FROM_IDX.getVal());
+            int to_idx = remainingSplit.indexOf(CmdConst.CMD_TO.getString());
+            String eventFrom = remainingSplit.substring(0, to_idx);
+            String eventTo = remainingSplit.substring(to_idx
+                    + ValConstants.TASK_TO_IDX.getVal());
+
+            Task newTask = new Events(eventName, eventFrom, eventTo);
+            return tasks.add(newTask);
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
 }
+

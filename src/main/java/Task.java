@@ -43,15 +43,9 @@ public class Task {
         this.isDone = isDone;
         String message = "";
         if (isDone) {
-            message = MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_TASK_DONE.getString()
-                    + "\t\t " + this.getTaskStatus() + "\n"
-                    + MsgConstants.MSG_LINE.getString();
+            message = "\t\t " + this.getTaskStatus() + "\n";
         } else {
-            message = MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_TASK_UNDONE.getString()
-                    + "\t\t " + this.getTaskStatus() + "\n"
-                    + MsgConstants.MSG_LINE.getString();
+            message = "\t\t " + this.getTaskStatus() + "\n";
         }
         return message;
 
