@@ -1,5 +1,6 @@
 /**
- * ToDo object that serves as a "default" Task.
+ * A "default" <code>Task</code> object.
+ * Does not have additional functionalities.
  */
 public class ToDo extends Task {
 
@@ -25,4 +26,14 @@ public class ToDo extends Task {
         String message = "[T]" + super.getTaskStatus();
         return message;
     }
+
+    /**
+     * Generates the data version of the task status.
+     */
+    @Override
+    public String getTaskData() {
+        String message = "todo\n" + super.getTaskData();
+        return message;
+    }
+
 }

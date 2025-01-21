@@ -1,5 +1,5 @@
 /**
- * Events object that has a start date and an end date.
+ * A <code>Task</code> object that has a <code>start</code> and an <code>end</code>.
  */
 public class Events extends Task {
 
@@ -32,4 +32,14 @@ public class Events extends Task {
         String message = "[E]" + super.getTaskStatus() + " (from: " + from + " to: " + to + ")";
         return message;
     }
+
+    /**
+     * Generates the data version of the task status.
+     */
+    @Override
+    public String getTaskData() {
+        String message = "event\n" + from + "\n" + to + "\n" + super.getTaskData();
+        return message;
+    }
+
 }

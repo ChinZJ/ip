@@ -1,9 +1,12 @@
 /**
- * Parses user input and instructs the ui object to generate and print messages appropriately.
+ * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
  */
 public class CommandParser {
+    private TaskListWriter tasksRestore = new TaskListWriter();
 
-
+    /**
+     * Dummy constructor if needed for future extensions.
+     */
     public CommandParser() {
     }
 
@@ -15,7 +18,8 @@ public class CommandParser {
      * @return message for Botling, inclusive of startup amd if any history is recovered.
      */
     public String start(TaskList tasks) {
-        return MsgGen.greet();
+        String message = tasksRestore.restore(tasks);
+        return (MsgGen.greet() + "\n" + MsgGen.read(message)) ;
     }
 
     /**
@@ -138,7 +142,9 @@ public class CommandParser {
             int index = Integer.parseInt(input.substring(ValConstants.TASK_MARK_IDX.getVal()))
                     - ValConstants.TASK_FIX_IDX.getVal();
             if ((index >= 0) && (index < tasks.size())) {
-                return tasks.mark(index);
+                String message = tasks.mark(index);
+                tasksRestore.write(tasks);
+                return message;
             } else {
                 throw new InvalidInputException();
             }
@@ -162,7 +168,9 @@ public class CommandParser {
             int index = Integer.parseInt(input.substring(ValConstants.TASK_UNMARK_IDX.getVal()))
                     - ValConstants.TASK_FIX_IDX.getVal();
             if ((index >= 0) && (index < tasks.size())) {
-                return tasks.unmark(index);
+                String message = tasks.unmark(index);
+                tasksRestore.write(tasks);
+                return message;
             } else {
                 throw new InvalidInputException();
             }
@@ -188,7 +196,9 @@ public class CommandParser {
 
             // Ensure integer is valid
             if ((index >= 0) && (index < tasks.size())) {
-                return tasks.remove(index);
+                String message = tasks.remove(index);
+                tasksRestore.write(tasks);
+                return message;
             } else {
                 throw new InvalidInputException();
             }
@@ -205,7 +215,9 @@ public class CommandParser {
     private String todo(String input, TaskList tasks) throws InvalidInputException {
         if (input.matches(CmdConst.TASK_TODO.getString())) {
             Task newTask = new ToDo(input.substring(ValConstants.TASK_TODO_IDX.getVal()));
-            return tasks.add(newTask);
+            String message = tasks.add(newTask);
+            tasksRestore.write(tasks);
+            return message;
         } else {
             throw new InvalidInputException();
         }
@@ -222,10 +234,12 @@ public class CommandParser {
             String withoutDeadline = input.substring(ValConstants.TASK_DEADLINE_IDX.getVal());
             int by_idx = withoutDeadline.indexOf(CmdConst.CMD_BY.getString());
             String deadlineName = withoutDeadline.substring(0, by_idx);
-            String by = withoutDeadline.substring(by_idx + ValConstants.TASK_BY_IDX.getVal());
+            String by = withoutDeadline.substring(by_idx
+                    + ValConstants.TASK_BY_IDX.getVal());
             Task newTask = new Deadlines(deadlineName, by);
-
-            return tasks.add(newTask);
+            String message = tasks.add(newTask);
+            tasksRestore.write(tasks);
+            return message;
         } else {
             throw new InvalidInputException();
         }
@@ -251,7 +265,9 @@ public class CommandParser {
                     + ValConstants.TASK_TO_IDX.getVal());
 
             Task newTask = new Events(eventName, eventFrom, eventTo);
-            return tasks.add(newTask);
+            String message = tasks.add(newTask);
+            tasksRestore.write(tasks);
+            return message;
         } else {
             throw new InvalidInputException();
         }

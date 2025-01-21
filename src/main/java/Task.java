@@ -1,5 +1,6 @@
 /**
- * Parent class for child classes to extend.
+ * Parent class for various <code>Task</code> objects.
+ * A <code>Task</code> has a <code>name</code> and a <code>status</code> of completion.
  */
 public class Task {
     private static final boolean TASK_UNDONE = false;
@@ -64,6 +65,19 @@ public class Task {
             message = ("[X] " + name);
         } else {
             message = ("[ ]" + name);
+        }
+        return message;
+    }
+
+    /**
+     * Generates the data version of the task status.
+     */
+    public String getTaskData() {
+        String message = name + "\n";
+        if (isDone) {
+            message += "true";
+        } else {
+            message += "false";
         }
         return message;
     }

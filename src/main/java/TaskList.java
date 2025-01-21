@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 
 /**
- * Stores all tasks and possesses task list related functionality.
- * Also includes restoring capabilities.
+ * Stores all <code>Task</code> objects.
+ * Possesses core list related functionality required to interact with <code>Task</code> objects.
  */
 public class TaskList {
     private static final boolean TASK_IS_DONE = true;
-    private static final String HISTORY_DATA_PATH = "./data/history.txt";
     private static final String EMPTY_LIST = "\t There are currently no tasks!\n";
 
     private ArrayList<Task> tasks;
@@ -104,14 +103,18 @@ public class TaskList {
     }
 
     /**
-     * Checks if the TaskList has been instantiated before.
-     * If so, load the previous history of the TaskList.
-     * Else generate a new history of the TaskList
-     *
-     * @return Any relevant logs of trying to generate / retrieve the history of the task list.
+     * Generates a String format of all tasks to be read by <code>TsakListReader</code> object.
      */
-    public String restore() {
-        return "";
+    public String fileString() {
+        String message = "";
+        if (this.size() == 0) {
+            return message;
+        } else {
+            for (int i = 0; i < this.size(); i++) {
+                message += this.get(i).getTaskData() + "\n";
+            }
+        }
+        return message;
     }
 
 }
