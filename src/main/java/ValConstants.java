@@ -13,10 +13,16 @@ public enum ValConstants {
 
     private final int val;
 
+    /**
+     * Default constructor.
+     */
     ValConstants(int val) {
         this.val = val;
     }
 
+    /**
+     * Returns value in int type.
+     */
     public int getVal() {
         return val;
     }

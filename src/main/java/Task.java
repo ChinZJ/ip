@@ -1,9 +1,11 @@
-import java.lang.Exception;
-
+/**
+ * Parent class for various <code>Task</code> objects.
+ * A <code>Task</code> has a <code>name</code> and a <code>status</code> of completion.
+ */
 public class Task {
     private static final boolean TASK_UNDONE = false;
 
-    private String name;
+    private final String name;
     private boolean isDone;
 
     /**
@@ -41,17 +43,11 @@ public class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        String message = "";
+        String message;
         if (isDone) {
-            message = MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_TASK_DONE.getString()
-                    + "\t\t " + this.getTaskStatus() + "\n"
-                    + MsgConstants.MSG_LINE.getString();
+            message = "\t\t " + this.getTaskStatus() + "\n";
         } else {
-            message = MsgConstants.MSG_LINE.getString()
-                    + MsgConstants.MSG_TASK_UNDONE.getString()
-                    + "\t\t " + this.getTaskStatus() + "\n"
-                    + MsgConstants.MSG_LINE.getString();
+            message = "\t\t " + this.getTaskStatus() + "\n";
         }
         return message;
 
@@ -69,6 +65,19 @@ public class Task {
             message = ("[X] " + name);
         } else {
             message = ("[ ]" + name);
+        }
+        return message;
+    }
+
+    /**
+     * Generates the data version of the task status.
+     */
+    public String getTaskData() {
+        String message = name + "\n";
+        if (isDone) {
+            message += "true";
+        } else {
+            message += "false";
         }
         return message;
     }
