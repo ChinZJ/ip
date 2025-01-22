@@ -7,6 +7,7 @@ public enum ValConstants {
     TASK_DELETE_IDX(7),
     TASK_EVENT_IDX(6),
     TASK_FROM_IDX(7),
+    TASK_FIND(5),
     TASK_FIX_IDX(1),
     TASK_MARK_IDX(5),
     TASK_TO_IDX(5),

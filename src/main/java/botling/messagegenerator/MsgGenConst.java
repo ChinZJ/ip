@@ -15,6 +15,8 @@ public enum MsgGenConst {
     MSG_CURRENT_SIZE_P2(" tasks in the list.\n"),
     MSG_CURRENT_TASKS("\t Here are the tasks in your list:\n"),
     MSG_EMPTY_LIST("\t There are currently no tasks!\n"),
+    MSG_FIND_TASKS("\t Here are the matching tasks in your list:\n"),
+    MSG_NO_TASKS("\t There are currently no matching tasks!\n"),
 
     // For mark / unmark / delete.
     MSG_TASK_DELETE("\t Noted. I've removed this task: \n"),

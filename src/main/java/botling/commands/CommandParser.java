@@ -67,7 +67,14 @@ public class CommandParser {
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownCmd();
                 }
-            } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_FIND.getString())) {
+                // "find" command.
+                try {
+                    message = MsgGen.find(find(input, tasks));
+                } catch (InvalidInputException e) {
+                    message = MsgGen.unknownCmd();
+                }
+            }else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
                 // "mark" command.
                 try {
                     message = MsgGen.mark(mark(input, tasks));
@@ -142,6 +149,19 @@ public class CommandParser {
         if (input.equals(CmdConst.CMD_BYE.getString())) {
             tasks.hasClose();
             return MsgGen.bye();
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Method for parsing find inputs.
+     *
+     * @throws InvalidInputException if syntax is not recognized.
+     */
+    private String find(String input, TaskList tasks) throws InvalidInputException {
+        if (input.matches(CmdConst.TASK_FIND.getString())) {
+            return tasks.find(input.substring(ValConstants.TASK_FIND.getVal()));
         } else {
             throw new InvalidInputException();
         }
