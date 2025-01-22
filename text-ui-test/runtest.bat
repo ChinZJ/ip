@@ -8,7 +8,7 @@ if exist ACTUAL.TXT del ACTUAL.TXT
 if exist data RMDIR /S /Q data
 
 REM compile the code into the bin folder
-javac  -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\Botling\*.java ..\src\main\java\Botling\Commands\*.java ..\src\main\java\Botling\Exceptions\*.java ..\src\main\java\Botling\MessageGenerator\*.java ..\src\main\java\Botling\Tasks\*.java
+javac  -cp ..\src\main\java -Xlint:none -d ..\bin ..\src\main\java\botling\*.java ..\src\main\java\botling\commands\*.java ..\src\main\java\botling\exceptions\*.java ..\src\main\java\botling\messagegenerator\*.java ..\src\main\java\botling\tasks\*.java
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE **********
     exit /b 1

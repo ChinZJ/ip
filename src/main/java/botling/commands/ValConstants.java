@@ -1,4 +1,4 @@
-package botling.Commands;
+package botling.commands;
 
 public enum ValConstants {
     // Tasks constants.

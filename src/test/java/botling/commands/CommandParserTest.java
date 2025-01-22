@@ -1,4 +1,4 @@
-package botling.Commands;
+package botling.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
