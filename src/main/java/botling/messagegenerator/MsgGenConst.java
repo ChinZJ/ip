@@ -9,6 +9,8 @@ public enum MsgGenConst {
 
     MSG_EMPTY_LIST("\t There are currently no tasks!\n"),
     MSG_CURRENT_TASKS("\t Here are the tasks in your list:\n"),
+    MSG_NO_TASKS("\t There are currently no matching tasks!\n"),
+    MSG_FIND_TASKS("\t Here are the matching tasks in your list:\n"),
     MSG_ADD("\t Got it. I've added this task: \n"),
     MSG_CURRENT_SIZE_P1("\t Now you have "),
     MSG_CURRENT_SIZE_P2(" tasks in the list.\n"),

@@ -39,6 +39,21 @@ public class TaskList {
     }
 
     /**
+     * Scans thorugh all tasks and returns only those that matches the input String.
+     */
+    public String find(String input) {
+        String message = "";
+        Task task;
+        for (int i = 0; i < this.size(); i++) {
+            task = this.get(i);
+            if (task.toString().toLowerCase().contains(input.toLowerCase())) {
+                message += "\t " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
+            }
+        }
+        return message;
+    }
+
+    /**
      * Closes the TaskList and prevents further actions.
      */
     public void hasClose() {

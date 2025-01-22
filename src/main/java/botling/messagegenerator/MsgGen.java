@@ -41,6 +41,17 @@ public class MsgGen {
     }
 
     /**
+     * Provides a wrapper for TaskList find() message.
+     */
+    public static String find(String message) {
+        if (message.isEmpty()) {
+            return MsgGen.read(MsgGenConst.MSG_NO_TASKS.getString());
+        } else {
+            return MsgGen.read(MsgGenConst.MSG_FIND_TASKS.getString() + message);
+        }
+    }
+
+    /**
      * Provides a wrapper for TaskList mark() message.
      */
     public static String mark(String message) {

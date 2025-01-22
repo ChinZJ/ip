@@ -11,7 +11,8 @@ public enum ValConstants {
     TASK_DEADLINE_IDX(9),
     TASK_BY_IDX(5),
     TASK_FROM_IDX(7),
-    TASK_TO_IDX(5);
+    TASK_TO_IDX(5),
+    TASK_FIND(5);
 
     private final int val;
 

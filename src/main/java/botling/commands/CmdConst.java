@@ -13,6 +13,7 @@ public enum CmdConst {
     CMD_BY(" /by "),
     CMD_FROM(" /from "),
     CMD_TO(" /to "),
+    CMD_FIND("find"),
 
     // Tasks regex.
     TASK_MARK("mark -?\\d+"),
@@ -21,6 +22,7 @@ public enum CmdConst {
     TASK_TODO("todo .+"),
     TASK_DEADLINE("deadline .+ /by .+"),
     TASK_EVENT("event .+ /from .+ /to .+"),
+    TASK_FIND("find .+"),
 
     // Expected Syntax
     MSG_INVALID_CMD_MARK(" <X>, where X is a positive integer <= "),
