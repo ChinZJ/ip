@@ -18,9 +18,6 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Scanner;
 
-
-
-
 /**
  * Used to perform I/O actions for <code>TaskList</code> objects to hard disk where appropriate.
  */
@@ -175,7 +172,9 @@ public class TaskListWriter {
         return Boolean.parseBoolean(input);
     }
 
-
+    /**
+     * Writes to file to save tasks.
+     */
     public void write(TaskList tasks) {
         try {
             PrintWriter writer = new PrintWriter(new FileWriter(TaskListWriter.HISTORY_DATA_PATH));

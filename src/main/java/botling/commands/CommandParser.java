@@ -14,8 +14,6 @@ import botling.TaskListWriter;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-
-
 /**
  * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
  */
@@ -67,7 +65,7 @@ public class CommandParser {
                         throw new InvalidInputException();
                     }
                 } catch (InvalidInputException e) {
-                    message = MsgGen.unknownList();
+                    message = MsgGen.unknownCmd();
                 }
             } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
                 // "mark" command.

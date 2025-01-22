@@ -54,7 +54,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("list", tasks));
 
         // Invalid input.
-        result = MsgGen.unknownList();
+        result = MsgGen.unknownCmd();
         assertEquals(result, cmdParse.parse("list ", tasks));
     }
 

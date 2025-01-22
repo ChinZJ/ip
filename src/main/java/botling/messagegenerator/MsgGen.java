@@ -88,14 +88,6 @@ public class MsgGen {
     }
 
     /**
-     * Message when list syntax is not fulfilled.
-     *
-     */
-    public static String unknownList() {
-        return MsgGen.read(MsgGenConst.MSG_INVALID_UNKNOWN.getString());
-    }
-
-    /**
      * Message when command syntax is not fulfilled.
      */
     public static String unknownSyntax(String cmd, String syntax) {
