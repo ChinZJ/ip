@@ -1,3 +1,7 @@
+package Botling;
+
+import Botling.Commands.CommandParser;
+
 import java.util.Scanner;
 
 /**

@@ -1,3 +1,5 @@
+package Botling.MessageGenerator;
+
 public enum MsgGenConst {
     // For outputs by Botling.
     MSG_LINE("\t____________________________________________________________\n"),
