@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 /**
  * <code>Event</code> object that has a <code>date</code> for a start and end time.
- * <code>date</code>s are in the format yyyy-mm-dd hhmm (24 hour format).
+ * <code>date</code>s are in the format yyyy-mm-dd HHmm (24-hour format).
  */
 public class EventDate extends Events{
-    private LocalDateTime startDateTime;
-    private LocalDateTime endDateTime;
+    private final LocalDateTime startDateTime;
+    private final LocalDateTime endDateTime;
 
     /**
      * Default constructor.

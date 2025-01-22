@@ -235,7 +235,7 @@ public class CommandParserTest {
     public void todoTest() {
         CommandParser cmdParse = new CommandParser();
         TaskList tasks = new TaskList();
-        ToDo task = new ToDo(" ", false);
+        // ToDo task = new ToDo(" ", false);
 
         // Valid input.
         String result = "\t____________________________________________________________\n"
@@ -256,7 +256,7 @@ public class CommandParserTest {
     public void deadlineTest() {
         CommandParser cmdParse = new CommandParser();
         TaskList tasks = new TaskList();
-        Deadlines task = new Deadlines(" ", " ");
+        // Deadlines task = new Deadlines(" ", " ");
 
         // Standard input.
         String result = "\t____________________________________________________________\n"
@@ -269,7 +269,7 @@ public class CommandParserTest {
         // Multiple /by commands
         // Nested deadline commands.
         tasks.remove(0);
-        task = new Deadlines("deadline", "deadline /by abc");
+        // task = new Deadlines("deadline", "deadline /by abc");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [D][ ] deadline (by: deadline /by abc)\n"
@@ -281,9 +281,9 @@ public class CommandParserTest {
         // deadline with alternate time formats are not tested
         // because that is the functionality of DateParser object.
         tasks.remove(0);
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-        LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
-        DeadlineDate taskDate = new DeadlineDate(" ", time);
+        // DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+        // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
+        // DeadlineDate taskDate = new DeadlineDate(" ", time);
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [D][ ]   (by: 02 Jan 2024 0000) (date)\n"
@@ -303,7 +303,7 @@ public class CommandParserTest {
     public void eventTest() {
         CommandParser cmdParse = new CommandParser();
         TaskList tasks = new TaskList();
-        Events task = new Events(" ", " ", " ");
+        // Events task = new Events(" ", " ", " ");
 
         // Standard input.
         String result = "\t____________________________________________________________\n"
@@ -315,7 +315,7 @@ public class CommandParserTest {
 
         // Nested event commands.
         tasks.remove(0);
-        task = new Events(" ", "event ", "/from asd /to asd ");
+        // task = new Events(" ", "event ", "/from asd /to asd ");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ]   (from: event  to: /from asd /to asd )\n"
@@ -325,7 +325,7 @@ public class CommandParserTest {
 
         // Multiple /from /to commands.
         tasks.remove(0);
-        task = new Events("a", "b /from c", "d /to e");
+        // task = new Events("a", "b /from c", "d /to e");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ] a (from: b /from c to: d /to e)\n"
@@ -334,7 +334,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("event a /from b /from c /to d /to e", tasks));
 
         tasks.remove(0);
-        task = new Events("a", "b", "c /from d /to e");
+        // task = new Events("a", "b", "c /from d /to e");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ] a (from: b to: c /from d /to e)\n"
@@ -343,7 +343,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("event a /from b /to c /from d /to e", tasks));
 
         tasks.remove(0);
-        task = new Events("a", "b", "c /to d /from e");
+        // task = new Events("a", "b", "c /to d /from e");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ] a (from: b to: c /to d /from e)\n"
@@ -352,7 +352,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("event a /from b /to c /to d /from e", tasks));
 
         tasks.remove(0);
-        task = new Events("a /to b", "c", "d /from e");
+        // task = new Events("a /to b", "c", "d /from e");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ] a /to b (from: c to: d /from e)\n"
@@ -361,7 +361,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("event a /to b /from c /to d /from e", tasks));
 
         tasks.remove(0);
-        task = new Events("a /to b", "c /from d", "e");
+        // task = new Events("a /to b", "c /from d", "e");
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ] a /to b (from: c /from d to: e)\n"
@@ -383,9 +383,9 @@ public class CommandParserTest {
         // event with date.
         // Doubles to check that same date works, but not before.
         tasks.remove(0);
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-        LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
-        EventDate taskDate = new EventDate(" ", time, time);
+        // DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+        // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
+        // EventDate taskDate = new EventDate(" ", time, time);
         result = "\t____________________________________________________________\n"
                 + "\t Got it. I've added this task: \n"
                 + "\t [E][ ]   (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000) (date)\n"

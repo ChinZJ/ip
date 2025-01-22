@@ -4,7 +4,6 @@ package botling.messagegenerator;
  * Responsible for generating all messages where appropriate.
  */
 public class MsgGen {
-    private static final String NO_MSG = "EMPTY";
 
     /**
      * Reads the message, wraps it in line.

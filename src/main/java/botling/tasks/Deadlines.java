@@ -5,7 +5,7 @@ package botling.tasks;
  */
 public class Deadlines extends Task {
 
-    private String by;
+    private final String by;
 
     /**
      * Default constructor.

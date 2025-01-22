@@ -25,8 +25,6 @@ public class TaskListWriter {
     private static final String HISTORY_DATA_FOLDER = "./data";
     private static final String HISTORY_DATA_PATH = "./data/history.txt";
 
-    private String logs;
-
     /**
      * Checks if the TaskList has been instantiated before.
      * If so, load the previous history of the TaskList.
@@ -66,7 +64,6 @@ public class TaskListWriter {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH));
             String cmd, name, arg1, arg2;
-            Optional<LocalDateTime> argTime1, argTime2;
             boolean mark;
             boolean isValid = true;
 

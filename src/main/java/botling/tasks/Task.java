@@ -34,7 +34,7 @@ public class Task {
     }
 
     /**
-     * tostring() method.
+     * <code>toString</code> method.
      */
     public String toString() {
         return this.name;
@@ -45,12 +45,7 @@ public class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        String message;
-        if (isDone) {
-            message = "\t\t " + this.getTaskStatus() + "\n";
-        } else {
-            message = "\t\t " + this.getTaskStatus() + "\n";
-        }
+        String message = "\t\t " + this.getTaskStatus() + "\n";
         return message;
 
     }
@@ -85,7 +80,7 @@ public class Task {
     }
 
     /**
-     * To be overriden by <code>Task</code> objects with date.
+     * To be overridden by <code>Task</code> objects with date.
      */
     public boolean hasDate() {
         return false;

@@ -5,8 +5,8 @@ package botling.tasks;
  */
 public class Events extends Task {
 
-    private String from;
-    private String to;
+    private final String from;
+    private final String to;
 
     /**
      * Default constructor.

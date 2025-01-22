@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class TaskList {
     private static final boolean TASK_IS_DONE = true;
-    private static final String EMPTY_LIST = "\t There are currently no tasks!\n";
 
     private ArrayList<Task> tasks;
     private boolean isActive;
@@ -35,7 +34,7 @@ public class TaskList {
     }
 
     /**
-     * Scans thorugh all tasks and returns only those that matches the input String.
+     * Scans through all tasks and returns only those that matches the input String.
      */
     public String find(String input) {
         String message = "";
@@ -117,7 +116,7 @@ public class TaskList {
     }
 
     /**
-     * Generates a String format of all tasks to be read by <code>TsakListReader</code> object.
+     * Generates a String format of all tasks to be read by <code>TaskListWriter</code> object.
      */
     public String fileString() {
         String message = "";

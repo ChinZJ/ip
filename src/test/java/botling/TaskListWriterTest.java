@@ -2,7 +2,6 @@ package botling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import botling.TaskList;
 import botling.tasks.Deadlines;
 import botling.tasks.EventDate;
 import botling.tasks.ToDo;
@@ -37,7 +36,7 @@ public class TaskListWriterTest {
      * Used to overwrite the history.txt file for each test where applicable.
      */
     @BeforeEach
-    private void createTempHistoryFile() throws IOException {
+    public void createTempHistoryFile() throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter("./data/history.txt"))) {
             File dataFolder = new File("data");

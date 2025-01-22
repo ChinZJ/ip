@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 
 /**
  * <code>Deadline</code> object that also has a <code>date</code> for a deadline.
- * <code>date</code>s are in the format yyyy-mm-dd hhmm (24 hour format).
+ * <code>date</code>s are in the format yyyy-mm-dd HHmm (24-hour format).
  */
 public class DeadlineDate extends Deadlines{
-    private LocalDateTime dateTime;
+    private final LocalDateTime dateTime;
 
     /**
      * Default constructor.
