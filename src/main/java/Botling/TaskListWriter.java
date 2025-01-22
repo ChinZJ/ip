@@ -3,7 +3,9 @@ package Botling;
 import Botling.Exceptions.InvalidInputException;
 import Botling.Tasks.Task;
 import Botling.Tasks.Deadlines;
+import Botling.Tasks.DeadlineDate;
 import Botling.Tasks.Events;
+import Botling.Tasks.EventDate;
 import Botling.Tasks.ToDo;
 
 import java.io.BufferedReader;
@@ -13,6 +15,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.Optional;
+import java.time.LocalDateTime;
 
 
 /**
@@ -50,6 +54,7 @@ public class TaskListWriter {
                 System.out.println("Error creating history file: " + e.getMessage());
             }
         } else {
+            message += "\t History file found! Restoring data...\n";
             tasks = this.read(tasks);
         }
         return message;
@@ -62,8 +67,10 @@ public class TaskListWriter {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH));
             String cmd, name, arg1, arg2;
+            Optional<LocalDateTime> argTime1, argTime2;
             boolean mark;
             boolean isValid = true;
+
             Task task;
             while (isValid) {
                 cmd = reader.readLine();
@@ -78,18 +85,42 @@ public class TaskListWriter {
                                     tasks.add(task);
                                     break;
                                 case "deadline":
-                                    name = reader.readLine();
                                     arg1 = reader.readLine();
+                                    name = reader.readLine();
                                     mark = validateAndParseBool(reader.readLine());
-                                    task = new Deadlines(name, mark, arg1);
+
+                                    // Check deadline is a valid LocalDateTime object.
+                                    Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(arg1);
+                                    if (byDateTime.isPresent()) {
+                                        task = new DeadlineDate(name, mark, byDateTime.get());
+                                    } else {
+                                        task = new Deadlines(name, mark, arg1);
+                                    }
+
+                                    // Add task
                                     tasks.add(task);
                                     break;
                                 case "event":
-                                    name = reader.readLine();
                                     arg1 = reader.readLine();
                                     arg2 = reader.readLine();
+                                    name = reader.readLine();
                                     mark = validateAndParseBool(reader.readLine());
-                                    task = new Events(name, mark, arg1, arg2);
+
+                                    // Check if eventFrom and eventTo are of valid LocalDateTime objects.
+                                    Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(arg1);
+                                    Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(arg2);
+                                    if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
+                                        LocalDateTime startDateTime = startDateTimeOpt.get();
+                                        LocalDateTime endDateTime = endDateTimeOpt.get();
+                                        if (startDateTime.isBefore(endDateTime) || startDateTime.isEqual(endDateTime)) {
+                                            task = new EventDate(name, mark, startDateTime, endDateTime);
+                                        } else {
+                                            throw new InvalidInputException();
+                                        }
+                                    } else {
+                                        task = new Events(name, mark, arg1, arg2);
+                                    }
+
                                     tasks.add(task);
                                     break;
                             }

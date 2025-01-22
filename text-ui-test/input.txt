@@ -67,4 +67,14 @@ mark 200 2341
 mark 5147483647
 mark -5147483647
 
+deadline yyyy-mm-dd /by 2024-01-04
+deadline yyyy-mm-dd HHmm /by 2025-12-09 2359
+deadline fail /by 2023-99-11
+deadline fail /by 2023-12-03 2500
+
+event pass /from 2024-01-04 /to 2025-12-09 2359
+event fail (start = end) /from 2024-01-04 0000 /to 2024-01-04
+event fail (start > end) /from 2025-12-09 2359 /to 2024-01-04
+event fail /from 2023-99-11 /to 2025-12-09 2359
+
 bye

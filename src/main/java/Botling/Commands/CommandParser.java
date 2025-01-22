@@ -1,13 +1,20 @@
 package Botling.Commands;
 
+import Botling.DateParser;
 import Botling.Exceptions.InvalidInputException;
 import Botling.MessageGenerator.MsgGen;
 import Botling.Tasks.Task;
 import Botling.Tasks.Deadlines;
+import Botling.Tasks.DeadlineDate;
 import Botling.Tasks.Events;
+import Botling.Tasks.EventDate;
 import Botling.Tasks.ToDo;
 import Botling.TaskListWriter;
 import Botling.TaskList;
+
+import java.util.Optional;
+import java.time.LocalDateTime;
+
 
 /**
  * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
@@ -106,7 +113,8 @@ public class CommandParser {
                     message = MsgGen.add(message, tasks.size());
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_DEADLINE.getString(),
-                            CmdConst.MSG_INVALID_CMD_DEADLINE.getString());
+                            CmdConst.MSG_INVALID_CMD_DEADLINE.getString()
+                            + CmdConst.MSG_INVALID_CMD_DATE.getString());
                 }
             } else if (input.startsWith(CmdConst.CMD_EVENT.getString())) {
                 try {
@@ -114,7 +122,9 @@ public class CommandParser {
                     message = MsgGen.add(message,tasks.size());
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
-                            CmdConst.MSG_INVALID_CMD_EVENT.getString());
+                            CmdConst.MSG_INVALID_CMD_EVENT.getString()
+                            + CmdConst.MSG_INVALID_CMD_EVENT_DATE.getString()
+                            + CmdConst.MSG_INVALID_CMD_DATE.getString());
                 }
             } else {
                 throw new InvalidInputException();
@@ -247,7 +257,17 @@ public class CommandParser {
             String deadlineName = withoutDeadline.substring(0, by_idx);
             String by = withoutDeadline.substring(by_idx
                     + ValConstants.TASK_BY_IDX.getVal());
-            Task newTask = new Deadlines(deadlineName, by);
+            Task newTask;
+
+            // Check deadline is a valid LocalDateTime object.
+            Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(by);
+            if (byDateTime.isPresent()) {
+                newTask = new DeadlineDate(deadlineName, byDateTime.get());
+            } else {
+                newTask = new Deadlines(deadlineName, by);
+            }
+
+            // Add task.
             String message = tasks.add(newTask);
             tasksRestore.write(tasks);
             return message;
@@ -274,8 +294,24 @@ public class CommandParser {
             String eventFrom = remainingSplit.substring(0, to_idx);
             String eventTo = remainingSplit.substring(to_idx
                     + ValConstants.TASK_TO_IDX.getVal());
+            Task newTask;
 
-            Task newTask = new Events(eventName, eventFrom, eventTo);
+            // Check if eventFrom and eventTo are of valid LocalDateTime objects.
+            Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(eventFrom);
+            Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(eventTo);
+            if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
+                LocalDateTime startDateTime = startDateTimeOpt.get();
+                LocalDateTime endDateTime = endDateTimeOpt.get();
+                if (startDateTime.isBefore(endDateTime) || startDateTime.isEqual(endDateTime)) {
+                    newTask = new EventDate(eventName, startDateTime, endDateTime);
+                } else {
+                    throw new InvalidInputException();
+                }
+            } else {
+                newTask = new Events(eventName, eventFrom, eventTo);
+            }
+
+            // Add task.
             String message = tasks.add(newTask);
             tasksRestore.write(tasks);
             return message;
