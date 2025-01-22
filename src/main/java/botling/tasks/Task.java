@@ -1,4 +1,4 @@
-package Botling.Tasks;
+package botling.tasks;
 
 /**
  * Parent class for various <code>Task</code> objects.
@@ -66,7 +66,7 @@ public class Task {
         if (isDone) {
             message = ("[X] " + name);
         } else {
-            message = ("[ ]" + name);
+            message = ("[ ] " + name);
         }
         return message;
     }

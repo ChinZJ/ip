@@ -1,4 +1,4 @@
-package Botling.MessageGenerator;
+package botling.messagegenerator;
 
 public enum MsgGenConst {
     // For outputs by Botling.

@@ -1,26 +1,23 @@
-package Botling.Tasks;
+package botling.tasks;
 
 /**
- * A <code>Task</code> object that has a deadline.
+ * A "default" <code>Task</code> object.
+ * Does not have additional functionalities.
  */
-public class Deadlines extends Task {
-
-    private String by;
+public class ToDo extends Task {
 
     /**
      * Default constructor.
      */
-    public Deadlines(String name, String by) {
+    public ToDo(String name) {
         super(name);
-        this.by = by;
     }
 
     /**
      * Alternative constructor for full specification of attributes.
      */
-    public Deadlines(String name, boolean isDone, String by) {
+    public ToDo(String name, boolean isDone) {
         super(name, isDone);
-        this.by = by;
     }
 
     /**
@@ -28,7 +25,7 @@ public class Deadlines extends Task {
      */
     @Override
     public String getTaskStatus() {
-        String message = "[D]" + super.getTaskStatus() + " (by: " + by + ")";
+        String message = "[T]" + super.getTaskStatus();
         return message;
     }
 
@@ -37,7 +34,7 @@ public class Deadlines extends Task {
      */
     @Override
     public String getTaskData() {
-        String message = "deadline\n" + by + "\n" + super.getTaskData();
+        String message = "todo\n" + super.getTaskData();
         return message;
     }
 

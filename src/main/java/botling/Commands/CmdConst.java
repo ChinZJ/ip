@@ -1,4 +1,4 @@
-package Botling.Commands;
+package botling.Commands;
 
 public enum CmdConst {
     // Unique Commands.
@@ -28,7 +28,7 @@ public enum CmdConst {
     MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline>.\n"),
     MSG_INVALID_CMD_EVENT(" <name> /from <start> /to <end>.\n"),
     MSG_INVALID_CMD_EVENT_DATE("\t <start> should be before or equal to <end> if dates are inputs.\n"),
-    MSG_INVALID_CMD_DATE("\t Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'");
+    MSG_INVALID_CMD_DATE("\t Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'");
 
     private final String message;
 

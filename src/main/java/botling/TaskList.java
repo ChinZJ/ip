@@ -1,7 +1,6 @@
-package Botling;
+package botling;
 
-import Botling.Tasks.Task;
-
+import botling.tasks.Task;
 import java.util.ArrayList;
 
 /**

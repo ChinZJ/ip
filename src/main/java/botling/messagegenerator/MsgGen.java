@@ -1,4 +1,4 @@
-package Botling.MessageGenerator;
+package botling.messagegenerator;
 
 /**
  * Responsible for generating all messages where appropriate.

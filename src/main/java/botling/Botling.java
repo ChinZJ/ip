@@ -1,7 +1,6 @@
-package Botling;
+package botling;
 
-import Botling.Commands.CommandParser;
-
+import botling.Commands.CommandParser;
 import java.util.Scanner;
 
 /**
