@@ -21,11 +21,15 @@ public class CommandParserTest {
         TaskList tasks = new TaskList();
 
         // Valid input.
-        String result = MsgGen.bye();
+        String result = "\t____________________________________________________________\n"
+                + "\t Bye. Hope to see you again soon!\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("bye", tasks));
 
         // Invalid input.
-        result = MsgGen.unknownCmd();
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! This command does not exist(yet).\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("bye ", tasks));
     }
 
@@ -37,25 +41,94 @@ public class CommandParserTest {
         TaskList tasks = new TaskList();
 
         // Empty list.
-        String result = MsgGen.list("");
+        String result = "\t____________________________________________________________\n"
+                + "\t There are currently no tasks!\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("list", tasks));
 
         // List with item.
         ToDo task = new ToDo("unmark", false);
         tasks.add(task);
-        result = MsgGen.list("\t 1. [T][ ] unmark\n");
+        result = "\t____________________________________________________________\n"
+                + "\t Here are the tasks in your list:\n"
+                + "\t 1. [T][ ] unmark\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("list", tasks));
 
         // List with marked item.
         tasks.remove(0);
         task = new ToDo("mark", true);
         tasks.add(task);
-        result = MsgGen.list("\t 1. [T][X] mark\n");
+        result = "\t____________________________________________________________\n"
+                + "\t Here are the tasks in your list:\n"
+                + "\t 1. [T][X] mark\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("list", tasks));
 
         // Invalid input.
         result = MsgGen.unknownCmd();
         assertEquals(result, cmdParse.parse("list ", tasks));
+    }
+
+    @Test
+    public void findTest() {
+        CommandParser cmdParse = new CommandParser();
+        TaskList tasks = new TaskList();
+
+        // Find upper and lower case
+        // Simultaneously test for special characters and spaces
+        ToDo task1 = new ToDo(" ");
+        Deadlines task2 = new Deadlines(" b", "cc");
+        Events task3 = new Events(" B", "CC", "DD");
+
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+        LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
+        DeadlineDate task4 = new DeadlineDate(")(*&^%$#@!", time);
+        EventDate task5 = new EventDate("!@#$%^&*(", time, time);
+
+        tasks.add(task1);
+        tasks.add(task2);
+        tasks.add(task3);
+        tasks.add(task4);
+        tasks.add(task5);
+
+        // Spaces.
+        String result = "\t____________________________________________________________\n"
+                + "\t Here are the matching tasks in your list:\n"
+                + "\t 1. [T][ ]  \n"
+                + "\t 2. [D][ ]  b (by: cc)\n"
+                + "\t 3. [E][ ]  B (from: CC to: DD)\n"
+                + "\t____________________________________________________________\n";
+        assertEquals(result, cmdParse.parse("find  ", tasks));
+
+        // Upper and lower case.
+        result = "\t____________________________________________________________\n"
+                + "\t Here are the matching tasks in your list:\n"
+                + "\t 2. [D][ ]  b (by: cc)\n"
+                + "\t 3. [E][ ]  B (from: CC to: DD)\n"
+                + "\t____________________________________________________________\n";
+        assertEquals(result, cmdParse.parse("find  b", tasks));
+        assertEquals(result, cmdParse.parse("find  B", tasks));
+
+        // Character in other fields.
+        result = "\t____________________________________________________________\n"
+                + "\t There are currently no matching tasks!\n"
+                + "\t____________________________________________________________\n";
+        assertEquals(result, cmdParse.parse("find c", tasks));
+
+        // Find special characters
+        result = "\t____________________________________________________________\n"
+                + "\t Here are the matching tasks in your list:\n"
+                + "\t 4. [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000) (date)\n"
+                + "\t 5. [E][ ] !@#$%^&*( (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000) (date)\n"
+                + "\t____________________________________________________________\n";
+        assertEquals(result, cmdParse.parse("find !", tasks));
+
+        // Find invalid input
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! This command does not exist(yet).\n"
+                + "\t____________________________________________________________\n";
+        assertEquals(result, cmdParse.parse("find", tasks));
     }
 
     @Test
@@ -66,7 +139,10 @@ public class CommandParserTest {
         tasks.add(task);
 
         // Correct input.
-        String result = MsgGen.mark(tasks.mark(0));
+        String result = "\t____________________________________________________________\n"
+                + "\t Nice! I've marked this task as done:\n"
+                + "\t\t [T][X] unmark\n"
+                + "\t____________________________________________________________\n";
         tasks.unmark(0);
         assertEquals(result, cmdParse.parse("mark 1", tasks));
 
@@ -74,9 +150,9 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("mark 1", tasks));
 
         // Exceed size.
-        result = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
-                CmdConst.MSG_INVALID_CMD_MARK.getString()
-                        + String.valueOf(tasks.size()));
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of mark should be mark <X>, where X is a positive integer <= 1\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("mark 9", tasks));
 
         // Float.
@@ -97,7 +173,10 @@ public class CommandParserTest {
         tasks.add(task);
 
         // Correct input.
-        String result = MsgGen.unmark(tasks.unmark(0));
+        String result = "\t____________________________________________________________\n"
+                + "\t Ok, I've marked this task as not done yet:\n"
+                + "\t\t [T][ ] unmark\n"
+                + "\t____________________________________________________________\n";
         tasks.mark(0);
         assertEquals(result, cmdParse.parse("unmark 1", tasks));
 
@@ -105,9 +184,9 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("unmark 1", tasks));
 
         // Exceed size.
-        result = MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
-                CmdConst.MSG_INVALID_CMD_MARK.getString()
-                        + String.valueOf(tasks.size()));
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of unmark should be unmark <X>, where X is a positive integer <= 1\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("unmark 9", tasks));
 
         // Float.
@@ -128,15 +207,18 @@ public class CommandParserTest {
         tasks.add(task);
 
         // Correct input.
-        String result = MsgGen.delete(tasks.remove(0), tasks.size());
-        tasks.add(task);
+        String result = "\t____________________________________________________________\n"
+                + "\t Noted. I've removed this task: \n"
+                + "\t [T][ ] delete\n"
+                + "\t Now you have 0 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("delete 1", tasks));
 
         // Exceed size.
         tasks.add(task);
-        result = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
-                CmdConst.MSG_INVALID_CMD_MARK.getString()
-                        + String.valueOf(tasks.size()));
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of delete should be delete <X>, where X is a positive integer <= 1\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("delete 9", tasks));
 
         // Float.
@@ -156,13 +238,17 @@ public class CommandParserTest {
         ToDo task = new ToDo(" ", false);
 
         // Valid input.
-        String result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        String result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [T][ ]  \n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("todo  ", tasks));
 
         // No descriptor.
-        result = MsgGen.unknownSyntax(CmdConst.CMD_TODO.getString(),
-                CmdConst.MSG_INVALID_CMD_TODO.getString());
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of todo should be todo <name>.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("todo", tasks));
     }
 
@@ -173,16 +259,22 @@ public class CommandParserTest {
         Deadlines task = new Deadlines(" ", " ");
 
         // Standard input.
-        String result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        String result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [D][ ]   (by:  )\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("deadline   /by  ", tasks));
 
         // Multiple /by commands
         // Nested deadline commands.
         tasks.remove(0);
         task = new Deadlines("deadline", "deadline /by abc");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [D][ ] deadline (by: deadline /by abc)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("deadline deadline /by deadline /by abc", tasks));
 
         // deadline with date.
@@ -192,14 +284,18 @@ public class CommandParserTest {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
         DeadlineDate taskDate = new DeadlineDate(" ", time);
-        result = MsgGen.add(tasks.add(taskDate), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [D][ ]   (by: 02 Jan 2024 0000) (date)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("deadline   /by 2024-01-02 0000", tasks));
 
         // Invalid input.
-        result = MsgGen.unknownSyntax(CmdConst.CMD_DEADLINE.getString(),
-                CmdConst.MSG_INVALID_CMD_DEADLINE.getString()
-                        + CmdConst.MSG_INVALID_CMD_DATE.getString());
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of deadline should be deadline <name> /by <deadline>.\n"
+                + "\t Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("deadline", tasks));
     }
 
@@ -210,53 +306,75 @@ public class CommandParserTest {
         Events task = new Events(" ", " ", " ");
 
         // Standard input.
-        String result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        String result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ]   (from:   to:  )\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event   /from   /to  ", tasks));
 
         // Nested event commands.
         tasks.remove(0);
         task = new Events(" ", "event ", "/from asd /to asd ");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ]   (from: event  to: /from asd /to asd )\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event   /from event  /to /from asd /to asd ", tasks));
 
         // Multiple /from /to commands.
         tasks.remove(0);
         task = new Events("a", "b /from c", "d /to e");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ] a (from: b /from c to: d /to e)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /from b /from c /to d /to e", tasks));
 
         tasks.remove(0);
         task = new Events("a", "b", "c /from d /to e");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ] a (from: b to: c /from d /to e)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /from b /to c /from d /to e", tasks));
 
         tasks.remove(0);
         task = new Events("a", "b", "c /to d /from e");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ] a (from: b to: c /to d /from e)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /from b /to c /to d /from e", tasks));
 
         tasks.remove(0);
         task = new Events("a /to b", "c", "d /from e");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ] a /to b (from: c to: d /from e)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /to b /from c /to d /from e", tasks));
 
         tasks.remove(0);
         task = new Events("a /to b", "c /from d", "e");
-        result = MsgGen.add(tasks.add(task), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ] a /to b (from: c /from d to: e)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /to b /from c /from d /to e", tasks));
 
         // Doubles as invalid input.
-        result = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
-                CmdConst.MSG_INVALID_CMD_EVENT.getString()
-                        + CmdConst.MSG_INVALID_CMD_EVENT_DATE.getString()
-                        + CmdConst.MSG_INVALID_CMD_DATE.getString());
+        result = "\t____________________________________________________________\n"
+                + "\t OOPS!!! The format of event should be event <name> /from <start> /to <end>.\n"
+                + "\t <start> should be before or equal to <end> if dates are inputs.\n"
+                + "\t Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event a /to b /to c /from d /from e", tasks));
 
         // event with invalid start and end date
@@ -268,8 +386,11 @@ public class CommandParserTest {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
         EventDate taskDate = new EventDate(" ", time, time);
-        result = MsgGen.add(tasks.add(taskDate), tasks.size());
-        tasks.remove(0);
+        result = "\t____________________________________________________________\n"
+                + "\t Got it. I've added this task: \n"
+                + "\t [E][ ]   (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000) (date)\n"
+                + "\t Now you have 1 tasks in the list.\n"
+                + "\t____________________________________________________________\n";
         assertEquals(result, cmdParse.parse("event   /from 2024-01-02 /to 2024-01-02", tasks));
     }
 

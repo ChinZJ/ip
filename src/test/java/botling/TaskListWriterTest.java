@@ -73,6 +73,12 @@ public class TaskListWriterTest {
         String expectedMsg = "\t Attempting to retrieve history...\n"
                 + "\t Data folder found!\n"
                 + "\t History file found! Restoring data...\n";
+        String expectedFileString = "todo\n \ntrue\n"
+                + "deadline\ntonight!\n \nfalse\n"
+                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n";
+        String expectedListString = "\t 1. [T][X]  \n"
+                + "\t 2. [D][ ]   (by: tonight!)\n"
+                + "\t 3. [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359) (date)\n";
 
         ToDo first = new ToDo(" ", true);
         Deadlines second = new Deadlines(" ", "tonight!");
@@ -92,7 +98,9 @@ public class TaskListWriterTest {
 
         assertEquals(expectedMsg, actual);
         assertEquals(3, testList.size());
+        assertEquals(expectedFileString, testList.fileString());
         assertEquals(expected.fileString(), testList.fileString());
+        assertEquals(expectedListString, testList.list());
         assertEquals(expected.list(), testList.list());
     }
 
