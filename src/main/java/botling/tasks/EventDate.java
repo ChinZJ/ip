@@ -25,7 +25,8 @@ public class EventDate extends Events{
      * Alternative constructor for full specification of attributes.
      */
     public EventDate(String name, boolean isDone, LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        super(name, isDone, startDateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")).toString()
+        super(name, isDone
+                , startDateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")).toString()
                 , endDateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")).toString());
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;

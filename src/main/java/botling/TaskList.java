@@ -106,12 +106,8 @@ public class TaskList {
      */
     public String fileString() {
         String message = "";
-        if (this.size() == 0) {
-            return message;
-        } else {
-            for (int i = 0; i < this.size(); i++) {
-                message += this.get(i).getTaskData() + "\n";
-            }
+        for (int i = 0; i < this.size(); i++) {
+            message += this.get(i).getTaskData() + "\n";
         }
         return message;
     }

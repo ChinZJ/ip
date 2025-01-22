@@ -77,51 +77,51 @@ public class TaskListWriter {
                     if (!cmd.isEmpty()) {
                         try {
                             switch (cmd) {
-                                case "todo":
-                                    name = reader.readLine();
-                                    mark = validateAndParseBool(reader.readLine());
-                                    task = new ToDo(name, mark);
-                                    tasks.add(task);
-                                    break;
-                                case "deadline":
-                                    arg1 = reader.readLine();
-                                    name = reader.readLine();
-                                    mark = validateAndParseBool(reader.readLine());
+                            case "todo":
+                                name = reader.readLine();
+                                mark = validateAndParseBool(reader.readLine());
+                                task = new ToDo(name, mark);
+                                tasks.add(task);
+                                break;
+                            case "deadline":
+                                arg1 = reader.readLine();
+                                name = reader.readLine();
+                                mark = validateAndParseBool(reader.readLine());
 
-                                    // Check deadline is a valid LocalDateTime object.
-                                    Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(arg1);
-                                    if (byDateTime.isPresent()) {
-                                        task = new DeadlineDate(name, mark, byDateTime.get());
+                                // Check deadline is a valid LocalDateTime object.
+                                Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(arg1);
+                                if (byDateTime.isPresent()) {
+                                    task = new DeadlineDate(name, mark, byDateTime.get());
+                                } else {
+                                    task = new Deadlines(name, mark, arg1);
+                                }
+
+                                // Add task
+                                tasks.add(task);
+                                break;
+                            case "event":
+                                arg1 = reader.readLine();
+                                arg2 = reader.readLine();
+                                name = reader.readLine();
+                                mark = validateAndParseBool(reader.readLine());
+
+                                // Check if eventFrom and eventTo are of valid LocalDateTime objects.
+                                Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(arg1);
+                                Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(arg2);
+                                if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
+                                    LocalDateTime startDateTime = startDateTimeOpt.get();
+                                    LocalDateTime endDateTime = endDateTimeOpt.get();
+                                    if (startDateTime.isBefore(endDateTime) || startDateTime.isEqual(endDateTime)) {
+                                        task = new EventDate(name, mark, startDateTime, endDateTime);
                                     } else {
-                                        task = new Deadlines(name, mark, arg1);
+                                        throw new InvalidInputException();
                                     }
+                                } else {
+                                    task = new Events(name, mark, arg1, arg2);
+                                }
 
-                                    // Add task
-                                    tasks.add(task);
-                                    break;
-                                case "event":
-                                    arg1 = reader.readLine();
-                                    arg2 = reader.readLine();
-                                    name = reader.readLine();
-                                    mark = validateAndParseBool(reader.readLine());
-
-                                    // Check if eventFrom and eventTo are of valid LocalDateTime objects.
-                                    Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(arg1);
-                                    Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(arg2);
-                                    if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
-                                        LocalDateTime startDateTime = startDateTimeOpt.get();
-                                        LocalDateTime endDateTime = endDateTimeOpt.get();
-                                        if (startDateTime.isBefore(endDateTime) || startDateTime.isEqual(endDateTime)) {
-                                            task = new EventDate(name, mark, startDateTime, endDateTime);
-                                        } else {
-                                            throw new InvalidInputException();
-                                        }
-                                    } else {
-                                        task = new Events(name, mark, arg1, arg2);
-                                    }
-
-                                    tasks.add(task);
-                                    break;
+                                tasks.add(task);
+                                break;
                             }
                         } catch (InvalidInputException e) {
                             System.out.println("An error occurred while trying to read"
