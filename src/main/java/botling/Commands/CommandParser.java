@@ -1,19 +1,19 @@
-package Botling.Commands;
+package botling.Commands;
 
-import Botling.DateParser;
-import Botling.Exceptions.InvalidInputException;
-import Botling.MessageGenerator.MsgGen;
-import Botling.Tasks.Task;
-import Botling.Tasks.Deadlines;
-import Botling.Tasks.DeadlineDate;
-import Botling.Tasks.Events;
-import Botling.Tasks.EventDate;
-import Botling.Tasks.ToDo;
-import Botling.TaskListWriter;
-import Botling.TaskList;
-
-import java.util.Optional;
+import botling.DateParser;
+import botling.exceptions.InvalidInputException;
+import botling.messagegenerator.MsgGen;
+import botling.tasks.DeadlineDate;
+import botling.tasks.Deadlines;
+import botling.tasks.EventDate;
+import botling.tasks.Events;
+import botling.tasks.Task;
+import botling.tasks.ToDo;
+import botling.TaskList;
+import botling.TaskListWriter;
 import java.time.LocalDateTime;
+import java.util.Optional;
+
 
 
 /**
@@ -310,7 +310,6 @@ public class CommandParser {
             } else {
                 newTask = new Events(eventName, eventFrom, eventTo);
             }
-
             // Add task.
             String message = tasks.add(newTask);
             tasksRestore.write(tasks);

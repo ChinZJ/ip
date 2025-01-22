@@ -1,4 +1,4 @@
-package Botling.Exceptions;
+package botling.exceptions;
 
 import java.lang.Exception;
 

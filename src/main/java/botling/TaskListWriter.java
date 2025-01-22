@@ -1,22 +1,24 @@
-package Botling;
+package botling;
 
-import Botling.Exceptions.InvalidInputException;
-import Botling.Tasks.Task;
-import Botling.Tasks.Deadlines;
-import Botling.Tasks.DeadlineDate;
-import Botling.Tasks.Events;
-import Botling.Tasks.EventDate;
-import Botling.Tasks.ToDo;
+import botling.exceptions.InvalidInputException;
 
+import botling.tasks.DeadlineDate;
+import botling.tasks.Deadlines;
+import botling.tasks.EventDate;
+import botling.tasks.Events;
+import botling.tasks.Task;
+import botling.tasks.ToDo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.Optional;
 import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.Scanner;
+
+
 
 
 /**
@@ -63,7 +65,7 @@ public class TaskListWriter {
     /**
      * Reads the history file and generates a <code>TaskList</code> object off of it.
      */
-    public TaskList read(TaskList tasks) {
+    private TaskList read(TaskList tasks) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH));
             String cmd, name, arg1, arg2;
@@ -184,16 +186,4 @@ public class TaskListWriter {
         }
     }
 
-    // Old test code that can be converted into a JUnit in future
-//    public static void main(String[] args) {
-//        TaskList tasks = new TaskList();
-//        TaskListWriter tw = new TaskListWriter();
-//        String message = tw.restore(tasks);
-//        System.out.println(message);
-//        System.out.println(tasks.list());
-//        Task task = new ToDo("alsdifj");
-//        tasks.add(task);
-//        System.out.println(tasks.fileString());
-//        tw.write(tasks);
-//    }
 }

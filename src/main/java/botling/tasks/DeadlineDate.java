@@ -1,7 +1,7 @@
-package Botling.Tasks;
+package botling.tasks;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 /**
  * <code>Deadline</code> object that also has a <code>date</code> for a deadline.
