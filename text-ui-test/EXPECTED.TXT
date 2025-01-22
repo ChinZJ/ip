@@ -39,7 +39,7 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
 	 Now you have 1 tasks in the list.
 	____________________________________________________________
 
@@ -49,72 +49,72 @@
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by (by: hehehehaw)
+	 [D][ ] deadline_by (by: hehehehaw)
 	 Now you have 2 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
 	 Now you have 3 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
 	 Now you have 4 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
 	 Now you have 5 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
 	 Now you have 6 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
@@ -124,139 +124,139 @@
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
 	 Now you have 7 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
 	 Now you have 8 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
 	 Now you have 9 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
 	 Now you have 10 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
 	 Now you have 11 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
 	 Now you have 12 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
 	 Now you have 13 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
 	 Now you have 14 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	 Now you have 15 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
@@ -265,21 +265,21 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by (by: hehehehaw)
-	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 10. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by (by: hehehehaw)
+	 3. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 10. [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 11. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -297,21 +297,21 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by (by: hehehehaw)
-	 3. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 4. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 5. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 6. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 7. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 8. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 9. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by (by: hehehehaw)
+	 3. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 4. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 5. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 6. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 7. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 8. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 9. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
 	 10. [E][X] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 11. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 12. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 13. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 14. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 15. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 11. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 12. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 13. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 14. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 15. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -338,7 +338,7 @@
 
 	____________________________________________________________
 	 Noted. I've removed this task: 
-	 [D][ ]deadline_by (by: hehehehaw)
+	 [D][ ] deadline_by (by: hehehehaw)
 	 Now you have 13 tasks in the list.
 	____________________________________________________________
 
@@ -353,24 +353,24 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
 	 10. [E][X] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 11. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
 	 Ok, I've marked this task as not done yet:
-		 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+		 [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -379,19 +379,19 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 10. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 10. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 11. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -416,25 +416,25 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
 	 Now you have 14 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
 	 Now you have 15 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]fail (by: 2023-99-11)
+	 [D][ ] fail (by: 2023-99-11)
 	 Now you have 16 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]fail (by: 2023-12-03 2500)
+	 [D][ ] fail (by: 2023-12-03 2500)
 	 Now you have 17 tasks in the list.
 	____________________________________________________________
 
@@ -444,25 +444,25 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
 	 Now you have 18 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
 	 Now you have 19 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]fail (from: 2023-99-11 to: 2025-12-09 2359)
+	 [E][ ] fail (from: 2023-99-11 to: 2025-12-09 2359)
 	 Now you have 20 tasks in the list.
 	____________________________________________________________
 
@@ -487,26 +487,26 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 10. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
-	 14. [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
-	 15. [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
-	 16. [D][ ]fail (by: 2023-99-11)
-	 17. [D][ ]fail (by: 2023-12-03 2500)
-	 18. [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
-	 19. [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
-	 20. [E][ ]fail (from: 2023-99-11 to: 2025-12-09 2359)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 10. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 11. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 14. [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 15. [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 16. [D][ ] fail (by: 2023-99-11)
+	 17. [D][ ] fail (by: 2023-12-03 2500)
+	 18. [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 19. [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 20. [E][ ] fail (from: 2023-99-11 to: 2025-12-09 2359)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -535,7 +535,7 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
 	 Now you have 21 tasks in the list.
 	____________________________________________________________
 
@@ -545,72 +545,72 @@
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by (by: hehehehaw)
+	 [D][ ] deadline_by (by: hehehehaw)
 	 Now you have 22 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
 	 Now you have 23 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
 	 Now you have 24 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
+	 [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
 	 Now you have 25 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
+	 [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
 	 Now you have 26 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of deadline should be deadline <name> /by <deadline>.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
@@ -620,139 +620,139 @@
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
 	 Now you have 27 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
 	 Now you have 28 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
 	 Now you have 29 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
 	 Now you have 30 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
 	 Now you have 31 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
 	 Now you have 32 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
 	 Now you have 33 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
 	 Now you have 34 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	 Now you have 35 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
@@ -761,41 +761,41 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 10. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
-	 14. [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
-	 15. [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
-	 16. [D][ ]fail (by: 2023-99-11)
-	 17. [D][ ]fail (by: 2023-12-03 2500)
-	 18. [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
-	 19. [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
-	 20. [E][ ]fail (from: 2023-99-11 to: 2025-12-09 2359)
-	 21. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 22. [D][ ]deadline_by (by: hehehehaw)
-	 23. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 24. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 25. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 26. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 27. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 28. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 29. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 30. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 31. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 32. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 33. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 34. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 35. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 10. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 11. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 14. [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 15. [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 16. [D][ ] fail (by: 2023-99-11)
+	 17. [D][ ] fail (by: 2023-12-03 2500)
+	 18. [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 19. [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 20. [E][ ] fail (from: 2023-99-11 to: 2025-12-09 2359)
+	 21. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 22. [D][ ] deadline_by (by: hehehehaw)
+	 23. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 24. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 25. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 26. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 27. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 28. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 29. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 30. [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 31. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 32. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 33. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 34. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 35. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -814,41 +814,41 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 3. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 4. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 5. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 6. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 7. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 8. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 9. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 3. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 4. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 5. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 6. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 7. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 8. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 9. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
 	 10. [E][X] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 11. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 12. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 13. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
-	 14. [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
-	 15. [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
-	 16. [D][ ]fail (by: 2023-99-11)
-	 17. [D][ ]fail (by: 2023-12-03 2500)
-	 18. [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
-	 19. [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 11. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 12. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 13. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 14. [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 15. [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 16. [D][ ] fail (by: 2023-99-11)
+	 17. [D][ ] fail (by: 2023-12-03 2500)
+	 18. [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 19. [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
 	 20. [E][X] fail (from: 2023-99-11 to: 2025-12-09 2359)
-	 21. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 22. [D][ ]deadline_by (by: hehehehaw)
-	 23. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 24. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 25. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 26. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 27. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 28. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 29. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 30. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 31. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 32. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 33. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 34. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 35. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 21. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 22. [D][ ] deadline_by (by: hehehehaw)
+	 23. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 24. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 25. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 26. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 27. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 28. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 29. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 30. [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 31. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 32. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 33. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 34. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 35. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -875,7 +875,7 @@
 
 	____________________________________________________________
 	 Noted. I've removed this task: 
-	 [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
 	 Now you have 33 tasks in the list.
 	____________________________________________________________
 
@@ -891,86 +891,86 @@
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 3. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 4. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 5. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 6. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 7. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 8. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 9. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 3. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 4. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 5. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 6. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 7. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 8. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 9. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
 	 10. [E][X] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 11. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
-	 12. [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
-	 13. [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
-	 14. [D][ ]fail (by: 2023-99-11)
-	 15. [D][ ]fail (by: 2023-12-03 2500)
-	 16. [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
-	 17. [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 11. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 12. [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 13. [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 14. [D][ ] fail (by: 2023-99-11)
+	 15. [D][ ] fail (by: 2023-12-03 2500)
+	 16. [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 17. [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
 	 18. [E][X] fail (from: 2023-99-11 to: 2025-12-09 2359)
-	 19. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 19. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
 	 20. [D][X] deadline_by (by: hehehehaw)
-	 21. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 22. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 23. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 24. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 25. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 26. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 27. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 28. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 29. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 30. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 31. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 32. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 33. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 21. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 22. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 23. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 24. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 25. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 26. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 27. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 28. [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 29. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 30. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 31. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 32. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 33. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
 	 Ok, I've marked this task as not done yet:
-		 [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+		 [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
 	____________________________________________________________
 
 	____________________________________________________________
 	 Ok, I've marked this task as not done yet:
-		 [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+		 [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
 	____________________________________________________________
 
 	____________________________________________________________
 	 Here are the tasks in your list:
-	 1. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
-	 2. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 3. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 4. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 5. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 6. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 7. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 8. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 9. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 10. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 11. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
-	 12. [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
-	 13. [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
-	 14. [D][ ]fail (by: 2023-99-11)
-	 15. [D][ ]fail (by: 2023-12-03 2500)
-	 16. [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
-	 17. [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 1. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 2. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 3. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 4. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 5. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 6. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 7. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 8. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 9. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 10. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 11. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 12. [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 13. [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 14. [D][ ] fail (by: 2023-99-11)
+	 15. [D][ ] fail (by: 2023-12-03 2500)
+	 16. [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 17. [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
 	 18. [E][X] fail (from: 2023-99-11 to: 2025-12-09 2359)
-	 19. [T][ ]!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
+	 19. [T][ ] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n\t;\b\r;_finish
 	 20. [D][X] deadline_by (by: hehehehaw)
-	 21. [D][ ]deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
-	 22. [D][ ]deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
-	 23. [D][ ]deadline_by_by (by: asldkfjs /by alsdifjli)
-	 24. [D][ ]deadline_by_deadline_by (by: deadline /by deadline)
-	 25. [E][ ]event_from_to (from: 324dfudoif to: lasdfj2934i0)
-	 26. [E][ ]event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
-	 27. [E][ ]event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
-	 28. [E][ ]event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
-	 29. [E][ ]event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
-	 30. [E][ ]event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
-	 31. [E][ ]event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
-	 32. [E][ ]event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
-	 33. [E][ ]event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
+	 21. [D][ ] deadline_by_from_to (by: /from klasjfd1#$ /to )(*&^%$)
+	 22. [D][ ] deadline_by_event_from_to (by: laksdf event /from alisdjf /to sadkfjlsd)
+	 23. [D][ ] deadline_by_by (by: asldkfjs /by alsdifjli)
+	 24. [D][ ] deadline_by_deadline_by (by: deadline /by deadline)
+	 25. [E][ ] event_from_to (from: 324dfudoif to: lasdfj2934i0)
+	 26. [E][ ] event_by_from_to /by flksajfd!@$#%! (from: \t ASDFSF@#$@#$ to: ASDF@#$#$!)
+	 27. [E][ ] event_from_by_to (from: deadline /by sladkjf!#$! to: asdf@$%@%\\)
+	 28. [E][ ] event_from_from_to_to (from: lksSADFG@$R /from ASDF@$@# to: sdflkjlg#$%@#$ /to SDFGF%@$^$@%)
+	 29. [E][ ] event_from_to_from_to (from: asdljf#!$@ to: ASDOKJASO@#OK$!#$ /from ASDFS SDF W@#$@ /to SADF@#$@#$)
+	 30. [E][ ] event_from_to_to_from (from: SDGK@#$ @$!ASFDS to: ASDF@#$!/WQTQ@$R\\qwflkjq /to @#$!ASKDF /from ASDFS #!$!\\//sadf)
+	 31. [E][ ] event_to_from_from_to /to SFDOGK@!$#% (from: assd1#$ /from \\lsjdfn\nq2r to: /sfdlikslf224)
+	 32. [E][ ] event_to_from_to_from /to sadkfj!@#%$ (from: \a/sfdwte';2 to: \lasjdf/134sdf kASMDF /from ASDF/.,csxRET)
+	 33. [E][ ] event_from_to_event_from_to (from: alsdjf134 to: saldj1341 event /from @!#SDF /to ASDG!#$)
 	____________________________________________________________
 
 	____________________________________________________________
@@ -995,25 +995,25 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
+	 [D][ ] yyyy-mm-dd (by: 04 Jan 2024 0000) (date)
 	 Now you have 34 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
+	 [D][ ] yyyy-mm-dd HHmm (by: 09 Dec 2025 2359) (date)
 	 Now you have 35 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]fail (by: 2023-99-11)
+	 [D][ ] fail (by: 2023-99-11)
 	 Now you have 36 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [D][ ]fail (by: 2023-12-03 2500)
+	 [D][ ] fail (by: 2023-12-03 2500)
 	 Now you have 37 tasks in the list.
 	____________________________________________________________
 
@@ -1023,25 +1023,25 @@
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
+	 [E][ ] pass (from: 04 Jan 2024 0000 to: 09 Dec 2025 2359) (date)
 	 Now you have 38 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
+	 [E][ ] fail (start = end) (from: 04 Jan 2024 0000 to: 04 Jan 2024 0000) (date)
 	 Now you have 39 tasks in the list.
 	____________________________________________________________
 
 	____________________________________________________________
 	 OOPS!!! The format of event should be event <name> /from <start> /to <end>.
 	 <start> should be before or equal to <end> if dates are inputs.
-	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd'
+	 Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'
 	____________________________________________________________
 
 	____________________________________________________________
 	 Got it. I've added this task: 
-	 [E][ ]fail (from: 2023-99-11 to: 2025-12-09 2359)
+	 [E][ ] fail (from: 2023-99-11 to: 2025-12-09 2359)
 	 Now you have 40 tasks in the list.
 	____________________________________________________________
 
