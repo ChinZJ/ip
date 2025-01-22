@@ -81,4 +81,11 @@ public class Task {
         }
         return message;
     }
+
+    /**
+     * To be overriden by <code>Task</code> objects with date.
+     */
+    public boolean hasDate() {
+        return false;
+    }
 }
