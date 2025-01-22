@@ -1,4 +1,4 @@
-package botling.Commands;
+package botling.commands;
 
 import botling.DateParser;
 import botling.exceptions.InvalidInputException;

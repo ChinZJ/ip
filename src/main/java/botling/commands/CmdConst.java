@@ -1,7 +1,7 @@
-package botling.Commands;
+package botling.commands;
 
 public enum CmdConst {
-    // Unique Commands.
+    // Unique commands.
     CMD_BYE("bye"),
     CMD_LIST("list"),
     CMD_MARK("mark"),
