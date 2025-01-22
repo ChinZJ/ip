@@ -1,3 +1,5 @@
+package Botling.MessageGenerator;
+
 /**
  * Responsible for generating all messages where appropriate.
  */

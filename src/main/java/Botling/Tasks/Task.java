@@ -1,3 +1,5 @@
+package Botling.Tasks;
+
 /**
  * Parent class for various <code>Task</code> objects.
  * A <code>Task</code> has a <code>name</code> and a <code>status</code> of completion.

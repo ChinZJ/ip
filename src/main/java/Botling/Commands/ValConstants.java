@@ -1,3 +1,5 @@
+package Botling.Commands;
+
 public enum ValConstants {
     // Tasks constants.
     TASK_FIX_IDX(1),

@@ -1,3 +1,5 @@
+package Botling.Exceptions;
+
 import java.lang.Exception;
 
 /**

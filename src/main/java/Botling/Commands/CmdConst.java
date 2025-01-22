@@ -1,3 +1,5 @@
+package Botling.Commands;
+
 public enum CmdConst {
     // Unique Commands.
     CMD_BYE("bye"),

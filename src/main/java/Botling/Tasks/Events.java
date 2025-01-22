@@ -1,3 +1,5 @@
+package Botling.Tasks;
+
 /**
  * A <code>Task</code> object that has a <code>start</code> and an <code>end</code>.
  */
