@@ -14,8 +14,6 @@ import botling.TaskListWriter;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-
-
 /**
  * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
  */
@@ -54,7 +52,7 @@ public class CommandParser {
             if (input.startsWith(CmdConst.CMD_BYE.getString())) {
                 // "bye" command.
                 try {
-                        message = bye(input, tasks);
+                    message = bye(input, tasks);
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownCmd();
                 }
@@ -67,7 +65,7 @@ public class CommandParser {
                         throw new InvalidInputException();
                     }
                 } catch (InvalidInputException e) {
-                    message = MsgGen.unknownList();
+                    message = MsgGen.unknownCmd();
                 }
             } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
                 // "mark" command.
@@ -76,7 +74,7 @@ public class CommandParser {
                 } catch (NumberFormatException | InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
                             CmdConst.MSG_INVALID_CMD_MARK.getString()
-                                    + String.valueOf(tasks.size()));
+                            + String.valueOf(tasks.size()));
                 }
             } else if (input.startsWith(CmdConst.CMD_UNMARK.getString())) {
                 // "unmark" command.
@@ -85,7 +83,7 @@ public class CommandParser {
                 } catch (NumberFormatException | InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
                             CmdConst.MSG_INVALID_CMD_MARK.getString()
-                                    + String.valueOf(tasks.size()));
+                            + String.valueOf(tasks.size()));
                 }
             }  else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
                 // "delete" command.
@@ -95,7 +93,7 @@ public class CommandParser {
                 } catch (NumberFormatException | InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
                             CmdConst.MSG_INVALID_CMD_MARK.getString()
-                                    + String.valueOf(tasks.size()));
+                            + String.valueOf(tasks.size()));
                 }
             } else if (input.startsWith(CmdConst.CMD_TODO.getString())) {
                 // "todo" command.
