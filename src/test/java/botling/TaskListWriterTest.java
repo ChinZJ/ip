@@ -37,22 +37,22 @@ public class TaskListWriterTest {
      */
     @BeforeEach
     public void createTempHistoryFile() throws IOException {
+        File dataFolder = new File("data");
+        File historyFile = new File("./data/history.txt");
+        if (!dataFolder.exists()) {
+            dataFolder.mkdir();
+        }
+        if (!historyFile.exists()) {
+            historyFile.createNewFile();
+        }
+
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter("./data/history.txt"))) {
-            File dataFolder = new File("data");
-            File historyFile = new File("./data/history.txt");
-            if (!dataFolder.exists()) {
-                dataFolder.mkdir();
-            }
-            if (!historyFile.exists()) {
-                historyFile.createNewFile();
-            }
-
             /*
              * Test everything in the following order
              * ToDo mark
              * Deadline by unmark
-             * Event from to mark (date) mark
+             * Event from to (date) mark
              * */
             String fileHistory = "todo\n \ntrue\n"
                     + "deadline\ntonight!\n \nfalse\n"
@@ -64,7 +64,6 @@ public class TaskListWriterTest {
     @AfterEach
     public void restoreSystemInput() {
         System.setIn(systemIn);
-        System.gc();
     }
 
     @Test

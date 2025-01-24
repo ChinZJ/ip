@@ -24,5 +24,6 @@ public class Botling {
             // Leveraging on object pass by reference
             System.out.println(cmdParse.parse(reader.nextLine(), tasks));
         }
+        reader.close();
     }
 }

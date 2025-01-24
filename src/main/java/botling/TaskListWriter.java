@@ -61,8 +61,7 @@ public class TaskListWriter {
      * Reads the history file and generates a <code>TaskList</code> object off of it.
      */
     private TaskList read(TaskList tasks) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH));
+        try (BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
             String cmd, name, arg1, arg2;
             boolean mark;
             boolean isValid = true;
@@ -173,10 +172,8 @@ public class TaskListWriter {
      * Writes to file to save tasks.
      */
     public void write(TaskList tasks) {
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter(TaskListWriter.HISTORY_DATA_PATH));
+        try (PrintWriter writer = new PrintWriter(new FileWriter(TaskListWriter.HISTORY_DATA_PATH))){
             writer.print(tasks.fileString());
-            writer.close();
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
         }
