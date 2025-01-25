@@ -45,7 +45,7 @@ public class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        String message = "\t\t " + this.getTaskStatus() + "\n";
+        String message = " " + this.getTaskStatus() + "\n";
         return message;
 
     }

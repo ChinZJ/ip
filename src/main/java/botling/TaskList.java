@@ -28,7 +28,7 @@ public class TaskList {
     public String list() {
         String message = "";
         for (int i = 0; i < this.size(); i++) {
-            message += "\t " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
+            message += " " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
         }
         return message;
     }
@@ -42,7 +42,7 @@ public class TaskList {
         for (int i = 0; i < this.size(); i++) {
             task = this.get(i);
             if (task.toString().toLowerCase().contains(input.toLowerCase())) {
-                message += "\t " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
+                message += " " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
             }
         }
         return message;
@@ -101,7 +101,7 @@ public class TaskList {
      */
     public String add(Task newTask) {
         tasks.add(newTask);
-        return "\t " + newTask.getTaskStatus() + "\n";
+        return " " + newTask.getTaskStatus() + "\n";
     }
 
     /**
@@ -112,7 +112,7 @@ public class TaskList {
     public String remove(int index) {
         Task task = tasks.get(index);
         tasks.remove(index);
-        return "\t " + task.getTaskStatus() + "\n";
+        return " " + task.getTaskStatus() + "\n";
     }
 
     /**

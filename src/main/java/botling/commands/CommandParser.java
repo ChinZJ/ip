@@ -35,7 +35,7 @@ public class CommandParser {
      */
     public String start(TaskList tasks) {
         String message = tasksRestore.restore(tasks);
-        return (MsgGen.greet() + "\n" + MsgGen.read(message)) ;
+        return (message + "\n" + MsgGen.greet()) ;
     }
 
     /**

@@ -33,25 +33,25 @@ public class TaskListWriter {
      * @return Any relevant logs of trying to generate / retrieve the history of the task list.
      */
     public String restore(TaskList tasks) {
-        String message = "\t Attempting to retrieve history...\n";
+        String message = "Attempting to retrieve history...\n";
         File dataDir = new File(TaskListWriter.HISTORY_DATA_FOLDER);
         if (!dataDir.exists()) {
-            message += "\t No data folder found! Creating data folder...\n";
+            message += "No data folder found! Creating data folder...\n";
             dataDir.mkdir();
         } else {
-            message += "\t Data folder found!\n";
+            message += "Data folder found!\n";
         }
 
         File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
         if (!historyFile.exists()) {
-            message += "\t No history file found! Creating history file...\n";
+            message += "No history file found! Creating history file...\n";
             try {
                 historyFile.createNewFile();
             } catch (IOException e) {
                 System.out.println("Error creating history file: " + e.getMessage());
             }
         } else {
-            message += "\t History file found! Restoring data...\n";
+            message += "History file found! Restoring data...\n";
             tasks = this.read(tasks);
         }
         return message;
@@ -121,7 +121,7 @@ public class TaskListWriter {
                             }
                         } catch (InvalidInputException e) {
                             System.out.println("An error occurred while trying to read"
-                                    + "the history.txt file."
+                                    + "the history.txt file.\n"
                                     + "Do you wish to delete it and start again? (y/n)");
                             Scanner scanner = new Scanner(System.in);
                             String response = scanner.nextLine().trim().toLowerCase();

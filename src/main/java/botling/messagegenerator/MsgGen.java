@@ -6,26 +6,17 @@ package botling.messagegenerator;
 public class MsgGen {
 
     /**
-     * Reads the message, wraps it in line.
-     */
-    public static String read(String message) {
-        return MsgGenConst.MSG_LINE.getString()
-                + message
-                + MsgGenConst.MSG_LINE.getString();
-    }
-
-    /**
      * Generates greeting message.
      */
     public static String greet() {
-        return MsgGen.read(MsgGenConst.MSG_GREET.getString());
+        return MsgGenConst.MSG_GREET.getString();
     }
 
     /**
      * Generates farewell message.
      */
     public static String bye() {
-        return MsgGen.read(MsgGenConst.MSG_FAREWELL.getString());
+        return MsgGenConst.MSG_FAREWELL.getString();
     }
 
     /**
@@ -33,9 +24,9 @@ public class MsgGen {
      */
     public static String list(String message) {
         if (message.isEmpty()) {
-            return MsgGen.read(MsgGenConst.MSG_EMPTY_LIST.getString());
+            return MsgGenConst.MSG_EMPTY_LIST.getString();
         } else {
-            return MsgGen.read(MsgGenConst.MSG_CURRENT_TASKS.getString() + message);
+            return MsgGenConst.MSG_CURRENT_TASKS.getString() + message;
         }
     }
 
@@ -44,9 +35,9 @@ public class MsgGen {
      */
     public static String find(String message) {
         if (message.isEmpty()) {
-            return MsgGen.read(MsgGenConst.MSG_NO_TASKS.getString());
+            return MsgGenConst.MSG_NO_TASKS.getString();
         } else {
-            return MsgGen.read(MsgGenConst.MSG_FIND_TASKS.getString() + message);
+            return MsgGenConst.MSG_FIND_TASKS.getString() + message;
         }
     }
 
@@ -54,14 +45,14 @@ public class MsgGen {
      * Provides a wrapper for TaskList mark() message.
      */
     public static String mark(String message) {
-        return MsgGen.read(MsgGenConst.MSG_TASK_DONE.getString() + message);
+        return MsgGenConst.MSG_TASK_DONE.getString() + message;
     }
 
     /**
      * Provides a wrapper for TaskList unmark() message.
      */
     public static String unmark(String message) {
-        return MsgGen.read(MsgGenConst.MSG_TASK_UNDONE.getString() + message);
+        return MsgGenConst.MSG_TASK_UNDONE.getString() + message;
     }
 
     /**
@@ -71,10 +62,10 @@ public class MsgGen {
      * @param size Size of TaskList.
      */
     public static String add(String message, int size) {
-        return MsgGen.read(MsgGenConst.MSG_ADD.getString()
+        return MsgGenConst.MSG_ADD.getString()
                 + message
                 + MsgGenConst.MSG_CURRENT_SIZE_P1.getString() + size
-                + MsgGenConst.MSG_CURRENT_SIZE_P2.getString());
+                + MsgGenConst.MSG_CURRENT_SIZE_P2.getString();
     }
 
     /**
@@ -84,27 +75,27 @@ public class MsgGen {
      * @param size Size of TaskList.
      */
     public static String delete(String message, int size) {
-        return MsgGen.read(MsgGenConst.MSG_TASK_DELETE.getString()
+        return MsgGenConst.MSG_TASK_DELETE.getString()
                 + message
                 + MsgGenConst.MSG_CURRENT_SIZE_P1.getString() + size
-                + MsgGenConst.MSG_CURRENT_SIZE_P2.getString());
+                + MsgGenConst.MSG_CURRENT_SIZE_P2.getString();
     }
 
     /**
      * Message when command is unknown.
      */
     public static String unknownCmd() {
-        return MsgGen.read(MsgGenConst.MSG_INVALID_UNKNOWN.getString());
+        return MsgGenConst.MSG_INVALID_UNKNOWN.getString();
     }
 
     /**
      * Message when command syntax is not fulfilled.
      */
     public static String unknownSyntax(String cmd, String syntax) {
-        return MsgGen.read(MsgGenConst.MSG_INVALID_CMD_P1.getString()
+        return MsgGenConst.MSG_INVALID_CMD_P1.getString()
                 + cmd
                 + MsgGenConst.MSG_INVALID_CMD_P2.getString()
-                + cmd + syntax + "\n");
+                + cmd + syntax + "\n";
     }
 
 }
