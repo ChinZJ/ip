@@ -4,7 +4,7 @@ package botling.tasks;
  * Parent class for various <code>Task</code> objects.
  * A <code>Task</code> has a <code>name</code> and a <code>status</code> of completion.
  */
-public class Task {
+public abstract class Task {
     private static final boolean TASK_UNDONE = false;
 
     private final String name;
