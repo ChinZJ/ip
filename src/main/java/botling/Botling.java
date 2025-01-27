@@ -7,14 +7,13 @@ import botling.commands.CommandParser;
  */
 public class Botling {
     private TaskList tasks = new TaskList();
-    private CommandParser cmdParse = new CommandParser();
 
     /**
      * Generates the start message.
      * Includes loading of history with user.
      */
     public String startUp() {
-        return cmdParse.start(tasks);
+        return CommandParser.start(tasks);
     }
 
     /**
@@ -22,6 +21,6 @@ public class Botling {
      * Adapted from main method.
      */
     public String getResponse(String input) {
-        return cmdParse.parse(input, tasks);
+        return CommandParser.parse(input, tasks);
     }
 }

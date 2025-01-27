@@ -34,8 +34,7 @@ public class ToDo extends Task {
      */
     @Override
     public String getTaskData() {
-        String message = "todo\n" + super.getTaskData();
-        return message;
+        return "todo\n" + super.getTaskData();
     }
 
 }

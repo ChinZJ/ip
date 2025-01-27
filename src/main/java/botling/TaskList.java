@@ -23,30 +23,45 @@ public class TaskList {
         isActive = TaskList.TASK_IS_DONE;
     }
 
+    public void clear() {
+        tasks.clear();
+    }
+
     /**
      * Scans through all tasks present in the list, and returns them in String format.
      */
     public String list() {
-        String message = "";
+        StringBuilder strCreator = new StringBuilder();
         for (int i = 0; i < this.size(); i++) {
-            message += " " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
+            strCreator.append(String.format(" %d. %s\n",
+                    i + 1,
+                    this.get(i).getTaskStatus()));
         }
-        return message;
+        return strCreator.toString();
     }
 
     /**
      * Scans through all tasks and returns only those that matches the input String.
      */
     public String find(String input) {
-        String message = "";
+        StringBuilder strCreator = new StringBuilder();
         Task task;
         for (int i = 0; i < this.size(); i++) {
             task = this.get(i);
             if (task.toString().toLowerCase().contains(input.toLowerCase())) {
-                message += " " + (i + 1) + ". " + this.get(i).getTaskStatus() + "\n";
+                strCreator.append(String.format(" %d. %s\n",
+                        i + 1,
+                        this.get(i).getTaskStatus()));
             }
         }
-        return message;
+        return strCreator.toString();
+    }
+
+    /**
+     * Opens the TaskList and allows for actions.
+     */
+    public void hasOpen() {
+        isActive = true;
     }
 
     /**
@@ -120,11 +135,11 @@ public class TaskList {
      * Generates a String format of all tasks to be read by <code>TaskListWriter</code> object.
      */
     public String fileString() {
-        String message = "";
+        StringBuilder strCreator = new StringBuilder();
         for (int i = 0; i < this.size(); i++) {
-            message += this.get(i).getTaskData() + "\n";
+            strCreator.append(String.format("%s\n", this.get(i).getTaskData()));
         }
-        return message;
+        return strCreator.toString();
     }
 
 }

@@ -45,8 +45,7 @@ public abstract class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        String message = " " + this.getTaskStatus() + "\n";
-        return message;
+        return " " + this.getTaskStatus() + "\n";
 
     }
 

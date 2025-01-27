@@ -56,7 +56,7 @@ public class MsgGen {
     }
 
     /**
-     * Provides aa wrapper for Tasklist add() message.
+     * Provides aa wrapper for TaskList add() message.
      *
      * @param message Message generated from TaskList.
      * @param size Size of TaskList.
@@ -69,7 +69,7 @@ public class MsgGen {
     }
 
     /**
-     * Provides aa wrapper for Tasklist remove() message.
+     * Provides aa wrapper for TaskList remove() message.
      *
      * @param message Message generated from TaskList.
      * @param size Size of TaskList.
@@ -96,6 +96,14 @@ public class MsgGen {
                 + cmd
                 + MsgGenConst.MSG_INVALID_CMD_P2.getString()
                 + cmd + syntax + "\n";
+    }
+
+    /**
+     * Message when looking for 'y' or 'n' inputs.
+     * Used when history file is corrupted and checking to delete or exit the program.
+     */
+    public static String unknownCorrupt() {
+        return MsgGenConst.CORRUPT_FILE.getString();
     }
 
 }

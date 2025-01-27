@@ -28,8 +28,7 @@ public class Deadlines extends Task {
      */
     @Override
     public String getTaskStatus() {
-        String message = "[D]" + super.getTaskStatus() + " (by: " + by + ")";
-        return message;
+        return "[D]" + super.getTaskStatus() + " (by: " + by + ")";
     }
 
     /**
@@ -37,8 +36,7 @@ public class Deadlines extends Task {
      */
     @Override
     public String getTaskData() {
-        String message = "deadline\n" + by + "\n" + super.getTaskData();
-        return message;
+        return "deadline\n" + by + "\n" + super.getTaskData();
     }
 
 }

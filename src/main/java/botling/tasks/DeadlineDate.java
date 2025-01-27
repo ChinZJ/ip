@@ -40,8 +40,7 @@ public class DeadlineDate extends Deadlines {
      */
     @Override
     public String getTaskStatus() {
-        String message = super.getTaskStatus() + " (date)";
-        return message;
+        return super.getTaskStatus() + " (date)";
     }
 
 }

@@ -7,7 +7,7 @@ public enum MsgGenConst {
 
     // For greetings and farewells.
     MSG_FAREWELL("Bye. Hope to see you again soon!\n"),
-    MSG_GREET("Hello! I'm Botling\n"
+    MSG_GREET("Hello! I'm Botling.\n"
             + "What can I do for you?\n"),
 
     // For list / find.
@@ -27,7 +27,10 @@ public enum MsgGenConst {
     // For unexpected inputs
     MSG_INVALID_CMD_P1("OOPS!!! The format of "),
     MSG_INVALID_CMD_P2(" should be "),
-    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist(yet).\n");
+    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist(yet).\n"),
+
+    // For corrupt files
+    CORRUPT_FILE("Please enter 'y' for yes and 'n' for no.");
 
     private final String message;
 

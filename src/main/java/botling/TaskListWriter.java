@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import java.util.Scanner;
 
 import botling.exceptions.InvalidInputException;
 import botling.tasks.DeadlineDate;
@@ -32,7 +31,7 @@ public class TaskListWriter {
      *
      * @return Any relevant logs of trying to generate / retrieve the history of the task list.
      */
-    public String restore(TaskList tasks) {
+    public static String restore(TaskList tasks) {
         String message = "Attempting to retrieve history...\n";
         File dataDir = new File(TaskListWriter.HISTORY_DATA_FOLDER);
         if (!dataDir.exists()) {
@@ -52,7 +51,14 @@ public class TaskListWriter {
             }
         } else {
             message += "History file found! Restoring data...\n";
-            tasks = this.read(tasks);
+            tasks = TaskListWriter.read(tasks);
+            // If tasks is closed, then the history file is corrupt.
+            // Push the error message back
+            if (!tasks.isOpen()) {
+                message += "An error occurred while trying to read"
+                        + " the history.txt file.\n"
+                        + "Do you wish to delete it and start again? (y/n)";
+            }
         }
         return message;
     }
@@ -60,7 +66,7 @@ public class TaskListWriter {
     /**
      * Reads the history file and generates a <code>TaskList</code> object off of it.
      */
-    private TaskList read(TaskList tasks) throws RuntimeException {
+    private static TaskList read(TaskList tasks) {
         try (BufferedReader reader = new BufferedReader(
                 new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
             String cmd;
@@ -129,28 +135,7 @@ public class TaskListWriter {
                                 throw new InvalidInputException();
                             }
                         } catch (InvalidInputException e) {
-                            System.out.println("An error occurred while trying to read"
-                                    + "the history.txt file.\n"
-                                    + "Do you wish to delete it and start again? (y/n)");
-                            Scanner scanner = new Scanner(System.in);
-                            String response = scanner.nextLine().trim().toLowerCase();
-
-                            while (!response.equals("y") && !response.equals("n")) {
-                                System.out.println("Please enter 'y' for yes and 'n' for no.");
-                                response = scanner.nextLine().trim().toLowerCase();
-                            }
-                            if (response.equals("y")) {
-                                tasks = new TaskList();
-                                File file = new File(TaskListWriter.HISTORY_DATA_PATH);
-                                file.delete();
-                                file.createNewFile();
-                                return tasks;
-                            } else {
-                                System.out.println(
-                                        "Program will now terminate. Please check the file.");
-                                throw new RuntimeException(
-                                        "User chose not to delete corrupted file.");
-                            }
+                            tasks.hasClose();
                         }
                     }
                 } else {
@@ -169,7 +154,7 @@ public class TaskListWriter {
      *
      * @throws InvalidInputException An arbitrary exception thrown when there is no boolean String.
      */
-    private boolean validateAndParseBool(String input) throws InvalidInputException {
+    private static boolean validateAndParseBool(String input) throws InvalidInputException {
         if (input == null) {
             throw new InvalidInputException();
         } else if (!input.equalsIgnoreCase("true")
@@ -182,7 +167,7 @@ public class TaskListWriter {
     /**
      * Writes to file to save tasks.
      */
-    public void write(TaskList tasks) {
+    public static void write(TaskList tasks) {
         try (PrintWriter writer = new PrintWriter(
                 new FileWriter(TaskListWriter.HISTORY_DATA_PATH))) {
             writer.print(tasks.fileString());
@@ -191,4 +176,16 @@ public class TaskListWriter {
         }
     }
 
+    /**
+     * Deletes and creates a new history.txt file.
+     */
+    public static void recreateFile() {
+        try {
+            File file = new File(TaskListWriter.HISTORY_DATA_PATH);
+            file.delete();
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+    }
 }

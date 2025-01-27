@@ -20,18 +20,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TaskListWriterTest {
-    private final InputStream systemIn = System.in;
-
-    private ByteArrayInputStream testIn;
-
-    /**
-     * Used to simulate user input for (y/n) during unexpected events.
-     */
-    private void provideInput(String input) {
-        testIn = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testIn);
-    }
-
     /**
      * Used to overwrite the history.txt file for each test where applicable.
      */
@@ -59,11 +47,6 @@ public class TaskListWriterTest {
                     + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue";
             writer.write(fileHistory);
         }
-    }
-
-    @AfterEach
-    public void restoreSystemInput() {
-        System.setIn(systemIn);
     }
 
     @Test
@@ -152,19 +135,25 @@ public class TaskListWriterTest {
 
         String expectedMsg = "Attempting to retrieve history...\n"
                 + "Data folder found!\n"
-                + "History file found! Restoring data...\n";
-
-        String input = "y";
-        provideInput(input);
+                + "History file found! Restoring data...\n"
+                + "An error occurred while trying to read"
+                + " the history.txt file.\n"
+                + "Do you wish to delete it and start again? (y/n)";;
 
         TaskListWriter tester = new TaskListWriter();
         TaskList testList = new TaskList();
         String actual = tester.restore(testList);
 
         assertEquals(expectedMsg, actual);
+
+        tester.recreateFile();
         assertEquals(0, testList.size());
         assertEquals("", testList.fileString());
         assertEquals("", testList.list());
+        assertEquals(false, testList.isOpen());
+
+        File file = new File("./data/history.txt");
+        assertEquals(0, file.length());
     }
 
     @Test
@@ -175,26 +164,17 @@ public class TaskListWriterTest {
             writer.write(fileHistory);
         }
 
-        String input = "n";
-        provideInput(input);
+        String expectedMsg = "Attempting to retrieve history...\n"
+                + "Data folder found!\n"
+                + "History file found! Restoring data...\n"
+                + "An error occurred while trying to read"
+                + " the history.txt file.\n"
+                + "Do you wish to delete it and start again? (y/n)";;
 
         TaskListWriter tester = new TaskListWriter();
         TaskList testList = new TaskList();
+        String actual = tester.restore(testList);
 
-        try {
-            tester.restore(testList);
-        } catch (RuntimeException e) {
-            assertEquals("User chose not to delete corrupted file.", e.getMessage());
-        }
-
-
-        try (BufferedReader reader = new BufferedReader(
-                new FileReader("./data/history.txt"))) {
-            String actualContent = reader.readLine() + "\n"
-                    + reader.readLine() + "\n"
-                    + reader.readLine();
-
-            assertEquals("corrupted\nfile\n!!!!!!", actualContent);
-        }
+        assertEquals(expectedMsg, actual);
     }
 }

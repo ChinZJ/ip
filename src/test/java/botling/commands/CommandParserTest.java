@@ -25,6 +25,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("bye", tasks));
 
         // Invalid input.
+        tasks.hasOpen();
         result = "OOPS!!! This command does not exist(yet).\n";
         assertEquals(result, cmdParse.parse("bye ", tasks));
     }

@@ -28,13 +28,18 @@ public enum CmdConst {
     TASK_TODO("todo .+"),
     TASK_UNMARK("unmark -?\\d+"),
 
-    // Expected Syntax
+    // Expected Syntax.
     MSG_INVALID_CMD_DATE("Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'"),
     MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline>.\n"),
     MSG_INVALID_CMD_EVENT(" <name> /from <start> /to <end>.\n"),
-    MSG_INVALID_CMD_EVENT_DATE(" <start> should be before or equal to <end> if dates are inputs.\n"),
+    MSG_INVALID_CMD_EVENT_DATE(" <start> should be before or equal to <end>"
+            + " if dates are inputs.\n"),
     MSG_INVALID_CMD_MARK(" <X>, where X is a positive integer <= "),
-    MSG_INVALID_CMD_TODO(" <name>.");
+    MSG_INVALID_CMD_TODO(" <name>."),
+
+    // For corrupted files.
+    CORRUPT_DELETE("History data has been reset!"),
+    CORRUPT_PAUSE("Program will now terminate. Please check the file.");
 
     private final String message;
 

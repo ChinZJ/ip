@@ -19,13 +19,6 @@ import botling.tasks.ToDo;
  * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
  */
 public class CommandParser {
-    private TaskListWriter tasksRestore = new TaskListWriter();
-
-    /**
-     * Dummy constructor if needed for future extensions.
-     */
-    public CommandParser() {
-    }
 
     /**
      * Generates start up message and checks for any history.
@@ -34,9 +27,12 @@ public class CommandParser {
      *
      * @return message for Botling, inclusive of startup amd if any history is recovered.
      */
-    public String start(TaskList tasks) {
-        String message = tasksRestore.restore(tasks);
-        return (message + "\n" + MsgGen.greet());
+    public static String start(TaskList tasks) {
+        String message = TaskListWriter.restore(tasks);
+        if (tasks.isOpen()) {
+            return (MsgGen.greet() + "\n" + message);
+        }
+        return message;
     }
 
     /**
@@ -47,96 +43,112 @@ public class CommandParser {
      * @param tasks TaskList containing list of tasks.
      * @return message for Botling to pass messages to UI object to handle.
      */
-    public String parse(String input, TaskList tasks) {
+    public static String parse(String input, TaskList tasks) {
         String message; // Dummy initialization
-        try {
-            if (input.startsWith(CmdConst.CMD_BYE.getString())) {
-                // "bye" command.
-                try {
-                    message = bye(input, tasks);
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownCmd();
-                }
-            } else if (input.startsWith(CmdConst.CMD_LIST.getString())) {
-                // "list" command.
-                try {
-                    if (input.equals(CmdConst.CMD_LIST.getString())) {
-                        message = MsgGen.list(tasks.list());
-                    } else {
-                        throw new InvalidInputException();
+        if (tasks.isOpen()) {
+            // TaskList is open means that there are no issues.
+            try {
+                if (input.startsWith(CmdConst.CMD_BYE.getString())) {
+                    // "bye" command.
+                    try {
+                        message = CommandParser.bye(input, tasks);
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownCmd();
                     }
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownCmd();
+                } else if (input.startsWith(CmdConst.CMD_LIST.getString())) {
+                    // "list" command.
+                    try {
+                        if (input.equals(CmdConst.CMD_LIST.getString())) {
+                            message = MsgGen.list(tasks.list());
+                        } else {
+                            throw new InvalidInputException();
+                        }
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownCmd();
+                    }
+                } else if (input.startsWith(CmdConst.CMD_FIND.getString())) {
+                    // "find" command.
+                    try {
+                        message = MsgGen.find(find(input, tasks));
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownCmd();
+                    }
+                } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
+                    // "mark" command.
+                    try {
+                        message = MsgGen.mark(CommandParser.mark(input, tasks));
+                    } catch (NumberFormatException | InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
+                                CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                        + String.valueOf(tasks.size()));
+                    }
+                } else if (input.startsWith(CmdConst.CMD_UNMARK.getString())) {
+                    // "unmark" command.
+                    try {
+                        message = MsgGen.unmark(CommandParser.unmark(input, tasks));
+                    } catch (NumberFormatException | InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
+                                CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                        + String.valueOf(tasks.size()));
+                    }
+                } else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
+                    // "delete" command.
+                    try {
+                        message = CommandParser.delete(input, tasks);
+                        message = MsgGen.delete(message, tasks.size());
+                    } catch (NumberFormatException | InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
+                                CmdConst.MSG_INVALID_CMD_MARK.getString()
+                                        + String.valueOf(tasks.size()));
+                    }
+                } else if (input.startsWith(CmdConst.CMD_TODO.getString())) {
+                    // "todo" command.
+                    try {
+                        message = CommandParser.todo(input, tasks);
+                        message = MsgGen.add(message, tasks.size());
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_TODO.getString(),
+                                CmdConst.MSG_INVALID_CMD_TODO.getString());
+                    }
+                } else if (input.startsWith(CmdConst.CMD_DEADLINE.getString())) {
+                    // "deadline" command.
+                    try {
+                        message = CommandParser.deadline(input, tasks);
+                        message = MsgGen.add(message, tasks.size());
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_DEADLINE.getString(),
+                                CmdConst.MSG_INVALID_CMD_DEADLINE.getString()
+                                        + CmdConst.MSG_INVALID_CMD_DATE.getString());
+                    }
+                } else if (input.startsWith(CmdConst.CMD_EVENT.getString())) {
+                    try {
+                        message = CommandParser.event(input, tasks);
+                        message = MsgGen.add(message, tasks.size());
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
+                                CmdConst.MSG_INVALID_CMD_EVENT.getString()
+                                        + CmdConst.MSG_INVALID_CMD_EVENT_DATE.getString()
+                                        + CmdConst.MSG_INVALID_CMD_DATE.getString());
+                    }
+                } else {
+                    throw new InvalidInputException();
                 }
-            } else if (input.startsWith(CmdConst.CMD_FIND.getString())) {
-                // "find" command.
-                try {
-                    message = MsgGen.find(find(input, tasks));
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownCmd();
-                }
-            } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
-                // "mark" command.
-                try {
-                    message = MsgGen.mark(mark(input, tasks));
-                } catch (NumberFormatException | InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
-                            CmdConst.MSG_INVALID_CMD_MARK.getString()
-                            + String.valueOf(tasks.size()));
-                }
-            } else if (input.startsWith(CmdConst.CMD_UNMARK.getString())) {
-                // "unmark" command.
-                try {
-                    message = MsgGen.unmark(unmark(input, tasks));
-                } catch (NumberFormatException | InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
-                            CmdConst.MSG_INVALID_CMD_MARK.getString()
-                            + String.valueOf(tasks.size()));
-                }
-            } else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
-                // "delete" command.
-                try {
-                    message = delete(input, tasks);
-                    message = MsgGen.delete(message, tasks.size());
-                } catch (NumberFormatException | InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
-                            CmdConst.MSG_INVALID_CMD_MARK.getString()
-                            + String.valueOf(tasks.size()));
-                }
-            } else if (input.startsWith(CmdConst.CMD_TODO.getString())) {
-                // "todo" command.
-                try {
-                    message = todo(input, tasks);
-                    message = MsgGen.add(message, tasks.size());
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_TODO.getString(),
-                            CmdConst.MSG_INVALID_CMD_TODO.getString());
-                }
-            } else if (input.startsWith(CmdConst.CMD_DEADLINE.getString())) {
-                // "deadline" command.
-                try {
-                    message = deadline(input, tasks);
-                    message = MsgGen.add(message, tasks.size());
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_DEADLINE.getString(),
-                            CmdConst.MSG_INVALID_CMD_DEADLINE.getString()
-                            + CmdConst.MSG_INVALID_CMD_DATE.getString());
-                }
-            } else if (input.startsWith(CmdConst.CMD_EVENT.getString())) {
-                try {
-                    message = event(input, tasks);
-                    message = MsgGen.add(message, tasks.size());
-                } catch (InvalidInputException e) {
-                    message = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
-                            CmdConst.MSG_INVALID_CMD_EVENT.getString()
-                            + CmdConst.MSG_INVALID_CMD_EVENT_DATE.getString()
-                            + CmdConst.MSG_INVALID_CMD_DATE.getString());
-                }
-            } else {
-                throw new InvalidInputException();
+            } catch (InvalidInputException e) {
+                message = MsgGen.unknownCmd();
             }
-        } catch (InvalidInputException e) {
-            message = MsgGen.unknownCmd();
+        } else {
+            // TaskList is not open means that there are issues.
+            // Accept only 'y' or 'n'
+            if (input.equals("y")) {
+                tasks.clear();
+                TaskListWriter.recreateFile();
+                tasks.hasOpen();
+                message = CmdConst.CORRUPT_DELETE.getString() + "\n" + MsgGen.greet();
+            } else if (input.equals("n")) {
+                message = CmdConst.CORRUPT_PAUSE.getString();
+            } else {
+                message = MsgGen.unknownCorrupt();
+            }
         }
         return message;
     }
@@ -146,7 +158,7 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String bye(String input, TaskList tasks) throws InvalidInputException {
+    private static String bye(String input, TaskList tasks) throws InvalidInputException {
         if (input.equals(CmdConst.CMD_BYE.getString())) {
             tasks.hasClose();
             return MsgGen.bye();
@@ -160,7 +172,7 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String find(String input, TaskList tasks) throws InvalidInputException {
+    private static String find(String input, TaskList tasks) throws InvalidInputException {
         if (input.matches(CmdConst.TASK_FIND.getString())) {
             return tasks.find(input.substring(ValConstants.TASK_FIND.getVal()));
         } else {
@@ -176,14 +188,14 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String mark(String input, TaskList tasks)
+    private static String mark(String input, TaskList tasks)
             throws NumberFormatException, InvalidInputException {
         if (input.matches(CmdConst.TASK_MARK.getString())) {
             int index = Integer.parseInt(input.substring(ValConstants.TASK_MARK_IDX.getVal()))
                     - ValConstants.TASK_FIX_IDX.getVal();
             if ((index >= 0) && (index < tasks.size())) {
                 String message = tasks.mark(index);
-                tasksRestore.write(tasks);
+                TaskListWriter.write(tasks);
                 return message;
             } else {
                 throw new InvalidInputException();
@@ -202,14 +214,14 @@ public class CommandParser {
      * @throws NumberFormatException if syntax is correct but input is not an integer.
      * @throws InvalidInputException if syntax is not recognized.
     */
-    private String unmark(String input, TaskList tasks)
+    private static String unmark(String input, TaskList tasks)
             throws NumberFormatException, InvalidInputException {
         if (input.matches(CmdConst.TASK_UNMARK.getString())) {
             int index = Integer.parseInt(input.substring(ValConstants.TASK_UNMARK_IDX.getVal()))
                     - ValConstants.TASK_FIX_IDX.getVal();
             if ((index >= 0) && (index < tasks.size())) {
                 String message = tasks.unmark(index);
-                tasksRestore.write(tasks);
+                TaskListWriter.write(tasks);
                 return message;
             } else {
                 throw new InvalidInputException();
@@ -225,7 +237,7 @@ public class CommandParser {
      * @throws NumberFormatException if syntax is correct but input is not an integer.
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String delete(String input, TaskList tasks)
+    private static String delete(String input, TaskList tasks)
             throws NumberFormatException, InvalidInputException {
         if (input.matches(CmdConst.TASK_DELETE.getString())) {
             // Recall to convert to 1 based indexing
@@ -237,7 +249,7 @@ public class CommandParser {
             // Ensure integer is valid
             if ((index >= 0) && (index < tasks.size())) {
                 String message = tasks.remove(index);
-                tasksRestore.write(tasks);
+                TaskListWriter.write(tasks);
                 return message;
             } else {
                 throw new InvalidInputException();
@@ -252,11 +264,11 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String todo(String input, TaskList tasks) throws InvalidInputException {
+    private static String todo(String input, TaskList tasks) throws InvalidInputException {
         if (input.matches(CmdConst.TASK_TODO.getString())) {
             Task newTask = new ToDo(input.substring(ValConstants.TASK_TODO_IDX.getVal()));
             String message = tasks.add(newTask);
-            tasksRestore.write(tasks);
+            TaskListWriter.write(tasks);
             return message;
         } else {
             throw new InvalidInputException();
@@ -268,7 +280,7 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String deadline(String input, TaskList tasks) throws InvalidInputException {
+    private static String deadline(String input, TaskList tasks) throws InvalidInputException {
         if (input.matches(CmdConst.TASK_DEADLINE.getString())) {
             // Deadline has a /by specification, greedily take the first in sequence.
             String withoutDeadline = input.substring(ValConstants.TASK_DEADLINE_IDX.getVal());
@@ -288,7 +300,7 @@ public class CommandParser {
 
             // Add task.
             String message = tasks.add(newTask);
-            tasksRestore.write(tasks);
+            TaskListWriter.write(tasks);
             return message;
         } else {
             throw new InvalidInputException();
@@ -300,7 +312,7 @@ public class CommandParser {
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
-    private String event(String input, TaskList tasks) throws InvalidInputException {
+    private static String event(String input, TaskList tasks) throws InvalidInputException {
         if (input.matches(CmdConst.TASK_EVENT.getString())) {
             // Event has /from and /to specification.
             // Greedily take the first in sequential order.
@@ -331,7 +343,7 @@ public class CommandParser {
             }
             // Add task.
             String message = tasks.add(newTask);
-            tasksRestore.write(tasks);
+            TaskListWriter.write(tasks);
             return message;
         } else {
             throw new InvalidInputException();

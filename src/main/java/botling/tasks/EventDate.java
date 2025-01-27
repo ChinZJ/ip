@@ -48,8 +48,7 @@ public class EventDate extends Events {
      */
     @Override
     public String getTaskStatus() {
-        String message = super.getTaskStatus() + " (date)";
-        return message;
+        return super.getTaskStatus() + " (date)";
     }
 
 }

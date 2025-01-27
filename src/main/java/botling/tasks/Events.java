@@ -31,8 +31,7 @@ public class Events extends Task {
      */
     @Override
     public String getTaskStatus() {
-        String message = "[E]" + super.getTaskStatus() + " (from: " + from + " to: " + to + ")";
-        return message;
+        return "[E]" + super.getTaskStatus() + " (from: " + from + " to: " + to + ")";
     }
 
     /**
@@ -40,8 +39,7 @@ public class Events extends Task {
      */
     @Override
     public String getTaskData() {
-        String message = "event\n" + from + "\n" + to + "\n" + super.getTaskData();
-        return message;
+        return "event\n" + from + "\n" + to + "\n" + super.getTaskData();
     }
 
 }
