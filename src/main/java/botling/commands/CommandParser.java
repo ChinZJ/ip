@@ -43,12 +43,20 @@ public class CommandParser {
      * @param tasks TaskList containing list of tasks.
      * @return message for Botling to pass messages to UI object to handle.
      */
-    public static String parse(String input, TaskList tasks) {
+    public static String parse(String input, TaskList tasks, CommandColor cmdColor) {
         String message; // Dummy initialization
+        cmdColor.reset(); // Refresh the instantiation
         if (tasks.isOpen()) {
             // TaskList is open means that there are no issues.
             try {
-                if (input.startsWith(CmdConst.CMD_BYE.getString())) {
+                if (input.startsWith(CmdConst.CMD_HELP.getString())) {
+                    // "help" command.
+                    try {
+                        message = CommandParser.help(input, tasks);
+                    } catch (InvalidInputException e) {
+                        message = MsgGen.unknownCmd();
+                    }
+                } else if (input.startsWith(CmdConst.CMD_BYE.getString())) {
                     // "bye" command.
                     try {
                         message = CommandParser.bye(input, tasks);
@@ -57,12 +65,9 @@ public class CommandParser {
                     }
                 } else if (input.startsWith(CmdConst.CMD_LIST.getString())) {
                     // "list" command.
+                    // todo Add color to GUI next time
                     try {
-                        if (input.equals(CmdConst.CMD_LIST.getString())) {
-                            message = MsgGen.list(tasks.list());
-                        } else {
-                            throw new InvalidInputException();
-                        }
+                        message = CommandParser.list(input, tasks, cmdColor);
                     } catch (InvalidInputException e) {
                         message = MsgGen.unknownCmd();
                     }
@@ -76,7 +81,7 @@ public class CommandParser {
                 } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
                     // "mark" command.
                     try {
-                        message = MsgGen.mark(CommandParser.mark(input, tasks));
+                        message = MsgGen.mark(CommandParser.mark(input, tasks), cmdColor);
                     } catch (NumberFormatException | InvalidInputException e) {
                         message = MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
                                 CmdConst.MSG_INVALID_CMD_MARK.getString()
@@ -95,7 +100,7 @@ public class CommandParser {
                     // "delete" command.
                     try {
                         message = CommandParser.delete(input, tasks);
-                        message = MsgGen.delete(message, tasks.size());
+                        message = MsgGen.delete(message, tasks.size(), cmdColor);
                     } catch (NumberFormatException | InvalidInputException e) {
                         message = MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
                                 CmdConst.MSG_INVALID_CMD_MARK.getString()
@@ -162,6 +167,15 @@ public class CommandParser {
         if (input.equals(CmdConst.CMD_BYE.getString())) {
             tasks.hasClose();
             return MsgGen.bye();
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    private static String list(String input, TaskList tasks, CommandColor cmdColor)
+            throws InvalidInputException {
+        if (input.equals(CmdConst.CMD_LIST.getString())) {
+            return MsgGen.list(tasks.list());
         } else {
             throw new InvalidInputException();
         }
@@ -345,6 +359,53 @@ public class CommandParser {
             String message = tasks.add(newTask);
             TaskListWriter.write(tasks);
             return message;
+        } else {
+            throw new InvalidInputException();
+        }
+    }
+
+    /**
+     * Watered down verison of parse() method.
+     * Filters exclusively for the command.
+     */
+    public static String parseCommand(String input) {
+        if (input.equals(CmdConst.CMD_BYE.getString())) {
+            return CmdConst.CMD_BYE.getString();
+        } else if (input.equals(CmdConst.CMD_LIST.getString())) {
+            return CmdConst.CMD_LIST.getString();
+        } else if (input.matches(CmdConst.TASK_FIND.getString())) {
+            return CmdConst.CMD_FIND.getString();
+        } else if (input.matches(CmdConst.TASK_MARK.getString())) {
+            return CmdConst.CMD_MARK.getString();
+        } else if (input.matches(CmdConst.TASK_UNMARK.getString())) {
+            return CmdConst.CMD_UNMARK.getString();
+        } else if (input.matches(CmdConst.TASK_DELETE.getString())) {
+            return CmdConst.CMD_DELETE.getString();
+        } else if (input.matches(CmdConst.TASK_TODO.getString())) {
+            return CmdConst.CMD_TODO.getString();
+        } else if (input.matches(CmdConst.TASK_DEADLINE.getString())) {
+            return CmdConst.CMD_DEADLINE.getString();
+        } else if (input.matches(CmdConst.TASK_EVENT.getString())) {
+            return CmdConst.CMD_EVENT.getString();
+        }
+        return CmdConst.CMD_HELP.getString();
+    }
+
+    /**
+     * Returns a list of all available commands.
+     */
+    public static String help(String input, TaskList tasks) throws InvalidInputException{
+        if (input.equals(CmdConst.CMD_HELP.getString())) {
+            return CmdConst.CMD_BYE.getString() + "\n\n"
+                    + CmdConst.CMD_LIST.getString() + "\n\n"
+                    + CmdConst.CMD_FIND.getString() + CmdConst.MSG_INVALID_CMD_TODO.getString()
+                    + "\n\n" + CmdConst.CMD_MARK.getString() + " / " + CmdConst.CMD_UNMARK.getString()
+                    + " / " + CmdConst.CMD_DELETE.getString()
+                    + CmdConst.MSG_INVALID_CMD_MARK.getString() + tasks.size() + "\n\n"
+                    + CmdConst.CMD_TODO.getString() + CmdConst.MSG_INVALID_CMD_TODO.getString()
+                    + "\n\n" + CmdConst.CMD_DEADLINE.getString()
+                    + CmdConst.MSG_INVALID_CMD_DEADLINE.getString() + "\n\n"
+                    + CmdConst.CMD_EVENT.getString() + CmdConst.MSG_INVALID_CMD_EVENT.getString();
         } else {
             throw new InvalidInputException();
         }

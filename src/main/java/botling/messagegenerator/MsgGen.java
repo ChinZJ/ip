@@ -1,5 +1,7 @@
 package botling.messagegenerator;
 
+import botling.commands.CommandColor;
+
 /**
  * Responsible for generating all messages where appropriate.
  */
@@ -44,7 +46,13 @@ public class MsgGen {
     /**
      * Provides a wrapper for TaskList mark() message.
      */
-    public static String mark(String message) {
+    public static String mark(String message, CommandColor cmdColor) {
+        String[] messages = new String[]{
+                MsgGenConst.MSG_TASK_DONE.getString(),
+                message
+        };
+        Integer[] lines = new Integer[]{1};
+        cmdColor.setAll(messages, lines);
         return MsgGenConst.MSG_TASK_DONE.getString() + message;
     }
 
@@ -74,7 +82,16 @@ public class MsgGen {
      * @param message Message generated from TaskList.
      * @param size Size of TaskList.
      */
-    public static String delete(String message, int size) {
+    public static String delete(String message, int size, CommandColor cmdColor) {
+        String[] messages = new String[]{
+                MsgGenConst.MSG_TASK_DELETE.getString(),
+                message,
+                MsgGenConst.MSG_CURRENT_SIZE_P1.getString(),
+                String.valueOf(size),
+                MsgGenConst.MSG_CURRENT_SIZE_P2.getString()
+        };
+        Integer[] lines = new Integer[]{1};
+        cmdColor.setAll(messages, lines);
         return MsgGenConst.MSG_TASK_DELETE.getString()
                 + message
                 + MsgGenConst.MSG_CURRENT_SIZE_P1.getString() + size

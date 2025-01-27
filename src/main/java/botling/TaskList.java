@@ -124,7 +124,7 @@ public class TaskList {
      */
     public String add(Task newTask) {
         tasks.add(newTask);
-        return " " + newTask.getTaskStatus() + "\n";
+        return " " + newTask.getTaskStatus();
     }
 
     /**
@@ -135,7 +135,7 @@ public class TaskList {
     public String remove(int index) {
         Task task = tasks.get(index);
         tasks.remove(index);
-        return " " + task.getTaskStatus() + "\n";
+        return " " + task.getTaskStatus();
     }
 
     /**

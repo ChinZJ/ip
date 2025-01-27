@@ -12,7 +12,7 @@ public enum MsgGenConst {
 
     // For list / find.
     MSG_ADD("Got it. I've added this task: \n"),
-    MSG_CURRENT_SIZE_P1("Now you have "),
+    MSG_CURRENT_SIZE_P1("\nNow you have "),
     MSG_CURRENT_SIZE_P2(" tasks in the list."),
     MSG_CURRENT_TASKS("Here are the tasks in your list:\n"),
     MSG_EMPTY_LIST("There are currently no tasks!"),
@@ -27,7 +27,8 @@ public enum MsgGenConst {
     // For unexpected inputs
     MSG_INVALID_CMD_P1("OOPS!!! The format of "),
     MSG_INVALID_CMD_P2(" should be "),
-    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist(yet)."),
+    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist (yet). \n"
+            + "Type 'help' for a list of commands and their syntax!"),
 
     // For corrupt files
     CORRUPT_FILE("Please enter 'y' for yes and 'n' for no.");

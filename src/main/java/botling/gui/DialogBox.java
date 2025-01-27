@@ -20,7 +20,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 /**
  * Represents a dialog box consisting of an ImageView to represent the speaker's face
@@ -33,6 +37,8 @@ public class DialogBox extends HBox {
     @FXML
     private ImageView displayPicture;
     private Text textNode;
+
+    private Group selectionGroup;
 
     private DialogBox(String text, Image img) {
         try {
@@ -54,7 +60,6 @@ public class DialogBox extends HBox {
                 textAreaResize();
             }
         });
-
         displayPicture.setImage(img);
     }
 
@@ -164,15 +169,37 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Generates a DialogBox object for the user
+     * Generates a DialogBox object for the user.
      */
     public static DialogBox getUserDialog(String text, Image img) {
         return new DialogBox(text, img);
     }
 
-    public static DialogBox getBotlingDialog(String text, Image img) {
+    private void findSelectionGroup() {
+        Region content = (Region) dialog.lookup(".content");
+        if (content != null) {
+            // Find the selection group in TextArea
+            content.getChildrenUnmodifiable().stream()
+                    .filter(node -> node instanceof Group)
+                    .map(node -> (Group) node)
+                    .filter(grp -> {
+                        boolean notSelectionGroup = grp.getChildren().stream()
+                                .anyMatch(node -> !(node instanceof Path));
+                        return !notSelectionGroup;
+                    })
+                    .findFirst()
+                    .ifPresent(n -> selectionGroup = n);
+        }
+    }
+
+    /**
+     * Generates DialogBox object for Botling.
+     */
+    public static DialogBox getBotlingDialog(String text, Image img,
+                                             String commandType, String[] messages, Integer[] lines) {
         var db = new DialogBox(text, img);
         db.flip();
         return db;
     }
+
 }
