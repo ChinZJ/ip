@@ -165,8 +165,6 @@ public class TaskListWriterTest {
         assertEquals(0, testList.size());
         assertEquals("", testList.fileString());
         assertEquals("", testList.list());
-
-
     }
 
     @Test
@@ -177,9 +175,18 @@ public class TaskListWriterTest {
             writer.write(fileHistory);
         }
 
+        String input = "n";
+        provideInput(input);
+
         TaskListWriter tester = new TaskListWriter();
         TaskList testList = new TaskList();
-        tester.restore(testList);
+
+        try {
+            tester.restore(testList);
+        } catch (RuntimeException e) {
+            assertEquals("User chose not to delete corrupted file.", e.getMessage());
+        }
+
 
         try (BufferedReader reader = new BufferedReader(
                 new FileReader("./data/history.txt"))) {

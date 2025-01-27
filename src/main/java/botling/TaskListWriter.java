@@ -60,7 +60,7 @@ public class TaskListWriter {
     /**
      * Reads the history file and generates a <code>TaskList</code> object off of it.
      */
-    private TaskList read(TaskList tasks) {
+    private TaskList read(TaskList tasks) throws RuntimeException {
         try (BufferedReader reader = new BufferedReader(
                 new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
             String cmd;
@@ -123,7 +123,6 @@ public class TaskListWriter {
                                 } else {
                                     task = new Events(name, mark, arg1, arg2);
                                 }
-
                                 tasks.add(task);
                                 break;
                             default:
@@ -145,11 +144,12 @@ public class TaskListWriter {
                                 File file = new File(TaskListWriter.HISTORY_DATA_PATH);
                                 file.delete();
                                 file.createNewFile();
+                                return tasks;
                             } else {
                                 System.out.println(
                                         "Program will now terminate. Please check the file.");
-                                System.exit(0);
-                                return null;
+                                throw new RuntimeException(
+                                        "User chose not to delete corrupted file.");
                             }
                         }
                     }
