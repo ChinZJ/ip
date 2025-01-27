@@ -30,7 +30,7 @@ public class CommandParser {
     public static String start(TaskList tasks) {
         String message = TaskListWriter.restore(tasks);
         if (tasks.isOpen()) {
-            return (MsgGen.greet() + "\n" + message);
+            return (message + "\n" + MsgGen.greet());
         }
         return message;
     }
@@ -351,4 +351,3 @@ public class CommandParser {
     }
 
 }
-

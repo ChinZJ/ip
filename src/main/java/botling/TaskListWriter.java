@@ -43,14 +43,14 @@ public class TaskListWriter {
 
         File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
         if (!historyFile.exists()) {
-            message += "No history file found! Creating history file...\n";
+            message += "No history file found! Creating history file...";
             try {
                 historyFile.createNewFile();
             } catch (IOException e) {
                 System.out.println("Error creating history file: " + e.getMessage());
             }
         } else {
-            message += "History file found! Restoring data...\n";
+            message += "History file found! Restoring data...";
             tasks = TaskListWriter.read(tasks);
             // If tasks is closed, then the history file is corrupt.
             // Push the error message back

@@ -95,7 +95,7 @@ public class MsgGen {
         return MsgGenConst.MSG_INVALID_CMD_P1.getString()
                 + cmd
                 + MsgGenConst.MSG_INVALID_CMD_P2.getString()
-                + cmd + syntax + "\n";
+                + cmd + syntax;
     }
 
     /**

@@ -1,4 +1,4 @@
-.label {
+.text-area {
     -fx-background-color: linear-gradient(to bottom,
             rgba(255, 255, 255, 0.9) 0%,
             rgba(173, 216, 230, 0.8) 50%,
@@ -13,7 +13,17 @@
     -fx-font: 18px "Tahoma";
 }
 
-.reply-label {
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: never;
+    -fx-background-color: transparent;
+}
+
+.reply-text-area {
     -fx-background-radius: 1em 1em 1em 0;
     -fx-border-radius: 1em 1em 1em 0;
     -fx-font: 18px "Tahoma";
