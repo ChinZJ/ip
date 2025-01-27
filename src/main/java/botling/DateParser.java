@@ -1,18 +1,21 @@
 package botling;
 
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Optional;
 
 /**
  * Check if user input is valid as a date object.
  */
 public class DateParser {
-    private static final DateTimeFormatter PREFERRED_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-    private static final DateTimeFormatter SAVED_FORMAT = DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
-    private static final DateTimeFormatter NO_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter PREFERRED_FORMAT = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd HHmm");
+    private static final DateTimeFormatter SAVED_FORMAT = DateTimeFormatter
+            .ofPattern("dd MMM yyyy HHmm");
+    private static final DateTimeFormatter NO_TIME_FORMAT = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd");
 
 
     /**

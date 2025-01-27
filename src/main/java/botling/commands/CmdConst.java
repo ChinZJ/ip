@@ -1,5 +1,9 @@
 package botling.commands;
 
+/**
+ * Commands used by Botling.
+ * Used in parsing commands.
+ */
 public enum CmdConst {
     // Unique commands.
     CMD_BY(" /by "),
@@ -28,14 +32,15 @@ public enum CmdConst {
     MSG_INVALID_CMD_DATE("\t Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'"),
     MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline>.\n"),
     MSG_INVALID_CMD_EVENT(" <name> /from <start> /to <end>.\n"),
-    MSG_INVALID_CMD_EVENT_DATE("\t <start> should be before or equal to <end> if dates are inputs.\n"),
+    MSG_INVALID_CMD_EVENT_DATE("\t <start> should be before or equal to <end>"
+            + "if dates are inputs.\n"),
     MSG_INVALID_CMD_MARK(" <X>, where X is a positive integer <= "),
     MSG_INVALID_CMD_TODO(" <name>.");
 
     private final String message;
 
     /**
-     * Default constructor
+     * Default constructor.
      */
     CmdConst(String message) {
         this.message = message;

@@ -1,0 +1,62 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #E0F7FA, #B2EBF2, #80DEEA, #4DD0E1, #26C6DA);
+    -fx-background-image: url('../images/Wallpaper.png');
+    -fx-background-size: stretch;
+}
+
+.text-field {
+    -fx-background-color: #E6D5B8;
+    -fx-font: 18px "Tahoma";
+}
+
+.button {
+    -fx-background-color: #C2B280;
+    -fx-font: italic bold 16px "Tahoma";
+}
+
+.button:hover {
+    -fx-background-color:#F5E6D3;
+    -fx-font-size: 18px;
+}
+
+.button:pressed {
+    -fx-background-color:#E6D5B8;
+    -fx-font-size: 18px;
+}
+
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 15px;  /* To accommodate bottle size. */
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-font-size: 10px;  /* Change width of scroll bar. */
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    /* Use your image as the background */
+    -fx-background-image: url('../images/InvertWaves.png');
+    -fx-effect: innershadow(one-pass-box, white, 0, 1, 0, 0);
+    -fx-background-size: stretch;
+    -fx-background-repeat: repeat-y;
+    -fx-background-position: center;
+    -fx-background-size: contain;  /* This makes the image fit within the thumb area */
+
+    /* Make the thumb background transparent so only the image shows */
+    -fx-background-color: transparent;
+    -fx-background-radius: 1em;
+}
+
+/* Hides the increment and decrement buttons. */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+

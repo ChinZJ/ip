@@ -1,13 +1,13 @@
 package botling.tasks;
 
-import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * <code>Deadline</code> object that also has a <code>date</code> for a deadline.
  * <code>date</code>s are in the format yyyy-mm-dd HHmm (24-hour format).
  */
-public class DeadlineDate extends Deadlines{
+public class DeadlineDate extends Deadlines {
     private final LocalDateTime dateTime;
 
     /**
@@ -22,7 +22,8 @@ public class DeadlineDate extends Deadlines{
      * Alternative constructor for full specification of attributes.
      */
     public DeadlineDate(String name, boolean isDone, LocalDateTime dateTime) {
-        super(name, isDone, dateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")).toString());
+        super(name, isDone, dateTime
+                .format(DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")).toString());
         this.dateTime = dateTime;
     }
 
