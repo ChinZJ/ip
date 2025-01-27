@@ -45,6 +45,7 @@ public class DialogBox extends HBox {
             e.printStackTrace();
         }
 
+
         dialog.setText(text);
         // Issue with TextArea is that it has scroll bars,
         // and its size does not seem to be dynamic as well.
@@ -65,6 +66,8 @@ public class DialogBox extends HBox {
         // TextArea has both horizontal and vertical.
         // Adapted from:
         // https://github.com/dlsc-software-consulting-gmbh/GemsFX/tree/master
+        // Unsure why the scroll does not work though.
+        // Look into it in the future.
         ScrollPane scrollPane = (ScrollPane) dialog.lookup(".scroll-pane");
         if (scrollPane != null) {
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -130,7 +133,6 @@ public class DialogBox extends HBox {
 
         Bounds layoutBounds = localToScreen(textNode.getLayoutBounds());
         if (layoutBounds != null) {
-
             double minY = layoutBounds.getMinY();
             double maxY = layoutBounds.getMaxY();
 
