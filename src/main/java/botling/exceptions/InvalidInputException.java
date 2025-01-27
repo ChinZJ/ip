@@ -1,7 +1,5 @@
 package botling.exceptions;
 
-import java.lang.Exception;
-
 /**
  * Dummy exception for catching and throwing.
  */

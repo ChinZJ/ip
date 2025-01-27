@@ -1,6 +1,11 @@
 package botling.commands;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 import botling.DateParser;
+import botling.TaskList;
+import botling.TaskListWriter;
 import botling.exceptions.InvalidInputException;
 import botling.messagegenerator.MsgGen;
 import botling.tasks.DeadlineDate;
@@ -9,10 +14,6 @@ import botling.tasks.EventDate;
 import botling.tasks.Events;
 import botling.tasks.Task;
 import botling.tasks.ToDo;
-import botling.TaskList;
-import botling.TaskListWriter;
-import java.time.LocalDateTime;
-import java.util.Optional;
 
 /**
  * Parses user input and uses <code>MsgGen</code> to generate messages appropriately.
@@ -35,7 +36,7 @@ public class CommandParser {
      */
     public String start(TaskList tasks) {
         String message = tasksRestore.restore(tasks);
-        return (message + "\n" + MsgGen.greet()) ;
+        return (message + "\n" + MsgGen.greet());
     }
 
     /**
@@ -74,7 +75,7 @@ public class CommandParser {
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownCmd();
                 }
-            }else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_MARK.getString())) {
                 // "mark" command.
                 try {
                     message = MsgGen.mark(mark(input, tasks));
@@ -92,7 +93,7 @@ public class CommandParser {
                             CmdConst.MSG_INVALID_CMD_MARK.getString()
                             + String.valueOf(tasks.size()));
                 }
-            }  else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
+            } else if (input.startsWith(CmdConst.CMD_DELETE.getString())) {
                 // "delete" command.
                 try {
                     message = delete(input, tasks);
@@ -124,7 +125,7 @@ public class CommandParser {
             } else if (input.startsWith(CmdConst.CMD_EVENT.getString())) {
                 try {
                     message = event(input, tasks);
-                    message = MsgGen.add(message,tasks.size());
+                    message = MsgGen.add(message, tasks.size());
                 } catch (InvalidInputException e) {
                     message = MsgGen.unknownSyntax(CmdConst.CMD_EVENT.getString(),
                             CmdConst.MSG_INVALID_CMD_EVENT.getString()
@@ -263,7 +264,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing deadline inputs
+     * Method for parsing deadline inputs.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
@@ -271,9 +272,9 @@ public class CommandParser {
         if (input.matches(CmdConst.TASK_DEADLINE.getString())) {
             // Deadline has a /by specification, greedily take the first in sequence.
             String withoutDeadline = input.substring(ValConstants.TASK_DEADLINE_IDX.getVal());
-            int by_idx = withoutDeadline.indexOf(CmdConst.CMD_BY.getString());
-            String deadlineName = withoutDeadline.substring(0, by_idx);
-            String by = withoutDeadline.substring(by_idx
+            int byIdx = withoutDeadline.indexOf(CmdConst.CMD_BY.getString());
+            String deadlineName = withoutDeadline.substring(0, byIdx);
+            String by = withoutDeadline.substring(byIdx
                     + ValConstants.TASK_BY_IDX.getVal());
             Task newTask;
 
@@ -304,13 +305,13 @@ public class CommandParser {
             // Event has /from and /to specification.
             // Greedily take the first in sequential order.
             String withoutEvent = input.substring(ValConstants.TASK_EVENT_IDX.getVal());
-            int from_idx = withoutEvent.indexOf(CmdConst.CMD_FROM.getString());
-            String eventName = withoutEvent.substring(0, from_idx);
-            String remainingSplit = withoutEvent.substring(from_idx
+            int fromIdx = withoutEvent.indexOf(CmdConst.CMD_FROM.getString());
+            String eventName = withoutEvent.substring(0, fromIdx);
+            String remainingSplit = withoutEvent.substring(fromIdx
                     + ValConstants.TASK_FROM_IDX.getVal());
-            int to_idx = remainingSplit.indexOf(CmdConst.CMD_TO.getString());
-            String eventFrom = remainingSplit.substring(0, to_idx);
-            String eventTo = remainingSplit.substring(to_idx
+            int toIdx = remainingSplit.indexOf(CmdConst.CMD_TO.getString());
+            String eventFrom = remainingSplit.substring(0, toIdx);
+            String eventTo = remainingSplit.substring(toIdx
                     + ValConstants.TASK_TO_IDX.getVal());
             Task newTask;
 

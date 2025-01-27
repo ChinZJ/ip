@@ -1,5 +1,8 @@
 package botling.messagegenerator;
 
+/**
+ * Message constants used to generate Botling's replies.
+ */
 public enum MsgGenConst {
 
     // For greetings and farewells.

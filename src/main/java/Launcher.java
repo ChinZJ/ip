@@ -1,5 +1,4 @@
 import botling.Main;
-
 import javafx.application.Application;
 
 /**

@@ -1,7 +1,6 @@
 package botling.gui;
 
 import botling.Botling;
-
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -33,13 +32,16 @@ public class MainWindow extends AnchorPane {
     private Image botlingImage = new Image(this.getClass()
             .getResourceAsStream("/images/TurtleBot.png"));
 
+    /**
+     * Used to initialize the main window of the GUI.
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
 
     }
 
-    /** Injects the Botling instance */
+    /** Injects the Botling instance. */
     public void setBotling(Botling d) {
         botling = d;
     }
@@ -53,7 +55,9 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Botling's reply and then appends them to
+     * Creates two dialog boxes
+     * one echoing user input
+     * and the other containing Botling's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML

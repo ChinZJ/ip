@@ -1,5 +1,8 @@
 package botling.commands;
 
+/**
+ * Value constants to be used to parse user input commands.
+ */
 public enum ValConstants {
     // Tasks constants.
     TASK_BY_IDX(5),

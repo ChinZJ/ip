@@ -1,14 +1,14 @@
 package botling;
 
-import botling.gui.MainWindow;
-
 import java.io.IOException;
 
+import botling.gui.MainWindow;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 
 /**
  * A GUI for Botling using FXML.
@@ -28,7 +28,8 @@ public class Main extends Application {
             stage.setMinWidth(417);
 
             // Load up Botling start message
-            // fxmlLoader.<MainWindow>getController().setBotling(botling);  // inject the Botling instance - from demo
+            // inject the Botling instance - from demo
+            // fxmlLoader.<MainWindow>getController().setBotling(botling);
             MainWindow mainWindow = fxmlLoader.getController();
             mainWindow.setBotling(botling);
             mainWindow.startUp(botling.startUp());

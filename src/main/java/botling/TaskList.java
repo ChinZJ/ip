@@ -1,7 +1,8 @@
 package botling;
 
-import botling.tasks.Task;
 import java.util.ArrayList;
+
+import botling.tasks.Task;
 
 /**
  * Stores all <code>Task</code> objects.

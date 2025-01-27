@@ -1,13 +1,5 @@
 package botling;
 
-import botling.exceptions.InvalidInputException;
-
-import botling.tasks.DeadlineDate;
-import botling.tasks.Deadlines;
-import botling.tasks.EventDate;
-import botling.tasks.Events;
-import botling.tasks.Task;
-import botling.tasks.ToDo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +9,14 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Scanner;
+
+import botling.exceptions.InvalidInputException;
+import botling.tasks.DeadlineDate;
+import botling.tasks.Deadlines;
+import botling.tasks.EventDate;
+import botling.tasks.Events;
+import botling.tasks.Task;
+import botling.tasks.ToDo;
 
 /**
  * Used to perform I/O actions for <code>TaskList</code> objects to hard disk where appropriate.
@@ -61,8 +61,12 @@ public class TaskListWriter {
      * Reads the history file and generates a <code>TaskList</code> object off of it.
      */
     private TaskList read(TaskList tasks) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
-            String cmd, name, arg1, arg2;
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
+            String cmd;
+            String name;
+            String arg1;
+            String arg2;
             boolean mark;
             boolean isValid = true;
 
@@ -101,14 +105,18 @@ public class TaskListWriter {
                                 name = reader.readLine();
                                 mark = validateAndParseBool(reader.readLine());
 
-                                // Check if eventFrom and eventTo are of valid LocalDateTime objects.
-                                Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(arg1);
-                                Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(arg2);
+                                // Check if eventFrom and eventTo are valid LocalDateTime objects.
+                                Optional<LocalDateTime> startDateTimeOpt = DateParser
+                                        .parseDateTime(arg1);
+                                Optional<LocalDateTime> endDateTimeOpt = DateParser
+                                        .parseDateTime(arg2);
                                 if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
                                     LocalDateTime startDateTime = startDateTimeOpt.get();
                                     LocalDateTime endDateTime = endDateTimeOpt.get();
-                                    if (startDateTime.isBefore(endDateTime) || startDateTime.isEqual(endDateTime)) {
-                                        task = new EventDate(name, mark, startDateTime, endDateTime);
+                                    if (startDateTime.isBefore(endDateTime)
+                                            || startDateTime.isEqual(endDateTime)) {
+                                        task = new EventDate(
+                                                name, mark, startDateTime, endDateTime);
                                     } else {
                                         throw new InvalidInputException();
                                     }
@@ -118,6 +126,8 @@ public class TaskListWriter {
 
                                 tasks.add(task);
                                 break;
+                            default:
+                                throw new InvalidInputException();
                             }
                         } catch (InvalidInputException e) {
                             System.out.println("An error occurred while trying to read"
@@ -136,7 +146,8 @@ public class TaskListWriter {
                                 file.delete();
                                 file.createNewFile();
                             } else {
-                                System.out.println("Program will now terminate. Please check the file.");
+                                System.out.println(
+                                        "Program will now terminate. Please check the file.");
                                 System.exit(0);
                                 return null;
                             }
@@ -172,7 +183,8 @@ public class TaskListWriter {
      * Writes to file to save tasks.
      */
     public void write(TaskList tasks) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(TaskListWriter.HISTORY_DATA_PATH))){
+        try (PrintWriter writer = new PrintWriter(
+                new FileWriter(TaskListWriter.HISTORY_DATA_PATH))) {
             writer.print(tasks.fileString());
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
