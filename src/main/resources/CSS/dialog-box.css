@@ -23,6 +23,11 @@
     -fx-background-color: transparent;
 }
 
+.text-flow Text {
+    -fx-background-color: transparent;
+    -fx-font: 18px "Tahoma";
+}
+
 .reply-text-area {
     -fx-background-radius: 1em 1em 1em 0;
     -fx-border-radius: 1em 1em 1em 0;

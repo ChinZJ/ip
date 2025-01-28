@@ -33,9 +33,7 @@ public class TaskList {
     public String list() {
         StringBuilder strCreator = new StringBuilder();
         for (int i = 0; i < this.size(); i++) {
-            strCreator.append(String.format(" %d. %s",
-                    i + 1,
-                    this.get(i).getTaskStatus()));
+            strCreator.append(" " + (i + 1) + ". " + this.get(i).getTaskStatus());
             if (i != this.size() -1) {
                 strCreator.append("\n");
             }
@@ -52,9 +50,7 @@ public class TaskList {
         for (int i = 0; i < this.size(); i++) {
             task = this.get(i);
             if (task.toString().toLowerCase().contains(input.toLowerCase())) {
-                strCreator.append(String.format(" %d. %s",
-                        i + 1,
-                        this.get(i).getTaskStatus()));
+                strCreator.append(" " + (i + 1) + ". " + this.get(i).getTaskStatus());
                 if (i != this.size() -1) {
                     strCreator.append("\n");
                 }
@@ -144,7 +140,7 @@ public class TaskList {
     public String fileString() {
         StringBuilder strCreator = new StringBuilder();
         for (int i = 0; i < this.size(); i++) {
-            strCreator.append(String.format(this.get(i).getTaskData()));
+            strCreator.append(this.get(i).getTaskData());
             if (i != this.size() -1) {
                 strCreator.append("\n");
             }

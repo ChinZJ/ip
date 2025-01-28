@@ -22,9 +22,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
+import javafx.scene.text.TextFlow;
 
 /**
  * Represents a dialog box consisting of an ImageView to represent the speaker's face
@@ -32,15 +31,21 @@ import javafx.util.Duration;
  */
 public class DialogBox extends HBox {
 
+    private static Color[] COLORS = new Color[]{Color.TRANSPARENT, Color.GREEN, Color.RED};
+
     @FXML
     private TextArea dialog;
     @FXML
     private ImageView displayPicture;
+    @FXML
+    private TextFlow textFlow; // Needs to overlay TextArea to provide color
     private Text textNode;
+    private double savedHeight;
+
 
     private Group selectionGroup;
 
-    private DialogBox(String text, Image img) {
+    private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(
                     MainWindow.class.getResource("/view/DialogBox.fxml"));
@@ -51,7 +56,7 @@ public class DialogBox extends HBox {
             e.printStackTrace();
         }
 
-
+        // Establish TextArea
         dialog.setText(text);
         // Issue with TextArea is that it has scroll bars,
         // and its size does not seem to be dynamic as well.
@@ -60,6 +65,20 @@ public class DialogBox extends HBox {
                 textAreaResize();
             }
         });
+
+        // Establish TextFlow
+        if (colorCodes.length != 0 && colorCodes.length == coloredText.length) {
+            textFlow.getChildren().clear();
+
+            for (int i = 0; i < coloredText.length; i++) {
+                System.out.println("Coloring: " + coloredText[i] + " with color " + colorCodes[i]);
+                Text styledText = new Text(coloredText[i]);
+                styledText.setFill(COLORS[colorCodes[i]]);
+                textFlow.getChildren().add(styledText);
+            }
+
+        }
+
         displayPicture.setImage(img);
     }
 
@@ -158,48 +177,42 @@ public class DialogBox extends HBox {
         setAlignment(Pos.BOTTOM_LEFT);
         dialog.getStyleClass().add("reply-text-area");
 
-        // Get current margins to flip as well
-        Insets currentMargins = HBox.getMargin(dialog);
-        HBox.setMargin(dialog, new Insets(
-                currentMargins.getTop(),
-                currentMargins.getLeft(),  // Swap left and right margins
-                currentMargins.getBottom(),
-                currentMargins.getRight()  // Swap left and right margins
-        ));
+        // Flip margins for both TextArea and TextFlow
+        Insets originalMargins = StackPane.getMargin(dialog);
+        Insets flippedMargins = new Insets(
+                originalMargins.getTop(),
+                originalMargins.getLeft(),  // Swap left and right
+                originalMargins.getBottom(),
+                originalMargins.getRight());
+
+        // Apply flipped margins to both components
+        StackPane.setMargin(dialog, flippedMargins);
+        StackPane.setMargin(textFlow, flippedMargins);
     }
 
     /**
      * Generates a DialogBox object for the user.
      */
     public static DialogBox getUserDialog(String text, Image img) {
-        return new DialogBox(text, img);
+        Integer[] dummyInt = new Integer[0];
+        String[] dummyString = new String[0];
+        return new DialogBox(text, img, dummyInt, dummyString);
     }
 
-    private void findSelectionGroup() {
-        Region content = (Region) dialog.lookup(".content");
-        if (content != null) {
-            // Find the selection group in TextArea
-            content.getChildrenUnmodifiable().stream()
-                    .filter(node -> node instanceof Group)
-                    .map(node -> (Group) node)
-                    .filter(grp -> {
-                        boolean notSelectionGroup = grp.getChildren().stream()
-                                .anyMatch(node -> !(node instanceof Path));
-                        return !notSelectionGroup;
-                    })
-                    .findFirst()
-                    .ifPresent(n -> selectionGroup = n);
-        }
-    }
 
     /**
      * Generates DialogBox object for Botling.
      */
     public static DialogBox getBotlingDialog(String text, Image img,
-                                             String commandType, String[] messages, Integer[] lines) {
-        var db = new DialogBox(text, img);
+                                             String commandType, Integer[] lines, String[] messages) {
+
+        var db = new DialogBox(text, img, lines, messages);
         db.flip();
         return db;
+    }
+
+    public Text getTextNode() {
+        return textNode;
     }
 
 }

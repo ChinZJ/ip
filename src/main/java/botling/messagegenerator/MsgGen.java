@@ -47,11 +47,9 @@ public class MsgGen {
      * Provides a wrapper for TaskList mark() message.
      */
     public static String mark(String message, CommandColor cmdColor) {
-        String[] messages = new String[]{
-                MsgGenConst.MSG_TASK_DONE.getString(),
-                message
-        };
-        Integer[] lines = new Integer[]{1};
+        String[] messages = new String[]{MsgGenConst.MSG_TASK_DONE.getString(),
+                message};
+        Integer[] lines = new Integer[]{0, 1};
         cmdColor.setAll(messages, lines);
         return MsgGenConst.MSG_TASK_DONE.getString() + message;
     }
@@ -83,14 +81,11 @@ public class MsgGen {
      * @param size Size of TaskList.
      */
     public static String delete(String message, int size, CommandColor cmdColor) {
-        String[] messages = new String[]{
-                MsgGenConst.MSG_TASK_DELETE.getString(),
+        String[] messages = new String[]{MsgGenConst.MSG_TASK_DELETE.getString(),
                 message,
-                MsgGenConst.MSG_CURRENT_SIZE_P1.getString(),
-                String.valueOf(size),
-                MsgGenConst.MSG_CURRENT_SIZE_P2.getString()
-        };
-        Integer[] lines = new Integer[]{1};
+                MsgGenConst.MSG_CURRENT_SIZE_P1.getString() + size,
+                MsgGenConst.MSG_CURRENT_SIZE_P2.getString()};
+        Integer[] lines = new Integer[]{0, 2, 0, 0};
         cmdColor.setAll(messages, lines);
         return MsgGenConst.MSG_TASK_DELETE.getString()
                 + message

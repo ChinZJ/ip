@@ -5,14 +5,12 @@ import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -55,7 +53,7 @@ public class MainWindow extends AnchorPane {
     public void startUp(String message) {
         dialogContainer.getChildren().add(
             DialogBox.getBotlingDialog(message, botlingImage,
-                    "", botling.getMessages(), botling.getLines()));
+                    "", botling.getLines(), botling.getMessages()));
     }
 
     /**
@@ -69,6 +67,7 @@ public class MainWindow extends AnchorPane {
         String input = userInput.getText();
         // Handles the \n that comes with the input
         input = input.substring(0, input.length() - 1);
+        System.out.println(input);
         String commandType = botling.getCommandType(input);
 
         String response = botling.getResponse(input);
@@ -76,10 +75,10 @@ public class MainWindow extends AnchorPane {
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
                 DialogBox.getBotlingDialog(response, botlingImage,
-                        commandType, botling.getMessages(), botling.getLines()));
+                        commandType, botling.getLines(), botling.getMessages()));
         userInput.clear();
 
-        if (input.trim().equalsIgnoreCase("bye")) {
+        if (input.equals("bye")) {
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(event -> Platform.exit());
             delay.play();
