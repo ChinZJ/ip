@@ -32,6 +32,7 @@ dependencies {
     implementation group: 'org.openjfx', name: 'javafx-graphics', version: javaFxVersion, classifier: 'linux'
 }
 
+
 test {
     useJUnitPlatform()
 
@@ -45,6 +46,8 @@ test {
         showStandardStreams = false
     }
 }
+
+
 
 application {
     mainClass.set("Launcher")

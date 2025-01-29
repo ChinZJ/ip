@@ -9,7 +9,15 @@ public class CommandColor {
     private Integer[] lines;
 
     /**
-     * Default constructor
+     * Additional constructor.
+     * Used in tests.
+     */
+    public CommandColor() {
+        this(new Integer[0]);
+    }
+
+    /**
+     * Default constructor.
      * @param messages that are separated by lines.
      * @param lines that need to be colored
      */
@@ -18,7 +26,9 @@ public class CommandColor {
         this.lines = lines;
     }
 
-    // Resets messages and lines
+    /**
+     * Resets messages and lines.
+      */
     public void reset() {
         messages = new String[0];
         lines = new Integer[0];

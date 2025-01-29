@@ -53,7 +53,7 @@ public class MainWindow extends AnchorPane {
     public void startUp(String message) {
         dialogContainer.getChildren().add(
             DialogBox.getBotlingDialog(message, botlingImage,
-                    "", botling.getLines(), botling.getMessages()));
+                    botling.getLines(), botling.getMessages()));
     }
 
     /**
@@ -67,15 +67,13 @@ public class MainWindow extends AnchorPane {
         String input = userInput.getText();
         // Handles the \n that comes with the input
         input = input.substring(0, input.length() - 1);
-        System.out.println(input);
-        String commandType = botling.getCommandType(input);
 
         String response = botling.getResponse(input);
 
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
                 DialogBox.getBotlingDialog(response, botlingImage,
-                        commandType, botling.getLines(), botling.getMessages()));
+                        botling.getLines(), botling.getMessages()));
         userInput.clear();
 
         if (input.equals("bye")) {
@@ -86,7 +84,7 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Keypress for TextArea
+     * Keypress for TextArea.
      */
     @FXML
     private void handleKeyPress(KeyEvent event) {

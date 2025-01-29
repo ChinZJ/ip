@@ -21,7 +21,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -30,8 +29,6 @@ import javafx.scene.text.TextFlow;
  * and a label containing text from the speaker.
  */
 public class DialogBox extends HBox {
-
-    private static Color[] COLORS = new Color[]{Color.TRANSPARENT, Color.GREEN, Color.RED};
 
     @FXML
     private TextArea dialog;
@@ -66,17 +63,29 @@ public class DialogBox extends HBox {
             }
         });
 
+
         // Establish TextFlow
         if (colorCodes.length != 0 && colorCodes.length == coloredText.length) {
             textFlow.getChildren().clear();
-
-            for (int i = 0; i < coloredText.length; i++) {
-                System.out.println("Coloring: " + coloredText[i] + " with color " + colorCodes[i]);
-                Text styledText = new Text(coloredText[i]);
-                styledText.setFill(COLORS[colorCodes[i]]);
-                textFlow.getChildren().add(styledText);
+            try {
+                for (int i = 0; i < coloredText.length; i++) {
+                    Text styledText = new Text(coloredText[i]);
+                    if (colorCodes[i] == ColorNames.COLOR_STRIKETHROUGH.getIndex()) {
+                        styledText.setStrikethrough(true);
+                    } else {
+                        styledText.setFill(ColorNames.getColor(colorCodes[i]));
+                    }
+                    textFlow.getChildren().add(styledText);
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Check code!" + e.getMessage());
+            } catch (NullPointerException e) {
+                System.out.println("Check code!" + e.getMessage());
             }
 
+        } else {
+            Text styledText = new Text(text);
+            textFlow.getChildren().add(styledText);
         }
 
         displayPicture.setImage(img);
@@ -181,7 +190,7 @@ public class DialogBox extends HBox {
         Insets originalMargins = StackPane.getMargin(dialog);
         Insets flippedMargins = new Insets(
                 originalMargins.getTop(),
-                originalMargins.getLeft(),  // Swap left and right
+                originalMargins.getLeft(), // Swap left and right
                 originalMargins.getBottom(),
                 originalMargins.getRight());
 
@@ -204,7 +213,7 @@ public class DialogBox extends HBox {
      * Generates DialogBox object for Botling.
      */
     public static DialogBox getBotlingDialog(String text, Image img,
-                                             String commandType, Integer[] lines, String[] messages) {
+                                             Integer[] lines, String[] messages) {
 
         var db = new DialogBox(text, img, lines, messages);
         db.flip();

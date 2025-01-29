@@ -7,7 +7,7 @@ import botling.commands.CommandParser;
  * Main class where application starts.
  */
 public class Botling {
-    private TaskList tasks ;
+    private TaskList tasks;
     private CommandColor cmdColor;
 
     /**
@@ -24,13 +24,6 @@ public class Botling {
      */
     public String startUp() {
         return CommandParser.start(tasks);
-    }
-
-    /**
-     * Retrieves command type.
-     */
-    public String getCommandType(String input) {
-        return CommandParser.parseCommand(input);
     }
 
     /**
