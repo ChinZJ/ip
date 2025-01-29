@@ -4,9 +4,17 @@
     -fx-background-size: stretch;
 }
 
-.text-field {
+.text-area {
     -fx-background-color: #E6D5B8;
     -fx-font: 18px "Tahoma";
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
 }
 
 .button {
@@ -30,12 +38,12 @@
 }
 
 .scroll-bar:vertical {
-    -fx-pref-width: 15px;  /* To accommodate bottle size. */
+    -fx-pref-width: 15px;
     -fx-background-color: transparent;
 }
 
 .scroll-bar {
-    -fx-font-size: 10px;  /* Change width of scroll bar. */
+    -fx-font-size: 10px;
     -fx-background-color: transparent;
 }
 

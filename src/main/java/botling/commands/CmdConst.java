@@ -13,6 +13,7 @@ public enum CmdConst {
     CMD_EVENT("event"),
     CMD_FIND("find"),
     CMD_FROM(" /from "),
+    CMD_HELP("help"),
     CMD_LIST("list"),
     CMD_MARK("mark"),
     CMD_TO(" /to "),

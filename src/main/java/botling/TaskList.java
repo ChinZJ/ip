@@ -30,31 +30,39 @@ public class TaskList {
     /**
      * Scans through all tasks present in the list, and returns them in String format.
      */
-    public String list() {
-        StringBuilder strCreator = new StringBuilder();
+    public String[] list() {
+        String[] items = new String[this.size()];
         for (int i = 0; i < this.size(); i++) {
-            strCreator.append(String.format(" %d. %s\n",
-                    i + 1,
-                    this.get(i).getTaskStatus()));
+            String entry = " " + (i + 1) + ". " + this.get(i).getTaskStatus();
+            if (i != this.size() - 1) {
+                entry += "\n";
+            }
+            items[i] = entry;
         }
-        return strCreator.toString();
+        return items;
     }
 
     /**
      * Scans through all tasks and returns only those that matches the input String.
      */
-    public String find(String input) {
-        StringBuilder strCreator = new StringBuilder();
+    public String[] find(String input) {
+        String[] items = new String[this.size()];
         Task task;
+        boolean isNotFirst = false;
         for (int i = 0; i < this.size(); i++) {
             task = this.get(i);
+            String entry = ""; // Dummy initialization.
             if (task.toString().toLowerCase().contains(input.toLowerCase())) {
-                strCreator.append(String.format(" %d. %s\n",
-                        i + 1,
-                        this.get(i).getTaskStatus()));
+                if (!isNotFirst) {
+                    isNotFirst = true;
+                } else {
+                    items[i - 1] += "\n";
+                }
+                entry += " " + (i + 1) + ". " + this.get(i).getTaskStatus();
             }
+            items[i] = entry;
         }
-        return strCreator.toString();
+        return items;
     }
 
     /**
@@ -117,7 +125,7 @@ public class TaskList {
      */
     public String add(Task newTask) {
         tasks.add(newTask);
-        return " " + newTask.getTaskStatus() + "\n";
+        return " " + newTask.getTaskStatus();
     }
 
     /**
@@ -128,7 +136,7 @@ public class TaskList {
     public String remove(int index) {
         Task task = tasks.get(index);
         tasks.remove(index);
-        return " " + task.getTaskStatus() + "\n";
+        return " " + task.getTaskStatus();
     }
 
     /**
@@ -137,7 +145,10 @@ public class TaskList {
     public String fileString() {
         StringBuilder strCreator = new StringBuilder();
         for (int i = 0; i < this.size(); i++) {
-            strCreator.append(String.format("%s\n", this.get(i).getTaskData()));
+            strCreator.append(this.get(i).getTaskData());
+            if (i != this.size() - 1) {
+                strCreator.append("\n");
+            }
         }
         return strCreator.toString();
     }
