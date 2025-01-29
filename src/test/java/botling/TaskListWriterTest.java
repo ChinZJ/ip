@@ -2,22 +2,19 @@ package botling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import botling.tasks.Deadlines;
 import botling.tasks.EventDate;
 import botling.tasks.ToDo;
-import java.io.ByteArrayInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class TaskListWriterTest {
     /**
@@ -56,10 +53,10 @@ public class TaskListWriterTest {
                 + "History file found! Restoring data...\n";
         String expectedFileString = "todo\n \ntrue\n"
                 + "deadline\ntonight!\n \nfalse\n"
-                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n";
+                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue";
         String expectedListString = " 1. [T][X]  \n"
                 + " 2. [D][ ]   (by: tonight!)\n"
-                + " 3. [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359) (date)\n";
+                + " 3. [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359) (date)";
 
         ToDo first = new ToDo(" ", true);
         Deadlines second = new Deadlines(" ", "tonight!");
@@ -81,8 +78,7 @@ public class TaskListWriterTest {
         assertEquals(3, testList.size());
         assertEquals(expectedFileString, testList.fileString());
         assertEquals(expected.fileString(), testList.fileString());
-        assertEquals(expectedListString, testList.list());
-        assertEquals(expected.list(), testList.list());
+        assertEquals(expectedListString, String.join("", testList.list()));
     }
 
     @Test
@@ -101,7 +97,7 @@ public class TaskListWriterTest {
         assertEquals(expectedMsg, actual);
         assertEquals(0, testList.size());
         assertEquals("", testList.fileString());
-        assertEquals("", testList.list());
+        assertEquals(0, testList.list().length);
     }
 
     @Test
@@ -122,7 +118,7 @@ public class TaskListWriterTest {
         assertEquals(expectedMsg, actual);
         assertEquals(0, testList.size());
         assertEquals("", testList.fileString());
-        assertEquals("", testList.list());
+        assertEquals(0, testList.list().length);
     }
 
     @Test
@@ -149,7 +145,7 @@ public class TaskListWriterTest {
         tester.recreateFile();
         assertEquals(0, testList.size());
         assertEquals("", testList.fileString());
-        assertEquals("", testList.list());
+        assertEquals(0, testList.list().length);
         assertEquals(false, testList.isOpen());
 
         File file = new File("./data/history.txt");
