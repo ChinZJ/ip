@@ -1,0 +1,23 @@
+.selectable-text-flow .text-area,
+.selectable-text-flow .text-area .scroll-pane,
+.selectable-text-flow .text-area .scroll-pane .viewport,
+.selectable-text-flow .text-area .scroll-pane .viewport .content,
+.selectable-text-flow .text-area .scroll-pane .scroll-bar,
+.selectable-text-flow .text-area .scroll-pane .scroll-bar .increment-arrow,
+.selectable-text-flow .text-area .scroll-pane .scroll-bar .decrement-arrow,
+.selectable-text-flow .text-area .scroll-pane .scroll-bar .increment-button,
+.selectable-text-flow .text-area .scroll-pane .scroll-bar .decrement-button,
+.selectable-text-flow .text-area > .scroll-pane > .corner{
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent !important;
+    -fx-padding: 0px;
+    -fx-background-insets: 0px !important;
+}
+
+.selectable-text-flow .text-area .scroll-pane .scroll-bar{
+    -fx-max-width:0px;
+    -fx-max-height:0px;
+}
+.selectable-text-flow .text-area{
+    -fx-text-fill: transparent !important;
+}

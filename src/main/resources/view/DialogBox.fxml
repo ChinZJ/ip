@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.TextFlow?>
 
+<?import botling.gui.SelectableTextFlow?>
 <fx:root alignment="BOTTOM_RIGHT"
          maxHeight="1.7976931348623157E308"
          maxWidth="1.7976931348623157E308"
@@ -16,49 +14,19 @@
          xmlns="http://javafx.com/javafx/17.0.7"
          xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <StackPane>
-            <!-- TextArea for selectable text. -->
-            <TextArea fx:id="dialog"
-                   minHeight="-Infinity"
-                   text="Label"
-                   wrapText="true"
-                   editable="false"
-                   focusTraversable="false">
-            <HBox.margin>
-                <Insets left="82.0"
-                        right="7.0" />
-            </HBox.margin>
-            <StackPane.margin>
-                <Insets left="82.0"
-                        right="7.0" />
-            </StackPane.margin>
-            <padding>
-               <Insets bottom="6.0"
-                       left="6.0"
-                       right="6.0"
-                       top="6.0" />
-            </padding></TextArea>
-
-            <!-- TextFlow for colored text. -->
-            <TextFlow fx:id="textFlow"
-                      styleClass="text-flow"
-                      mouseTransparent="true"
-                      lineSpacing="1.2">
-            <HBox.margin>
-                <Insets left="82.0"
-                        right="7.0" />
-            </HBox.margin>
-            <StackPane.margin>
-                <Insets left="82.0"
-                        right="7.0" />
-            </StackPane.margin>
-            <padding>
-                <Insets bottom="3.0"
-                        left="18.8"
-                        right="18.8"
-                        top="13.8" />
-            </padding></TextFlow>
-        </StackPane>
+        <SelectableTextFlow fx:id="textFlow"
+                            styleClass="text-flow"
+                            lineSpacing="1.2">
+        <HBox.margin>
+            <Insets left="82.0"
+                    right="7.0" />
+        </HBox.margin>
+        <padding>
+            <Insets bottom="6.0"
+                    left="6.0"
+                    right="6.0"
+                    top="6.0" />
+        </padding></SelectableTextFlow>
 
         <ImageView fx:id="displayPicture"
                    fitHeight="75.0"
