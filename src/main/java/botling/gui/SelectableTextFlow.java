@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 /**
+ * Custom class to enable selectable and colorable text.
  * Adapted from:
  * https://stackoverflow.com/questions/79395124/
  * javafx-overlaying-textflow-with-textarea?noredirect=1#comment140023326_79395124
@@ -32,7 +33,7 @@ public class SelectableTextFlow extends TextFlow {
     }
 
     /**
-     * Used to make text selectable.
+     * Makes text selectable.
      * Copies all text and overlays the TextFlow object.
      */
     @Override

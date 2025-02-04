@@ -1,3 +1,0 @@
-deadline
-123
-true

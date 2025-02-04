@@ -24,7 +24,6 @@ public class CommandParser {
      * Generates start up message and checks for any history.
      *
      * @param tasks TaskList to restore progress if any.
-     *
      * @return message for Botling, inclusive of startup amd if any history is recovered.
      */
     public static String start(TaskList tasks) {
@@ -37,11 +36,11 @@ public class CommandParser {
 
     /**
      * Main method for parsing user input.
-     * Invalid inputs will throw a InvalidInputException.
+     * Invalid inputs will throw an InvalidInputException.
      *
      * @param input User input. May be valid or invalid
      * @param tasks TaskList containing list of tasks.
-     * @return message for Botling to pass messages to UI object to handle.
+     * @return Message for Botling to pass messages to UI object to handle.
      */
     public static String parse(String input, TaskList tasks, CommandColor cmdColor) {
         String message; // Dummy initialization
@@ -159,9 +158,9 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing bye inputs.
+     * Helper method for bye inputs.
      *
-     * @throws InvalidInputException if syntax is not recognized.
+     * @throws InvalidInputException When syntax is not recognized.
      */
     private static String bye(String input, TaskList tasks) throws InvalidInputException {
         if (input.equals(CmdConst.CMD_BYE.getString())) {
@@ -182,7 +181,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing find inputs.
+     * Helper method for find inputs.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
@@ -195,7 +194,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing mark inputs.
+     * Helper method for mark inputs.
      * Despite their similarities, mark() and unmark() will not have a common method base
      * due to the fact that the final method call to TaskList is different.
      * This results in unnecessary if else block statements.
@@ -220,7 +219,7 @@ public class CommandParser {
     }
 
     /**
-    * Method for parsing unmark inputs.
+     * Helper method for unmark inputs.
      * Despite their similarities, mark() and unmark() will not have a common method base
      * due to the fact that the final method call to TaskList is different.
      * This results in unnecessary if else block statements.
@@ -246,10 +245,10 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing delete inputs.
+     * Helper method for deleete inputs.
      *
-     * @throws NumberFormatException if syntax is correct but input is not an integer.
-     * @throws InvalidInputException if syntax is not recognized.
+     * @throws NumberFormatException If syntax is correct but input is not an integer.
+     * @throws InvalidInputException If syntax is not recognized.
      */
     private static String delete(String input, TaskList tasks)
             throws NumberFormatException, InvalidInputException {
@@ -274,7 +273,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing todo inputs.
+     * Helper method for todo inputs.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
@@ -290,7 +289,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing deadline inputs.
+     * Helper method for deadline inputs.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */
@@ -322,7 +321,7 @@ public class CommandParser {
     }
 
     /**
-     * Method for parsing event inputs.
+     * Helper method for event inputs.
      *
      * @throws InvalidInputException if syntax is not recognized.
      */

@@ -18,7 +18,7 @@ import botling.tasks.Task;
 import botling.tasks.ToDo;
 
 /**
- * Used to perform I/O actions for <code>TaskList</code> objects to hard disk where appropriate.
+ * Performs I/O actions for <code>TaskList</code> objects to hard disk where appropriate.
  */
 public class TaskListWriter {
     private static final String HISTORY_DATA_FOLDER = "./data";
@@ -27,7 +27,7 @@ public class TaskListWriter {
     /**
      * Checks if the TaskList has been instantiated before.
      * If so, load the previous history of the TaskList.
-     * Else generate a new history of the TaskList
+     * Else generate a new history of the TaskList.
      *
      * @return Any relevant logs of trying to generate / retrieve the history of the task list.
      */

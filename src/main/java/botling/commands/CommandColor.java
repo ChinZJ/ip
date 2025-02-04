@@ -6,7 +6,7 @@ package botling.commands;
  */
 public class CommandColor {
     private String[] messages;
-    private Integer[] lines;
+    private Integer[] colorLines;
 
     /**
      * Additional constructor.
@@ -19,54 +19,65 @@ public class CommandColor {
     /**
      * Default constructor.
      * @param messages that are separated by lines.
-     * @param lines that need to be colored
+     * @param colorLines that need to be colored
      */
-    public CommandColor(Integer[] lines, String... messages) {
+    public CommandColor(Integer[] colorLines, String... messages) {
         this.messages = messages;
-        this.lines = lines;
+        this.colorLines = colorLines;
     }
 
     /**
-     * Resets messages and lines.
-      */
+     * Resets messages and colorLines.
+     */
     public void reset() {
         messages = new String[0];
-        lines = new Integer[0];
+        colorLines = new Integer[0];
     }
 
     /**
-     * Returns true if contains lines to be colored.
+     * Returns true if contains colorLines to be colored.
      */
     public boolean hasColorLines() {
-        if (lines.length > 0) {
+        if (colorLines.length > 0) {
             return true;
         }
         return false;
     }
 
-    // Getter for messages
+    /**
+     * Getter for messages
+     */
     public String[] getMessages() {
         return messages;
     }
 
-    // Setter for messages
+    /**
+     * Setter for messages.
+     */
     public void setMessages(String[] messages) {
         this.messages = messages;
     }
 
-    // Getter for lines
+    /**
+     * Getter for colorLines.
+     */
     public Integer[] getLines() {
-        return lines;
+        return colorLines;
     }
 
-    // Setter for lines
-    public void setLines(Integer[] lines) {
-        this.lines = lines;
+    /**
+     * Setter for colorLines.
+     */
+    public void setLines(Integer[] colorLines) {
+        this.colorLines = colorLines;
     }
 
-    // Setter for all. Wrapper for above setters.
-    public void setAll(String[] messages, Integer[] lines) {
+    /**
+     * Sets both attributes at once.
+     * Wrapper for above setters.
+     */
+    public void setAll(String[] messages, Integer[] colorLines) {
         setMessages(messages);
-        setLines(lines);
+        setLines(colorLines);
     }
 }

@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
- * Controller for the main GUI.
+ * Controls the main GUI
  */
 public class MainWindow extends AnchorPane {
     @FXML
@@ -26,29 +26,29 @@ public class MainWindow extends AnchorPane {
     private TextArea userInput;
     @FXML
     private Button sendButton;
-
     private Botling botling;
-
     private Image userImage = new Image(this.getClass()
             .getResourceAsStream("/images/MantaRayUser.png"));
     private Image botlingImage = new Image(this.getClass()
             .getResourceAsStream("/images/TurtleBot.png"));
 
     /**
-     * Used to initialize the main window of the GUI.
+     * Initializes the main window of the GUI.
      */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
-    /** Injects the Botling instance. */
+    /**
+     * Injects Botling instance.
+     */
     public void setBotling(Botling d) {
         botling = d;
     }
 
     /**
-     * Displays the starting message from Botling.
+     * Displays the start message from Botling.
      */
     public void startUp(String message) {
         dialogContainer.getChildren().add(
@@ -57,10 +57,11 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Creates two dialog boxes
+     * Generates two dialog boxes
      * one echoing user input
      * and the other containing Botling's reply and then appends them to
-     * the dialog container. Clears the user input after processing.
+     * the dialog container.
+     * Clears the user input after processing.
      */
     @FXML
     private void handleUserInput() {
@@ -84,7 +85,7 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Keypress for TextArea.
+     * Keypress for TextArea object.
      */
     @FXML
     private void handleKeyPress(KeyEvent event) {

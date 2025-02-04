@@ -7,7 +7,7 @@ import botling.commands.CommandColor;
 import botling.gui.ColorNames;
 
 /**
- * Responsible for generating all messages where appropriate.
+ * Generates all of Botling's messages where appropriate.
  */
 public class MsgGen {
 

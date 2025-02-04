@@ -19,16 +19,23 @@ import javafx.scene.text.Text;
 
 /**
  * Represents a dialog box consisting of an ImageView to represent the speaker's face
- * and a label containing text from the speaker.
+ * and a SelectableTextFlow containing selectable and colorable text from the speaker.
  */
 public class DialogBox extends HBox {
-
     @FXML
     private SelectableTextFlow textFlow;
     @FXML
     private ImageView displayPicture;
 
-
+    /**
+     * Default constructor.
+     * Two methods of creating a DialogBox (hopefully for slight efficiency).
+     *
+     * @param text When no color is required, constructs the entire SelectableFlowText.
+     * @param img Image to be included in the ImageView.
+     * @param colorCodes List of colors for individual text where applicable.
+     * @param coloredText List of text which matches the size of colorCodes.
+     */
     private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(
@@ -39,7 +46,6 @@ public class DialogBox extends HBox {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         // Establish TextFlow
         if (colorCodes.length != 0 && colorCodes.length == coloredText.length) {
@@ -70,8 +76,9 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Part of processing for Botling's DialogBox.
-     * Flips the dialog box such that the ImageView is on the left and text on the right.
+     * lips the DialogBox such that the ImageView is on the left and text on the right.
+     * Ensures that margins are flipped as well to maintain consistency.
+     * Part of Botling's DialogBox generation.
      */
     private void flip() {
         ObservableList<Node> tmp = FXCollections.observableArrayList(this.getChildren());

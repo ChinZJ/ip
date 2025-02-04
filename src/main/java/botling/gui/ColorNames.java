@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 
 /**
  * Constants for colors for TextFlow object.
- * Since manipulation is reuqired, a custom class is created instead.
+ * Since manipulation is required, a custom class is created instead.
  */
 public enum ColorNames {
 

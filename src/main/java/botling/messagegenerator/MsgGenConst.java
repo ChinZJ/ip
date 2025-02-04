@@ -4,7 +4,6 @@ package botling.messagegenerator;
  * Message constants used to generate Botling's replies.
  */
 public enum MsgGenConst {
-
     // For greetings and farewells.
     MSG_FAREWELL("Bye. Hope to see you again soon!"),
     MSG_GREET("Hello! I'm Botling!\n"

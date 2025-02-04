@@ -14,7 +14,6 @@ import javafx.stage.Stage;
  * A GUI for Botling using FXML.
  */
 public class Main extends Application {
-
     private Botling botling = new Botling();
 
     @Override
@@ -27,12 +26,9 @@ public class Main extends Application {
             stage.setMinHeight(220);
             stage.setMinWidth(417);
 
-            // Load up Botling start message
-            // inject the Botling instance - from demo
-            // fxmlLoader.<MainWindow>getController().setBotling(botling);
             MainWindow mainWindow = fxmlLoader.getController();
-            mainWindow.setBotling(botling);
-            mainWindow.startUp(botling.startUp());
+            mainWindow.setBotling(botling); // Inject Botling instance
+            mainWindow.startUp(botling.startUp()); // Start with Botling start message
 
             stage.show();
         } catch (IOException e) {
