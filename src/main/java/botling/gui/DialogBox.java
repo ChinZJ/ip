@@ -31,7 +31,6 @@ public class DialogBox extends HBox {
      * Default constructor.
      * Two methods of creating a DialogBox (hopefully for slight efficiency).
      *
-     * @param text When no color is required, constructs the entire SelectableFlowText.
      * @param img Image to be included in the ImageView.
      * @param colorCodes List of colors for individual text where applicable.
      * @param coloredText List of text which matches the size of colorCodes.
@@ -49,10 +48,12 @@ public class DialogBox extends HBox {
         }
 
         // Establish TextFlow
-        if (colorCodes.length != coloredText.length) {
-            throw new AssertionError("colorCodes and colorText sizes are different!");
+        try {
+            if (colorCodes.length != coloredText.length) {
+                throw new AssertionError("colorCodes and colorText sizes are different!");
+            }
         }
-        if (coloredText.length != 0) {
+        if (coloredText.length != 0) { // Both will be of equal length and non zero.
             List<Text> styledTexts = new ArrayList<>();
             for (int i = 0; i < coloredText.length; i++) {
                 Text styledText = new Text(coloredText[i]);
@@ -98,18 +99,18 @@ public class DialogBox extends HBox {
      * Generates a DialogBox object for the user.
      */
     public static DialogBox getUserDialog(String text, Image img) {
-        Integer[] dummyInt = new Integer[0];
-        String[] dummyString = new String[0];
-        return new DialogBox(text, img, dummyInt, dummyString);
+        Integer[] dummyInt = new Integer[]{ColorNames.COLOR_BLACK.getIndex()};
+        String[] dummyString = new String[]{text};
+        return new DialogBox(img, dummyInt, dummyString);
     }
 
 
     /**
      * Generates DialogBox object for Botling.
      */
-    public static DialogBox getBotlingDialog(String text, Image img,
+    public static DialogBox getBotlingDialog(Image img,
                                              Integer[] lines, String[] messages) {
-        var db = new DialogBox(text, img, lines, messages);
+        var db = new DialogBox(img, lines, messages);
         db.flip();
         return db;
     }

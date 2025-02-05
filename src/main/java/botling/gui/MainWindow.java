@@ -52,7 +52,7 @@ public class MainWindow extends AnchorPane {
      */
     public void startUp(String message) {
         dialogContainer.getChildren().add(
-            DialogBox.getBotlingDialog(message, botlingImage,
+            DialogBox.getBotlingDialog(botlingImage,
                     botling.getLines(), botling.getMessages()));
     }
 
@@ -68,16 +68,15 @@ public class MainWindow extends AnchorPane {
         String input = userInput.getText();
         // Handles the \n that comes with the input
         input = input.substring(0, input.length() - 1);
-
-        String response = botling.getResponse(input);
+        botling.getResponse(input);
 
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getBotlingDialog(response, botlingImage,
+                DialogBox.getBotlingDialog(botlingImage,
                         botling.getLines(), botling.getMessages()));
         userInput.clear();
 
-        if (input.equals("bye")) {
+        if (!botling.isOpen()) {
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(event -> Platform.exit());
             delay.play();

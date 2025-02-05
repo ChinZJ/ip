@@ -3,6 +3,7 @@ package botling.gui;
 import java.util.List;
 
 import javafx.scene.Node;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -29,6 +30,7 @@ public class SelectableTextFlow extends TextFlow {
         textArea.setWrapText(true);
         textArea.setManaged(false);
         textArea.setEditable(false);
+
         getChildren().add(textArea);
     }
 
@@ -49,9 +51,11 @@ public class SelectableTextFlow extends TextFlow {
         textArea.setText(txt.toString());
         textArea.toFront();
         super.layoutChildren();
+
         textArea.setLayoutX(6); // hardcoded
         textArea.setLayoutY(6); // hardcoded
-        textArea.resize(getWidth(), getHeight());
+        textArea.resize(getWidth() - 11.8, getHeight()); // hardcoded
+        ScrollBar scrollBarv = (ScrollBar) textArea.lookup(".scroll-bar:vertical");
+        scrollBarv.setDisable(true);
     }
-
 }

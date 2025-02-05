@@ -6,16 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.util.Optional;
 
+import botling.commands.commandtypes.DeadlineCmd;
+import botling.commands.commandtypes.EventCmd;
+import botling.commands.commandtypes.TodoCmd;
 import botling.exceptions.InvalidInputException;
-import botling.tasks.DeadlineDate;
-import botling.tasks.Deadlines;
-import botling.tasks.EventDate;
-import botling.tasks.Events;
 import botling.tasks.Task;
-import botling.tasks.ToDo;
 
 /**
  * Performs I/O actions for <code>TaskList</code> objects to hard disk where appropriate.
@@ -70,10 +66,6 @@ public class TaskListWriter {
         try (BufferedReader reader = new BufferedReader(
                 new FileReader(TaskListWriter.HISTORY_DATA_PATH))) {
             String cmd;
-            String name;
-            String arg1;
-            String arg2;
-            boolean mark;
             boolean isValid = true;
 
             Task task;
@@ -82,58 +74,14 @@ public class TaskListWriter {
                 if (cmd != null) {
                     if (!cmd.isEmpty()) {
                         try {
+                            // CHECKSTYLE.OFF: Indentation
                             switch (cmd) {
-                            case "todo":
-                                name = reader.readLine();
-                                mark = validateAndParseBool(reader.readLine());
-                                task = new ToDo(name, mark);
-                                tasks.add(task);
-                                break;
-                            case "deadline":
-                                arg1 = reader.readLine();
-                                name = reader.readLine();
-                                mark = validateAndParseBool(reader.readLine());
-
-                                // Check deadline is a valid LocalDateTime object.
-                                Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(arg1);
-                                if (byDateTime.isPresent()) {
-                                    task = new DeadlineDate(name, mark, byDateTime.get());
-                                } else {
-                                    task = new Deadlines(name, mark, arg1);
-                                }
-
-                                // Add task
-                                tasks.add(task);
-                                break;
-                            case "event":
-                                arg1 = reader.readLine();
-                                arg2 = reader.readLine();
-                                name = reader.readLine();
-                                mark = validateAndParseBool(reader.readLine());
-
-                                // Check if eventFrom and eventTo are valid LocalDateTime objects.
-                                Optional<LocalDateTime> startDateTimeOpt = DateParser
-                                        .parseDateTime(arg1);
-                                Optional<LocalDateTime> endDateTimeOpt = DateParser
-                                        .parseDateTime(arg2);
-                                if (startDateTimeOpt.isPresent() && endDateTimeOpt.isPresent()) {
-                                    LocalDateTime startDateTime = startDateTimeOpt.get();
-                                    LocalDateTime endDateTime = endDateTimeOpt.get();
-                                    if (startDateTime.isBefore(endDateTime)
-                                            || startDateTime.isEqual(endDateTime)) {
-                                        task = new EventDate(
-                                                name, mark, startDateTime, endDateTime);
-                                    } else {
-                                        throw new InvalidInputException();
-                                    }
-                                } else {
-                                    task = new Events(name, mark, arg1, arg2);
-                                }
-                                tasks.add(task);
-                                break;
-                            default:
-                                throw new InvalidInputException();
+                                case "todo" -> new TodoCmd().restore(reader, tasks);
+                                case "deadline" -> new DeadlineCmd().restore(reader, tasks);
+                                case "event" -> new EventCmd().restore(reader, tasks);
+                                default -> throw new InvalidInputException();
                             }
+                            // CHECKSTYLE.ON: Indentation
                         } catch (InvalidInputException e) {
                             tasks.hasClose();
                         }
@@ -141,27 +89,12 @@ public class TaskListWriter {
                 } else {
                     isValid = false;
                 }
+                // Ignore the case of null for an empty file.
             }
         } catch (IOException e) {
             System.out.println("Error reading history file: " + e.getMessage());
         }
         return tasks;
-    }
-
-    /**
-     * Checks if the input aligns with a boolean.
-     * Due to the fact that <code>Boolean.parseBoolean()</code> does not distinguish invalid inputs.
-     *
-     * @throws InvalidInputException An arbitrary exception thrown when there is no boolean String.
-     */
-    private static boolean validateAndParseBool(String input) throws InvalidInputException {
-        if (input == null) {
-            throw new InvalidInputException();
-        } else if (!input.equalsIgnoreCase("true")
-                && !input.equalsIgnoreCase("false")) {
-            throw new InvalidInputException();
-        }
-        return Boolean.parseBoolean(input);
     }
 
     /**

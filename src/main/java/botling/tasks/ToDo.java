@@ -1,5 +1,7 @@
 package botling.tasks;
 
+import java.time.LocalDateTime;
+
 /**
  * A "default" <code>Task</code> object.
  * Does not have additional functionalities.
@@ -16,8 +18,8 @@ public class ToDo extends Task {
     /**
      * Alternative constructor for full specification of attributes.
      */
-    public ToDo(String name, boolean isDone) {
-        super(name, isDone);
+    public ToDo(String name, boolean isDone, LocalDateTime createDate) {
+        super(name, isDone, createDate);
     }
 
     /**

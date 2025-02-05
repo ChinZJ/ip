@@ -19,11 +19,18 @@ public class Botling {
     }
 
     /**
+     * Checks if Botling program should terminate.
+     */
+    public boolean isOpen() {
+        return tasks.isOpen();
+    }
+
+    /**
      * Generates the start message.
      * Includes loading of history with user.
      */
     public String startUp() {
-        return CommandParser.start(tasks);
+        return CommandParser.start(tasks, cmdColor);
     }
 
     /**
