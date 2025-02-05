@@ -36,7 +36,8 @@ public class DialogBox extends HBox {
      * @param colorCodes List of colors for individual text where applicable.
      * @param coloredText List of text which matches the size of colorCodes.
      */
-    private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText) {
+    private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText)
+            throws AssertionError {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(
                     MainWindow.class.getResource("/view/DialogBox.fxml"));
@@ -48,25 +49,21 @@ public class DialogBox extends HBox {
         }
 
         // Establish TextFlow
-        if (colorCodes.length != 0 && colorCodes.length == coloredText.length) {
-            try {
-                List<Text> styledTexts = new ArrayList<>();
-                for (int i = 0; i < coloredText.length; i++) {
-                    Text styledText = new Text(coloredText[i]);
-                    if (colorCodes[i] == ColorNames.COLOR_STRIKETHROUGH.getIndex()) {
-                        styledText.setStrikethrough(true);
-                    } else {
-                        styledText.setFill(ColorNames.getColor(colorCodes[i]));
-                    }
-                    styledTexts.add(styledText);
+        if (colorCodes.length != coloredText.length) {
+            throw new AssertionError("colorCodes and colorText sizes are different!");
+        }
+        if (coloredText.length != 0) {
+            List<Text> styledTexts = new ArrayList<>();
+            for (int i = 0; i < coloredText.length; i++) {
+                Text styledText = new Text(coloredText[i]);
+                if (colorCodes[i] == ColorNames.COLOR_STRIKETHROUGH.getIndex()) {
+                    styledText.setStrikethrough(true);
+                } else {
+                    styledText.setFill(ColorNames.getColor(colorCodes[i]));
                 }
-                textFlow.getChildren().addAll(styledTexts);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Check code!" + e.getMessage());
-            } catch (NullPointerException e) {
-                System.out.println("Check code!" + e.getMessage());
+                styledTexts.add(styledText);
             }
-
+            textFlow.getChildren().addAll(styledTexts);
         } else {
             Text styledText = new Text(text);
             textFlow.getChildren().add(styledText);

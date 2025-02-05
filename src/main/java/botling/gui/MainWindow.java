@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
- * Controls the main GUI
+ * Controls the main GUI.
  */
 public class MainWindow extends AnchorPane {
     @FXML

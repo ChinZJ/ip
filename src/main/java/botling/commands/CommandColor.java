@@ -45,7 +45,7 @@ public class CommandColor {
     }
 
     /**
-     * Getter for messages
+     * Getter for messages.
      */
     public String[] getMessages() {
         return messages;
