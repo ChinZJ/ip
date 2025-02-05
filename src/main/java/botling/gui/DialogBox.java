@@ -35,7 +35,8 @@ public class DialogBox extends HBox {
      * @param colorCodes List of colors for individual text where applicable.
      * @param coloredText List of text which matches the size of colorCodes.
      */
-    private DialogBox(Image img, Integer[] colorCodes, String[] coloredText) {
+    private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText)
+            throws AssertionError {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(
                     MainWindow.class.getResource("/view/DialogBox.fxml"));
@@ -48,6 +49,11 @@ public class DialogBox extends HBox {
 
         // Establish TextFlow
         try {
+            if (colorCodes.length != coloredText.length) {
+                throw new AssertionError("colorCodes and colorText sizes are different!");
+            }
+        }
+        if (coloredText.length != 0) { // Both will be of equal length and non zero.
             List<Text> styledTexts = new ArrayList<>();
             for (int i = 0; i < coloredText.length; i++) {
                 Text styledText = new Text(coloredText[i]);
@@ -59,10 +65,9 @@ public class DialogBox extends HBox {
                 styledTexts.add(styledText);
             }
             textFlow.getChildren().addAll(styledTexts);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Check code!" + e.getMessage());
-        } catch (NullPointerException e) {
-            System.out.println("Check code!" + e.getMessage());
+        } else {
+            Text styledText = new Text(text);
+            textFlow.getChildren().add(styledText);
         }
 
         displayPicture.setImage(img);
