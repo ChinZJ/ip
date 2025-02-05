@@ -4,14 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
 import botling.TaskList;
 import botling.messagegenerator.MsgGen;
-import botling.tasks.DeadlineDate;
 import botling.tasks.Deadlines;
-import botling.tasks.EventDate;
 import botling.tasks.Events;
 import botling.tasks.ToDo;
 
@@ -29,8 +28,8 @@ public class CommandParserTest {
 
         // Invalid input.
         tasks.hasOpen();
-        result = "OOPS!!! This command does not exist (yet). \n"
-            + "Type 'help' for a list of commands and their syntax!";
+        result = "OOPS!!! This command does not exist (yet).\n "
+            + "Type 'help' for a list of commandtypes and their syntax!";
         assertEquals(result, cmdParse.parse("bye ", tasks, cmdColor));
     }
 
@@ -47,7 +46,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
         // List with item.
-        ToDo task = new ToDo("unmark", false);
+        ToDo task = new ToDo("unmark", false, LocalDateTime.now());
         tasks.add(task);
         result = "Here are the tasks in your list:\n"
                 + " 1. [T][ ] unmark";
@@ -55,14 +54,14 @@ public class CommandParserTest {
 
         // List with marked item.
         tasks.remove(0);
-        task = new ToDo("mark", true);
+        task = new ToDo("mark", true, LocalDateTime.now());
         tasks.add(task);
         result = "Here are the tasks in your list:\n"
                 + " 1. [T][X] mark";
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
         // Invalid input.
-        result = MsgGen.unknownCmd();
+        result = MsgGen.unknownCmd(cmdColor);
         assertEquals(result, cmdParse.parse("list ", tasks, cmdColor));
     }
 
@@ -75,13 +74,17 @@ public class CommandParserTest {
         // Find upper and lower case
         // Simultaneously test for special characters and spaces
         ToDo task1 = new ToDo(" ");
-        Deadlines task2 = new Deadlines(" b", "cc");
-        Events task3 = new Events(" B", "CC", "DD");
+        Deadlines task2 = new Deadlines(" b", "cc",
+                Optional.empty());
+        Events task3 = new Events(" B", "CC", "DD",
+                Optional.empty(), Optional.empty());
 
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
-        DeadlineDate task4 = new DeadlineDate(")(*&^%$#@!", time);
-        EventDate task5 = new EventDate("!@#$%^&*(", time, time);
+        Deadlines task4 = new Deadlines(")(*&^%$#@!", "2024-01-02 0000",
+                Optional.of(time));
+        Events task5 = new Events("!@#$%^&*(", "2024-01-02 0000", "2024-01-02 0000",
+                Optional.of(time), Optional.of(time));
 
         tasks.add(task1);
         tasks.add(task2);
@@ -109,13 +112,13 @@ public class CommandParserTest {
 
         // Find special characters
         result = "Here are the matching tasks in your list:\n"
-                + " 4. [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000) (date)\n"
-                + " 5. [E][ ] !@#$%^&*( (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000) (date)";
+                + " 4. [DATE] [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000)\n"
+                + " 5. [DATE] [E][ ] !@#$%^&*( (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)";
         assertEquals(result, cmdParse.parse("find !", tasks, cmdColor));
 
         // Find invalid input
-        result = "OOPS!!! This command does not exist (yet). \n"
-                + "Type 'help' for a list of commands and their syntax!";
+        result = "OOPS!!! This command does not exist (yet).\n "
+                + "Type 'help' for a list of commandtypes and their syntax!";
         assertEquals(result, cmdParse.parse("find", tasks, cmdColor));
     }
 
@@ -124,7 +127,7 @@ public class CommandParserTest {
         CommandParser cmdParse = new CommandParser();
         CommandColor cmdColor = new CommandColor();
         TaskList tasks = new TaskList();
-        ToDo task = new ToDo("unmark", false);
+        ToDo task = new ToDo("unmark", false, LocalDateTime.now());
         tasks.add(task);
 
         // Correct input.
@@ -155,7 +158,7 @@ public class CommandParserTest {
         CommandParser cmdParse = new CommandParser();
         CommandColor cmdColor = new CommandColor();
         TaskList tasks = new TaskList();
-        ToDo task = new ToDo("unmark", true);
+        ToDo task = new ToDo("unmark", true, LocalDateTime.now());
         tasks.add(task);
 
         // Correct input.
@@ -187,7 +190,7 @@ public class CommandParserTest {
         CommandParser cmdParse = new CommandParser();
         CommandColor cmdColor = new CommandColor();
         TaskList tasks = new TaskList();
-        ToDo task = new ToDo("delete", false);
+        ToDo task = new ToDo("delete", false, LocalDateTime.now());
         tasks.add(task);
 
         // Correct input.
@@ -243,8 +246,8 @@ public class CommandParserTest {
                 + "Now you have 1 tasks in the list.";
         assertEquals(result, cmdParse.parse("deadline   /by  ", tasks, cmdColor));
 
-        // Multiple /by commands
-        // Nested deadline commands.
+        // Multiple /by commandtypes
+        // Nested deadline commandtypes.
         tasks.remove(0);
         // task = new Deadlines("deadline", "deadline /by abc");
         result = "Got it. I've added this task: \n"
@@ -261,13 +264,14 @@ public class CommandParserTest {
         // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
         // DeadlineDate taskDate = new DeadlineDate(" ", time);
         result = "Got it. I've added this task: \n"
-                + " [D][ ]   (by: 02 Jan 2024 0000) (date)\n"
+                + " [DATE] [D][ ]   (by: 02 Jan 2024 0000)\n"
                 + "Now you have 1 tasks in the list.";
         assertEquals(result, cmdParse.parse("deadline   /by 2024-01-02 0000", tasks, cmdColor));
 
         // Invalid input.
         result = "OOPS!!! The format of deadline should be deadline <name> /by <deadline>.\n"
-                + "Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'";
+                + "Date: 'yy(yy)-MM-dd HHmm', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)', "
+                + "optionally with HHmm in 24hour format.";
         assertEquals(result, cmdParse.parse("deadline", tasks, cmdColor));
     }
 
@@ -284,7 +288,7 @@ public class CommandParserTest {
                 + "Now you have 1 tasks in the list.";
         assertEquals(result, cmdParse.parse("event   /from   /to  ", tasks, cmdColor));
 
-        // Nested event commands.
+        // Nested event commandtypes.
         tasks.remove(0);
         // task = new Events(" ", "event ", "/from asd /to asd ");
         result = "Got it. I've added this task: \n"
@@ -293,7 +297,7 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("event   /from event  /to /from asd /to asd ",
                 tasks, cmdColor));
 
-        // Multiple /from /to commands.
+        // Multiple /from /to commandtypes.
         tasks.remove(0);
         // task = new Events("a", "b /from c", "d /to e");
         result = "Got it. I've added this task: \n"
@@ -337,7 +341,8 @@ public class CommandParserTest {
         // Doubles as invalid input.
         result = "OOPS!!! The format of event should be event <name> /from <start> /to <end>.\n"
                 + " <start> should be before or equal to <end> if dates are inputs.\n"
-                + "Date: 'yyyy-MM-dd HHmm', 'yyyy-MM-dd' or 'dd MMM yyyy HHmm'";
+                + "Date: 'yy(yy)-MM-dd HHmm', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)', "
+                + "optionally with HHmm in 24hour format.";
         assertEquals(result, cmdParse.parse("event a /to b /to c /from d /from e",
                 tasks, cmdColor));
 
@@ -353,7 +358,7 @@ public class CommandParserTest {
         // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
         // EventDate taskDate = new EventDate(" ", time, time);
         result = "Got it. I've added this task: \n"
-                + " [E][ ]   (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000) (date)\n"
+                + " [DATE] [E][ ]   (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)\n"
                 + "Now you have 1 tasks in the list.";
         assertEquals(result, cmdParse.parse("event   /from 2024-01-02 /to 2024-01-02",
                 tasks, cmdColor));

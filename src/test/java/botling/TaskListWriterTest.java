@@ -8,12 +8,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import botling.tasks.Deadlines;
-import botling.tasks.EventDate;
+import botling.tasks.Events;
 import botling.tasks.ToDo;
 
 public class TaskListWriterTest {
@@ -39,9 +40,9 @@ public class TaskListWriterTest {
              * Deadline by unmark
              * Event from to (date) mark
              * */
-            String fileHistory = "todo\n \ntrue\n"
-                    + "deadline\ntonight!\n \nfalse\n"
-                    + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue";
+            String fileHistory = "todo\n \ntrue\n05 Feb 2025 1116\n"
+                    + "deadline\ntonight!\n \nfalse\n05 Feb 2025 1116\n"
+                    + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n05 Feb 2025 1116";
             writer.write(fileHistory);
         }
     }
@@ -51,19 +52,25 @@ public class TaskListWriterTest {
         String expectedMsg = "Attempting to retrieve history...\n"
                 + "Data folder found!\n"
                 + "History file found! Restoring data...\n";
-        String expectedFileString = "todo\n \ntrue\n"
-                + "deadline\ntonight!\n \nfalse\n"
-                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue";
+        String expectedFileString = "todo\n \ntrue\n05 Feb 2025 1116\n"
+                + "deadline\ntonight!\n \nfalse\n05 Feb 2025 1116\n"
+                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n05 Feb 2025 1116";
         String expectedListString = " 1. [T][X]  \n"
                 + " 2. [D][ ]   (by: tonight!)\n"
-                + " 3. [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359) (date)";
+                + " 3. [DATE] [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359)";
 
-        ToDo first = new ToDo(" ", true);
-        Deadlines second = new Deadlines(" ", "tonight!");
+        LocalDateTime setTime = LocalDateTime.parse("05 Feb 2025 1116",
+                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+
+        ToDo first = new ToDo(" ", true, LocalDateTime.parse("05 Feb 2025 1116",
+                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm")));
+        Deadlines second = new Deadlines(" ", false, "tonight!",
+                Optional.empty(), setTime);
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         LocalDateTime startTime = LocalDateTime.parse("2025-01-23 0000", format);
         LocalDateTime endTime = LocalDateTime.parse("2025-01-24 2359", format);
-        EventDate third = new EventDate(" ", true, startTime, endTime);
+        Events third = new Events(" ", true, "2025-01-23 0000", "2025-01-24 2359",
+                Optional.of(startTime), Optional.of(endTime), setTime);
 
         TaskList expected = new TaskList();
         expected.add(first);

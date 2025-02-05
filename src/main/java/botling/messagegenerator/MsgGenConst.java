@@ -30,8 +30,8 @@ public enum MsgGenConst {
     // For unexpected inputs
     MSG_INVALID_CMD_P1("OOPS!!! The format of "),
     MSG_INVALID_CMD_P2(" should be "),
-    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist (yet). \n"
-            + "Type 'help' for a list of commands and their syntax!"),
+    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist (yet).\n "
+            + "Type 'help' for a list of commandtypes and their syntax!"),
 
     // For corrupt files
     CORRUPT_FILE("Please enter 'y' for yes and 'n' for no.");

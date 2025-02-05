@@ -12,17 +12,28 @@ import botling.gui.ColorNames;
 public class MsgGen {
 
     /**
+     * Wraps single messages with black colored text.
+     */
+    public static String wrap(String message, CommandColor cmdColor) {
+        String[] messages = new String[]{message};
+        Integer[] lines = new Integer[]{ColorNames.COLOR_BLACK.getIndex()};
+        cmdColor.setAll(messages, lines);
+        return message;
+    }
+
+    /**
      * Generates greeting message.
      */
-    public static String greet() {
-        return MsgGenConst.MSG_GREET.getString();
+    public static String greet(String message, CommandColor cmdColor) {
+        return wrap((message + "\n" + MsgGenConst.MSG_GREET.getString()),
+                cmdColor);
     }
 
     /**
      * Generates farewell message.
      */
-    public static String bye() {
-        return MsgGenConst.MSG_FAREWELL.getString();
+    public static String bye(CommandColor cmdColor) {
+        return wrap(MsgGenConst.MSG_FAREWELL.getString(), cmdColor);
     }
 
     /**
@@ -30,13 +41,12 @@ public class MsgGen {
      */
     public static String list(String[] message, CommandColor cmdColor) {
         if (message.length == 0) {
-            return MsgGenConst.MSG_EMPTY_LIST.getString();
+            return wrap(MsgGenConst.MSG_EMPTY_LIST.getString(), cmdColor);
         } else {
             /*
              Adapted from
              https://stackoverflow.com/questions/23079003/how-to-convert-a-java-8-stream-to-an-array
              */
-
             String[] start = new String[]{MsgGenConst.MSG_CURRENT_TASKS.getString()};
             String[] merge = Stream.concat(Arrays.stream(start), Arrays.stream(message))
                     .toArray(String[]::new);
@@ -60,14 +70,14 @@ public class MsgGen {
      * Provides a wrapper for TaskList find() message.
      */
     public static String find(String[] message, CommandColor cmdColor) {
-        if (message.length == 0 || Arrays.stream(message)
-                .distinct()
-                .count() == 1) {
-            return MsgGenConst.MSG_NO_TASKS.getString();
+        if (Arrays.stream(message)
+                .filter(s -> !s.isEmpty())
+                .count() == 0) {
+            return wrap(MsgGenConst.MSG_NO_TASKS.getString(), cmdColor);
         } else {
             String[] start = new String[]{MsgGenConst.MSG_FIND_TASKS.getString()};
             String[] merge = Stream.concat(Arrays.stream(start), Arrays.stream(message))
-                    .filter(s -> !s.equals(""))
+                    .filter(s -> !s.isEmpty())
                     .toArray(String[]::new);
             Integer[] lines = new Integer[merge.length];
             Arrays.fill(lines, ColorNames.COLOR_BLACK.getIndex());
@@ -149,26 +159,27 @@ public class MsgGen {
     /**
      * Message when command is unknown.
      */
-    public static String unknownCmd() {
-        return MsgGenConst.MSG_INVALID_UNKNOWN.getString();
+    public static String unknownCmd(CommandColor cmdColor) {
+        return wrap(MsgGenConst.MSG_INVALID_UNKNOWN.getString(), cmdColor);
     }
 
     /**
      * Message when command syntax is not fulfilled.
      */
-    public static String unknownSyntax(String cmd, String syntax) {
-        return MsgGenConst.MSG_INVALID_CMD_P1.getString()
+    public static String unknownSyntax(String cmd, String syntax, CommandColor cmdColor) {
+        String message = MsgGenConst.MSG_INVALID_CMD_P1.getString()
                 + cmd
                 + MsgGenConst.MSG_INVALID_CMD_P2.getString()
                 + cmd + syntax;
+        return wrap(message, cmdColor);
     }
 
     /**
      * Message when looking for 'y' or 'n' inputs.
      * Used when history file is corrupted and checking to delete or exit the program.
      */
-    public static String unknownCorrupt() {
-        return MsgGenConst.CORRUPT_FILE.getString();
+    public static String unknownCorrupt(CommandColor cmdColor) {
+        return wrap(MsgGenConst.CORRUPT_FILE.getString(), cmdColor);
     }
 
 }

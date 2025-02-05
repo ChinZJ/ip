@@ -12,31 +12,99 @@ import org.junit.jupiter.api.Test;
 
 public class DateParserTest {
     @Test
-    public void passFormatTest() {
-        // yyyy-MM-dd HHmm format.
-        String preferredFormat = "2025-12-09 2359";
-        DateTimeFormatter preferredFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+    public void yyMmDdFormatTest() {
+        // yy-MM-dd HHmm format
+        String testFormat = "25-12-09 2359";
+        DateTimeFormatter testFormatter = DateTimeFormatter.ofPattern("yy-MM-dd HHmm");
         Optional<LocalDateTime> result = Optional.of(
-                LocalDateTime.parse(preferredFormat, preferredFormatter));
-        assertEquals(result, DateParser.parseDateTime(preferredFormat));
+                LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
 
-        // dd MMM yyyy HHmm format.
-        String savedFormat = "02 Jan 2024 1234";
-        DateTimeFormatter savedFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
-        result = Optional.of(LocalDateTime.parse(savedFormat, savedFormatter));
-        assertEquals(result, DateParser.parseDateTime(savedFormat));
+        // yy-MM-dd format
+        testFormat = "25-12-09";
+        testFormatter = DateTimeFormatter.ofPattern("yy-MM-dd");
+        result = Optional.of(
+                LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // yyyy-MM-dd HHmm format.
+        testFormat = "2025-12-09 2359";
+        testFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+        result = Optional.of(
+                LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
 
         // yyyy-MM-dd format.
-        String noTimeFormat = "2024-01-04";
-        DateTimeFormatter noTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        result = Optional.of(LocalDate.parse(noTimeFormat, noTimeFormatter).atStartOfDay());
-        assertEquals(result, DateParser.parseDateTime(noTimeFormat));
+        testFormat = "2024-01-04";
+        testFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        result = Optional.of(LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+    }
 
+    @Test
+    public void ddMmYyFormatTest() {
+        // dd/MM/yyyy HHmm format.
+        String testFormat = "02/12/2024 1234";
+        DateTimeFormatter testFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HHmm");
+        Optional<LocalDateTime> result = Optional.of(
+                LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd/MM/yyyy format.
+        testFormat = "02/12/2024";
+        testFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        result = Optional.of(LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd/MM/yy HHmm format.
+        testFormat = "02/12/24 1234";
+        testFormatter = DateTimeFormatter.ofPattern("dd/MM/yy HHmm");
+        result = Optional.of(LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd/MM/yy format.
+        testFormat = "02/12/24";
+        testFormatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        result = Optional.of(LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+    }
+
+    @Test
+    public void ddMmmYyFormatTest() {
+        // dd MMM yyyy HHmm format.
+        String testFormat = "02 Jan 2024 1234";
+        DateTimeFormatter testFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
+        Optional<LocalDateTime> result = Optional.of(
+                LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd MMM yyyy format.
+        testFormat = "02 Jan 2024";
+        testFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        result = Optional.of(LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd MMM yy HHmm format.
+        testFormat = "02 Jan 24 1234";
+        testFormatter = DateTimeFormatter.ofPattern("dd MMM yy HHmm");
+        result = Optional.of(LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+
+        // dd MMM yyyy format.
+        testFormat = "02 Jan 24";
+        testFormatter = DateTimeFormatter.ofPattern("dd MMM yy");
+        result = Optional.of(LocalDate.parse(testFormat, testFormatter).atStartOfDay());
+        assertEquals(result, DateParser.parseDateTime(testFormat));
+    }
+
+    @Test
+    public void newDayFormatTest() {
         // New day.
-        String newDay = "02 Jan 2024 2400";
-        DateTimeFormatter newDayFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
-        result = Optional.of(LocalDateTime.parse(newDay, newDayFormatter));
-        assertEquals(result, DateParser.parseDateTime(newDay));
+        String testFormat = "02 Jan 2024 2400";
+        DateTimeFormatter testFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy HHmm");
+        Optional<LocalDateTime> result = Optional.of(
+                LocalDateTime.parse(testFormat, testFormatter));
+        assertEquals(result, DateParser.parseDateTime(testFormat));
     }
 
     @Test
