@@ -35,7 +35,7 @@ public class DialogBox extends HBox {
      * @param colorCodes List of colors for individual text where applicable.
      * @param coloredText List of text which matches the size of colorCodes.
      */
-    private DialogBox(String text, Image img, Integer[] colorCodes, String[] coloredText)
+    private DialogBox(Image img, Integer[] colorCodes, String[] coloredText)
             throws AssertionError {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(
@@ -48,12 +48,10 @@ public class DialogBox extends HBox {
         }
 
         // Establish TextFlow
-        try {
-            if (colorCodes.length != coloredText.length) {
-                throw new AssertionError("colorCodes and colorText sizes are different!");
-            }
+        if (colorCodes.length != coloredText.length) {
+            throw new AssertionError("colorCodes and colorText sizes are different!");
         }
-        if (coloredText.length != 0) { // Both will be of equal length and non zero.
+        if (coloredText.length != 0) { // Both will be of equal length and non-zero.
             List<Text> styledTexts = new ArrayList<>();
             for (int i = 0; i < coloredText.length; i++) {
                 Text styledText = new Text(coloredText[i]);
@@ -65,9 +63,6 @@ public class DialogBox extends HBox {
                 styledTexts.add(styledText);
             }
             textFlow.getChildren().addAll(styledTexts);
-        } else {
-            Text styledText = new Text(text);
-            textFlow.getChildren().add(styledText);
         }
 
         displayPicture.setImage(img);
@@ -103,7 +98,6 @@ public class DialogBox extends HBox {
         String[] dummyString = new String[]{text};
         return new DialogBox(img, dummyInt, dummyString);
     }
-
 
     /**
      * Generates DialogBox object for Botling.

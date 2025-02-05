@@ -32,7 +32,7 @@
                 layoutX="324.0"
                 layoutY="558.0"
                 mnemonicParsing="false"
-                onAction="#handleUserInput"
+                onAction="#handleSendButton"
                 prefHeight="55.0"
                 prefWidth="76.0"
                 text="Send"

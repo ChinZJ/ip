@@ -55,7 +55,5 @@ public class SelectableTextFlow extends TextFlow {
         textArea.setLayoutX(6); // hardcoded
         textArea.setLayoutY(6); // hardcoded
         textArea.resize(getWidth() - 11.8, getHeight()); // hardcoded
-        ScrollBar scrollBarv = (ScrollBar) textArea.lookup(".scroll-bar:vertical");
-        scrollBarv.setDisable(true);
     }
 }

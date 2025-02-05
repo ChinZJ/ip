@@ -83,6 +83,12 @@ public class MainWindow extends AnchorPane {
         }
     }
 
+    @FXML
+    private void handleSendButton() {
+        userInput.appendText("\n");
+        handleUserInput();
+    }
+
     /**
      * Keypress for TextArea object.
      */
