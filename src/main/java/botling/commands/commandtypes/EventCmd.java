@@ -19,7 +19,7 @@ import botling.tasks.Task;
 /**
  * Parses event commands.
  */
-public class EventCmd implements Command {
+public class EventCmd implements TasksCmd {
     private static final int IDX_NAME = 0;
     private static final int IDX_FROM = 1;
     private static final int IDX_TO = 2;

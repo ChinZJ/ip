@@ -6,8 +6,6 @@ import botling.commands.CommandColor;
 import botling.commands.ValConstants;
 import botling.messagegenerator.MsgGen;
 
-import java.io.BufferedReader;
-
 /**
  * Parses find commands.
  */
@@ -22,12 +20,5 @@ public class FindCmd implements Command {
                     cmdColor);
         }
         return MsgGen.unknownCmd(cmdColor);
-    }
-
-    /**
-     * Dummy method.
-     */
-    public void restore(BufferedReader reader, TaskList tasks) {
-        // Do nothing.
     }
 }

@@ -5,8 +5,6 @@ import botling.TaskListWriter;
 import botling.commands.CommandColor;
 import botling.messagegenerator.MsgGen;
 
-import java.io.BufferedReader;
-
 /**
  * Run on program startup.
  */
@@ -21,12 +19,5 @@ public class StartCmd implements Command {
             return (MsgGen.greet(message, cmdColor));
         }
         return MsgGen.wrap(message, cmdColor);
-    }
-
-    /**
-     * Dummy method.
-     */
-    public void restore(BufferedReader reader, TaskList tasks) {
-        // Do nothing.
     }
 }

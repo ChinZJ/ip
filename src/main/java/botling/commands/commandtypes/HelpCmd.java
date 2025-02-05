@@ -5,8 +5,6 @@ import botling.commands.CmdConst;
 import botling.commands.CommandColor;
 import botling.messagegenerator.MsgGen;
 
-import java.io.BufferedReader;
-
 /**
  * Parses help commands.
  */
@@ -31,12 +29,5 @@ public class HelpCmd implements Command {
             return MsgGen.wrap(message, cmdColor);
         }
         return MsgGen.unknownCmd(cmdColor);
-    }
-
-    /**
-     * Dummy method.
-     */
-    public void restore(BufferedReader reader, TaskList tasks) {
-        // Do nothing.
     }
 }

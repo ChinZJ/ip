@@ -6,8 +6,6 @@ import botling.commands.CmdConst;
 import botling.commands.CommandColor;
 import botling.messagegenerator.MsgGen;
 
-import java.io.BufferedReader;
-
 /**
  * Called when history file is corrupt.
  */
@@ -28,12 +26,5 @@ public class CorruptCmd implements Command {
             return MsgGen.wrap(CmdConst.CORRUPT_PAUSE.getString(), cmdColor);
         }
         return MsgGen.unknownCorrupt(cmdColor);
-    }
-
-    /**
-     * Dummy method.
-     */
-    public void restore(BufferedReader reader, TaskList tasks) {
-        // Do nothing.
     }
 }

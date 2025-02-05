@@ -15,12 +15,11 @@ import botling.exceptions.InvalidInputException;
 import botling.messagegenerator.MsgGen;
 import botling.tasks.Deadlines;
 import botling.tasks.Task;
-import botling.tasks.ToDo;
 
 /**
  * Parses deadline commands.
  */
-public class DeadlineCmd implements Command {
+public class DeadlineCmd implements TasksCmd {
     private static final int IDX_NAME = 0;
     private static final int IDX_BY = 1;
 

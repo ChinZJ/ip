@@ -7,8 +7,6 @@ import botling.commands.CommandColor;
 import botling.commands.ValConstants;
 import botling.messagegenerator.MsgGen;
 
-import java.io.BufferedReader;
-
 /**
  * Parses unmark commands.
  */
@@ -35,12 +33,5 @@ public class UnmarkCmd implements Command {
         return MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
                 CmdConst.MSG_INVALID_CMD_MARK.getString()
                         + String.valueOf(tasks.size()), cmdColor);
-    }
-
-    /**
-     * Dummy method.
-     */
-    public void restore(BufferedReader reader, TaskList tasks) {
-        // Do nothing.
     }
 }

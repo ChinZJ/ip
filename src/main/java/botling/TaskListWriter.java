@@ -74,12 +74,14 @@ public class TaskListWriter {
                 if (cmd != null) {
                     if (!cmd.isEmpty()) {
                         try {
+                            // CHECKSTYLE.OFF: Indentation
                             switch (cmd) {
                                 case "todo" -> new TodoCmd().restore(reader, tasks);
                                 case "deadline" -> new DeadlineCmd().restore(reader, tasks);
                                 case "event" -> new EventCmd().restore(reader, tasks);
                                 default -> throw new InvalidInputException();
                             }
+                            // CHECKSTYLE.ON: Indentation
                         } catch (InvalidInputException e) {
                             tasks.hasClose();
                         }

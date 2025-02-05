@@ -1,5 +1,9 @@
 package botling.commands.commandtypes;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.time.LocalDateTime;
+
 import botling.TaskList;
 import botling.TaskListWriter;
 import botling.commands.CmdConst;
@@ -10,14 +14,10 @@ import botling.messagegenerator.MsgGen;
 import botling.tasks.Task;
 import botling.tasks.ToDo;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.time.LocalDateTime;
-
 /**
  * Parses todo commands.
  */
-public class TodoCmd implements Command {
+public class TodoCmd implements TasksCmd {
 
     /**
      * Creates a ToDo task.
