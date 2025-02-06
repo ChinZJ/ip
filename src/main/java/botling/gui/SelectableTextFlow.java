@@ -3,7 +3,6 @@ package botling.gui;
 import java.util.List;
 
 import javafx.scene.Node;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;

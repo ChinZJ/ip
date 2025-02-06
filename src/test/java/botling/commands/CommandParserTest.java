@@ -94,15 +94,15 @@ public class CommandParserTest {
 
         // Spaces.
         String result = "Here are the matching tasks in your list:\n"
-                + " 1. [T][ ]  \n"
-                + " 2. [D][ ]  b (by: cc)\n"
-                + " 3. [E][ ]  B (from: CC to: DD)";
+                + " 3. [T][ ]  \n"
+                + " 4. [E][ ]  B (from: CC to: DD)\n"
+                + " 5. [D][ ]  b (by: cc)";
         assertEquals(result, cmdParse.parse("find  ", tasks, cmdColor));
 
         // Upper and lower case.
         result = "Here are the matching tasks in your list:\n"
-                + " 2. [D][ ]  b (by: cc)\n"
-                + " 3. [E][ ]  B (from: CC to: DD)";
+                + " 4. [E][ ]  B (from: CC to: DD)\n"
+                + " 5. [D][ ]  b (by: cc)";
         assertEquals(result, cmdParse.parse("find  b", tasks, cmdColor));
         assertEquals(result, cmdParse.parse("find  B", tasks, cmdColor));
 
@@ -112,8 +112,8 @@ public class CommandParserTest {
 
         // Find special characters
         result = "Here are the matching tasks in your list:\n"
-                + " 4. [DATE] [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000)\n"
-                + " 5. [DATE] [E][ ] !@#$%^&*( (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)";
+                + " 1. [DATE] [E][ ] !@#$%^&*( (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)\n"
+                + " 2. [DATE] [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000)";
         assertEquals(result, cmdParse.parse("find !", tasks, cmdColor));
 
         // Find invalid input

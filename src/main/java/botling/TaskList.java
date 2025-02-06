@@ -3,6 +3,7 @@ package botling;
 import java.util.ArrayList;
 
 import botling.tasks.Task;
+import botling.tasks.TaskComparator;
 
 /**
  * Stores all <code>Task</code> objects.
@@ -125,6 +126,7 @@ public class TaskList {
      */
     public String add(Task newTask) {
         tasks.add(newTask);
+        tasks.sort(new TaskComparator());
         return " " + newTask.getTaskStatus();
     }
 
@@ -141,6 +143,7 @@ public class TaskList {
 
     /**
      * Generates a String format of all tasks to be read by <code>TaskListWriter</code> object.
+     * Can be optimized in future to become lazy.
      */
     public String fileString() {
         StringBuilder strCreator = new StringBuilder();
