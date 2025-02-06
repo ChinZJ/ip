@@ -24,7 +24,7 @@ public enum MsgGenConst {
     MSG_TASK_UNDONE("Ok, I've marked this task as not done yet:\n"),
 
     // Regex for mark and unmark tasks
-    REGEX_MARK(" \\d+\\. \\[[TDE]\\]\\[X\\](?s).*"),
+    REGEX_MARK(" \\d+\\. (\\[DATE\\] )?\\[[TDE]\\]\\[X\\](?s).*"),
     REGEX_UNMARK(" \\d+\\. \\[[TDE]\\]\\[ \\](?s).*"),
 
     // For unexpected inputs

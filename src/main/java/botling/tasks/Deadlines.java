@@ -46,6 +46,14 @@ public class Deadlines extends Task {
     }
 
     /**
+     * Sets end date to the deadline date.
+     */
+    @Override
+    public LocalDateTime getEndDate() {
+        return dateBy.orElse(super.getStartDate());
+    }
+
+    /**
      * Generates message to be printed.
      */
     @Override

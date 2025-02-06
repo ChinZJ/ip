@@ -58,6 +58,28 @@ public class Events extends Task {
     }
 
     /**
+     * Changes start date to from input where applicable.
+     */
+    @Override
+    public LocalDateTime getStartDate() {
+        return dateStart.orElse(super.getStartDate());
+    }
+
+    /**
+     * Changes end date to to input where applicable.
+     */
+    @Override
+    public LocalDateTime getEndDate() {
+        if (dateEnd.isPresent()) {
+            return dateEnd.get();
+        }
+        // Compare between start and create date, and return the later.
+        LocalDateTime createDate = super.getStartDate();
+        return dateStart.map(start -> start.isAfter(createDate) ? start : createDate)
+                .orElse(createDate);
+    }
+
+    /**
      * Generates message to be printed.
      */
     @Override

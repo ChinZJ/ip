@@ -52,12 +52,14 @@ public class TaskListWriterTest {
         String expectedMsg = "Attempting to retrieve history...\n"
                 + "Data folder found!\n"
                 + "History file found! Restoring data...\n";
-        String expectedFileString = "todo\n \ntrue\n05 Feb 2025 1116\n"
-                + "deadline\ntonight!\n \nfalse\n05 Feb 2025 1116\n"
-                + "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n05 Feb 2025 1116";
-        String expectedListString = " 1. [T][X]  \n"
-                + " 2. [D][ ]   (by: tonight!)\n"
-                + " 3. [DATE] [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359)";
+        String expectedFileString =
+                "event\n23 Jan 2025 0000\n24 Jan 2025 2359\n \ntrue\n05 Feb 2025 1116\n"
+                + "todo\n \ntrue\n05 Feb 2025 1116\n"
+                + "deadline\ntonight!\n \nfalse\n05 Feb 2025 1116";
+        String expectedListString =
+                " 1. [DATE] [E][X]   (from: 23 Jan 2025 0000 to: 24 Jan 2025 2359)\n"
+                + " 2. [T][X]  \n"
+                + " 3. [D][ ]   (by: tonight!)";
 
         LocalDateTime setTime = LocalDateTime.parse("05 Feb 2025 1116",
                 DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));

@@ -92,4 +92,25 @@ public abstract class Task {
     public boolean hasDate() {
         return false;
     }
+
+    /**
+     * Default methods for comparator class.
+     */
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    /**
+     * Default methods for comparator class.
+     */
+    public LocalDateTime getStartDate() {
+        return createDate;
+    }
+
+    /**
+     * Default method for comparator class.
+     */
+    public LocalDateTime getEndDate() {
+        return createDate;
+    }
 }
