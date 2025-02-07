@@ -77,6 +77,8 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
 
         if (!botling.isOpen()) {
+            userInput.setDisable(true);
+            sendButton.setDisable(true);
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(event -> Platform.exit());
             delay.play();
