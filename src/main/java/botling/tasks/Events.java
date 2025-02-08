@@ -33,7 +33,15 @@ public class Events extends Task {
     }
 
     /**
-     * Alternative constructor for full specification of attributes.
+     * Alternate constructor for full specification of attributes.
+     *
+     * @param name Name of the event.
+     * @param isDone Marks the task as done or undone.
+     * @param from Name of the start time, else overridden by <code>dateStart</code>.
+     * @param to Name of the end time, else overridden by <code>dateEnd</code>.
+     * @param dateStart Start time in date time format where applicable.
+     * @param dateEnd End time in date time format where applicable.
+     * @param createDate Date time format for creation.
      */
     public Events(String name, boolean isDone, String from, String to,
                   Optional<LocalDateTime> dateStart, Optional<LocalDateTime> dateEnd,

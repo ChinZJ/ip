@@ -25,8 +25,15 @@ public class Deadlines extends Task {
         this.dateBy = dateBy;
     }
 
+
     /**
-     * Alternative constructor for full specification of attributes.
+     * Alternate constructor for full specification of attributes.
+     *
+     * @param name Name of the event.
+     * @param isDone Marks the task as done or undone.
+     * @param by Name of the dateline, else overridden by <code>dateBy</code>.
+     * @param dateBy Deadline in date time format where applicable.
+     * @param createDate Date time format for creation.
      */
     public Deadlines(String name, boolean isDone, String by,
                      Optional<LocalDateTime> dateBy, LocalDateTime createDate) {
