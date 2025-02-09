@@ -14,8 +14,21 @@
     -fx-background-insets: 0px !important;
 }
 
-.selectable-text-flow .text-area .scroll-bar:vertical:disabled {
-  -fx-opacity: 0;
+.selectable-text-flow .text-area {
+    -fx-hbar-policy: NEVER !important;
+    -fx-vbar-policy: NEVER !important;
+    -fx-fit-to-width: true !important;
+    -fx-fit-to-height: true !important;
+    -fx-font-family: inherit;
+    -fx-pref-width: -1;
+    -fx-pref-height: -1;
+    -fx-min-width: -1;
+    -fx-min-height: -1;
+}
+
+.selectable-text-flow .text-area .scroll-pane {
+    -fx-hbar-policy: NEVER;
+    -fx-vbar-policy: NEVER;
 }
 
 .selectable-text-flow .text-area .scroll-pane .scroll-bar{
