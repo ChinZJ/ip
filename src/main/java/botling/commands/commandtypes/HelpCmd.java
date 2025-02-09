@@ -24,8 +24,9 @@ public class HelpCmd implements Command {
                     + CmdConst.MSG_INVALID_CMD_MARK.getString() + tasks.size() + "\n\n"
                     + CmdConst.CMD_TODO.getString() + CmdConst.MSG_INVALID_CMD_TODO.getString()
                     + "\n\n" + CmdConst.CMD_DEADLINE.getString()
-                    + CmdConst.MSG_INVALID_CMD_DEADLINE.getString() + "\n\n"
-                    + CmdConst.CMD_EVENT.getString() + CmdConst.MSG_INVALID_CMD_EVENT.getString();
+                    + CmdConst.MSG_INVALID_CMD_DEADLINE.getString() + "\n"
+                    + CmdConst.CMD_EVENT.getString()
+                    + CmdConst.MSG_INVALID_CMD_EVENT.getString().trim();
             return MsgGen.wrap(message, cmdColor);
         }
         return MsgGen.unknownCmd(cmdColor);
