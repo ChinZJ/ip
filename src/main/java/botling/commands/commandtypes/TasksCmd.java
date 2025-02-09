@@ -10,7 +10,7 @@ import botling.TaskList;
 import botling.exceptions.InvalidInputException;
 
 /**
- * Specialised inferface for task commands that have to read from the history file as well.
+ * Specialised interface for task commands that have to read from the history file as well.
  */
 public interface TasksCmd extends Command {
 
@@ -21,7 +21,7 @@ public interface TasksCmd extends Command {
      * @param reader Reads inputs from history file.
      * @param tasks Contains list of tasks to be edited.
      */
-    public void restore(BufferedReader reader, TaskList tasks)
+    void restore(BufferedReader reader, TaskList tasks)
             throws InvalidInputException, IOException;
 
     /**

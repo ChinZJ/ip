@@ -74,7 +74,7 @@ public class DeadlineCmd implements TasksCmd {
             throws InvalidInputException, IOException {
         String by = validateString(reader.readLine());
         String name = validateString(reader.readLine());
-        Boolean mark = validateAndParseBool(reader.readLine());
+        boolean mark = validateAndParseBool(reader.readLine());
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
         Task task = new Deadlines(name, mark, by,
