@@ -8,14 +8,14 @@ All your tasks are automatically saved, and even sorted according to priority.
 ## **Table of Contents**
 1. [Quick Start](#quick-start)
 1. [Features](#features)  
-   1. [Help](#help)  
-   1. [Bye](#bye)  
-   1. [List](#list)
-   1. [Find](#find)
-   1. [Mark, Unmark, and Delete](#mark-unmark-delete)  
-   1. [To-Dos](#todo)  
-   1. [Deadlines](#deadline)
-   1. [Events](#event)
+   1. [Help](#help-command)  
+   1. [Bye](#bye-command)  
+   1. [List](#list-command)
+   1. [Find](#find-command)
+   1. [Mark / Unmark / Delete](#mark-unmark-delete-commands)  
+   1. [To-Dos](#to-do-command)  
+   1. [Deadlines](#deadline-command)
+   1. [Events](#event-command)
    1. [Date Specifications](#date-specification)
    1. [Sorting](#sorting-tasks)
    1. [Data Storage](#data-storage)
@@ -61,40 +61,48 @@ All your tasks are automatically saved, and even sorted according to priority.
   Instead they will be unrecognized.
 </div>
 
-### `help` Command <h3 id="help"></h3>
-  
+### Help Command
+
+`help`    
 Provides a quick reminder of all the commands implemented.
 ![Help command](Help.png)
 
-### `bye` Command <h3 id="bye"></h3>
-  
+### Bye Command
+
+`bye`    
 Closes the application.  
   
-### `list` Command <h3 id="list"></h3>
+### List Command
 
+`list`  
 Lists all current tasks that is recorded by Botling.  
   
-### `find <name>` Command <h3 id="find"></h3>
-  
+### Find Command
+
+`find <name>`  
 Lists all recorded tasks that contains `<name>` within its task name.  
 This method is **case-insensitive**.  
 
-### `mark`, `unmark`, `delete` Commands <h3 id="mark-unmark-delete"></h3>
-  
+### Mark / Unmark / Delete Commands
+
+`mark <X>`, `unmark <X>`, `delete <X>`    
 These commands follow the same format, where only the index of the task needs to be specified.  
 Note that the application uses `1 based indexing`, as provided by the `list` and the `find` commands.  
 
-### `todo <name>` Command <h3 id="todo"></h3>
-  
+### To-do Command
+
+`todo <name>`    
 A basic task labelled `<name>`, representing a to-do with no urgency.  
   
-### `deadline <name> /by <deadline>` Command <h3 id="deadline"></h3>
-  
+###  Deadline Command
+
+`deadline <name> /by <deadline>`  
 A deadline task labelled `<name>`, with the deadline at `<deadline>`.  
 For information on the date specification of `<deadline>`, refer to [Date Specification](#date-specification).  
   
-### `event <name> /from <start> /to <end>` Command <h3 id="event"></h3>
-  
+### Event Command
+
+`event <name> /from <start> /to <end>`  
 An event labelled `<name>`, that starts from `<start>` till `<end>`.  
 For information on the date specification of `<start>` and `<end>`, refer to [Date Specification](#date-specification).  
   
@@ -107,7 +115,7 @@ Currently, the following date time formats are supported:
 * `dd MMM yy(yy)` (e.g. 21 Feb 25)
 
 Notes:
-* The `()` is optional (i.e. you may use the ending digits of the year)  
+* The `()` is optional (i.e. you may use the last two digits of the year)  
 * `dd` and `MM` refers to numerical digits, whereas `MMM` refers to the short form name of the month (e.g. `Jan`, `Feb`, etc.). 
 * The `HHmm` (24-hour time format) is completely optional, and Botling will assume it to be `0000` by default.
 * Dates in the past are actually accepted.  
@@ -130,7 +138,7 @@ This file can be ported between different applications to be used by Botling.
  
 ## Known Issues
   
-![Selectable and colorbale text](SelectableColorable.png)
+![Selectable and colorbale text](SelectableColorable.png)  
 Due to the fact that `JavaFX` `WebView` objects are not recommended for this project due to its large size, making selectable and colorable text within the chatbot requires an overlay of a `TextArea` object onto a `TextFlow` object. Due to the fact that their proportions are innately different, the margins have to be hardcoded. Botling is optimized for `1920x1080` at `125%` screen scale. Resolutions and scales differing from this are likely to cause the selected text to be misaligned from the displayed text. Thus, it is recommended that the user uses the `select all` option (as shown in the demo) to copy the text if required. This specific part of the project was with the help of the following sources:  
 * https://stackoverflow.com/questions/79395124/javafx-overlaying-textflow-with-textarea?noredirect=1#comment140023326_79395124  
 
