@@ -1,3 +1,7 @@
+# Botling
+See the updated document [here](https://chinzj.github.io/ip/).  
+The original `README.md` below is preserved for recording purposes.
+
 # Duke project template
 
 This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
