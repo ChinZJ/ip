@@ -5,33 +5,33 @@ package botling.messagegenerator;
  */
 public enum MsgGenConst {
     // For greetings and farewells.
-    MSG_FAREWELL("Bye. Hope to see you again soon!"),
-    MSG_GREET("Hello! I'm Botling!\n"
+    MSG_FAREWELL("Shell-be seeing you!"),
+    MSG_GREET("Hey! I'm Botling!\n"
             + "What can I do for you?"),
 
     // For list / find.
-    MSG_ADD("Got it. I've added this task: \n"),
+    MSG_ADD("You threw this into the ocean:\n"),
     MSG_CURRENT_SIZE_P1("\nNow you have "),
-    MSG_CURRENT_SIZE_P2(" tasks in the list."),
-    MSG_CURRENT_TASKS("Here are the tasks in your list:\n"),
-    MSG_EMPTY_LIST("There are currently no tasks!"),
-    MSG_FIND_TASKS("Here are the matching tasks in your list:\n"),
-    MSG_NO_TASKS("There are currently no matching tasks!"),
+    MSG_CURRENT_SIZE_P2(" tasks polluting my waters!"),
+    MSG_CURRENT_TASKS("Here's whats sinking:\n"),
+    MSG_EMPTY_LIST("Oceans clean, I'm free!"),
+    MSG_FIND_TASKS("I chewed on some, but here's the remnants:\n"),
+    MSG_NO_TASKS("Don't see any, check the landfill!"),
 
     // For mark / unmark / delete.
-    MSG_TASK_DELETE("Noted. I've removed this task: \n"),
-    MSG_TASK_DONE("Nice! I've marked this task as done:\n"),
-    MSG_TASK_UNDONE("Ok, I've marked this task as not done yet:\n"),
+    MSG_TASK_DELETE("This task has degraded into nothingness:\n"),
+    MSG_TASK_DONE("Nice! I've swallowed this task:\n"),
+    MSG_TASK_UNDONE("Yuck, I've spat out this task:\n"),
 
     // Regex for mark and unmark tasks
     REGEX_MARK(" \\d+\\. (\\[DATE\\] )?\\[[TDE]\\]\\[X\\](?s).*"),
     REGEX_UNMARK(" \\d+\\. \\[[TDE]\\]\\[ \\](?s).*"),
 
     // For unexpected inputs
-    MSG_INVALID_CMD_P1("OOPS!!! The format of "),
+    MSG_INVALID_CMD_P1("Yikes!!! The format of "),
     MSG_INVALID_CMD_P2(" should be "),
-    MSG_INVALID_UNKNOWN("OOPS!!! This command does not exist (yet).\n "
-            + "Type 'help' for a list of commandtypes and their syntax!"),
+    MSG_INVALID_UNKNOWN("Yikes!!! This command is still up for discussion.\n"
+            + "Type 'help' for a list of commands and their syntax!"),
 
     // For corrupt files
     CORRUPT_FILE("Please enter 'y' for yes and 'n' for no.");
