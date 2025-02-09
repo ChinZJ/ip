@@ -146,7 +146,7 @@ Due to the fact that `JavaFX` `WebView` objects are not recommended for this pro
 
 ### Image Sources
 Images were obtained from the following links:
-* https://stock.adobe.com/search?k=manta+cartoon&asset_id=1024077717
-* https://www.freepik.com/premium-ai-image/cute-cartoon-sea-turtle-swimming-underwater-colorful-coral-reefs_344370416.htm
-* https://www.shutterstock.com/image-vector/seamless-kakau-hawaiian-wave-pattern-tattoo-152529788
-* https://www.freepik.com/premium-ai-image/illustration-with-deep-underwater-ocean-scene_347862215.htm
+* [Manta ray image](https://stock.adobe.com/search?k=manta+cartoon&asset_id=1024077717)
+* [Turtle image](https://www.freepik.com/premium-ai-image/cute-cartoon-sea-turtle-swimming-underwater-colorful-coral-reefs_344370416.htm)
+* [Hawaiian wave patterns](https://www.shutterstock.com/image-vector/seamless-kakau-hawaiian-wave-pattern-tattoo-152529788)
+* [Underwater ocean wallpaper](https://www.freepik.com/premium-ai-image/illustration-with-deep-underwater-ocean-scene_347862215.htm)
