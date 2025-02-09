@@ -1,5 +1,5 @@
 title: "Botling"
-theme: merlot
+remote_theme: pages-themes/merlot@v0.2.0
 
 markdown: kramdown
 
@@ -7,3 +7,4 @@ repository: "ChinZJ/ip"
 
 plugins:
   - jemoji
+  - jekyll-remote-theme
