@@ -1,6 +1,8 @@
 package botling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -111,11 +113,18 @@ public class DateParserTest {
     public void failFormatTest() {
         // Month does not exist
         String invalidMonth = "2023-99-11";
-        assertEquals(Optional.empty(), new DateParser().parseDateTime(invalidMonth));
+        DateParser dateParser = new DateParser();
+        assertFalse(dateParser.isInvalid());
+
+        assertEquals(Optional.empty(), dateParser.parseDateTime(invalidMonth));
+        assertTrue(dateParser.isInvalid());
+
 
         // Invalid time.
+        dateParser = new DateParser();
         String invalidTime = "2023-12-03 2500";
-        assertEquals(Optional.empty(), new DateParser().parseDateTime(invalidTime));
+        assertEquals(Optional.empty(), dateParser.parseDateTime(invalidTime));
+        assertTrue(dateParser.isInvalid());
     }
 
 }

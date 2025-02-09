@@ -35,16 +35,6 @@ public class CommandColor {
     }
 
     /**
-     * Returns true if contains colorLines to be colored.
-     */
-    public boolean hasColorLines() {
-        if (colorLines.length > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Getter for messages.
      */
     public String[] getMessages() {

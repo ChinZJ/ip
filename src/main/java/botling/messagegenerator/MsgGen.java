@@ -70,9 +70,7 @@ public class MsgGen {
      * Provides a wrapper for TaskList find() message.
      */
     public static String find(String[] message, CommandColor cmdColor) {
-        if (Arrays.stream(message)
-                .filter(s -> !s.isEmpty())
-                .count() == 0) {
+        if (Arrays.stream(message).allMatch(s -> s.isEmpty())) {
             return wrap(MsgGenConst.MSG_NO_TASKS.getString(), cmdColor);
         } else {
             String[] start = new String[]{MsgGenConst.MSG_FIND_TASKS.getString()};

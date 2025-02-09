@@ -1,7 +1,7 @@
 package botling.commands;
 
 /**
- * Numerical constants to be used to parse user input commandtypes.
+ * Numerical constants to be used to parse user input command types.
  */
 public enum ValConstants {
     // Tasks constants.

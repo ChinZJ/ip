@@ -2,10 +2,10 @@ package botling.commands;
 
 /**
  * Commands used by Botling.
- * Used in parsing commandtypes.
+ * Used in parsing command types.
  */
 public enum CmdConst {
-    // Unique commandtypes.
+    // Unique command types.
     CMD_BY(" /by "),
     CMD_BYE("bye"),
     CMD_DEADLINE("deadline"),

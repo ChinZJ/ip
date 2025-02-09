@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 import botling.commands.commandtypes.DeadlineCmd;
 import botling.commands.commandtypes.EventCmd;
@@ -111,6 +113,7 @@ public class TaskListWriter {
 
     /**
      * Deletes and creates a new history.txt file.
+     * For JUnit tests.
      */
     public static void recreateFile() {
         try {
@@ -121,4 +124,50 @@ public class TaskListWriter {
             System.out.println("Error writing to file: " + e.getMessage());
         }
     }
+
+    /**
+     * Creates a temporary folder to store current user data.
+     * For JUnit tests.
+     */
+    public static void createTemp() {
+        File dataDir = new File(TaskListWriter.HISTORY_DATA_FOLDER);
+        File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
+        if (dataDir.exists() && historyFile.exists()) {
+            try {
+                File tmpDir = new File("./tmp");
+                if (!tmpDir.exists()) {
+                    tmpDir.mkdir();
+                }
+                File tmpHistoryFile = new File("./tmp/history.txt");
+                Files.copy(historyFile.toPath(), tmpHistoryFile.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Restores the history file where applicable.
+     */
+    public static void restoreTemp() throws AssertionError {
+        if (!new File("./data").exists()) {
+            throw new AssertionError("Data directory does not exist.");
+        }
+
+        File tmpDir = new File("./tmp");
+        File tmpHistoryFile = new File("./tmp/history.txt");
+        if (tmpDir.exists() && tmpHistoryFile.exists()) {
+            try {
+                File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
+                Files.copy(tmpHistoryFile.toPath(), historyFile.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING);
+                tmpHistoryFile.delete();
+                tmpDir.delete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

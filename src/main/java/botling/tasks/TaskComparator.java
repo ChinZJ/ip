@@ -10,7 +10,7 @@ public class TaskComparator implements Comparator<Task> {
     @Override
     public int compare(Task t1, Task t2) {
         // Anything with dates are prioritized first - those without are likely to be leisure.
-        // First check if both tasks have dates
+        // First check if both tasks have dates.
         if (t1.hasDate()) {
             if (t2.hasDate()) {
                 return compareBothDates(t1, t2);
@@ -32,7 +32,7 @@ public class TaskComparator implements Comparator<Task> {
                 .thenComparing(Task::getStartDate)
                 .thenComparing(Task::getCreateDate)
                 .thenComparing(Task::toString)
-                .compare(t1, t2); // Lexographical name if all else fails.
+                .compare(t1, t2); // Lexicographical name if all else fails.
     }
 }
 

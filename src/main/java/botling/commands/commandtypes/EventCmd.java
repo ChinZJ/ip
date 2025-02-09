@@ -25,7 +25,7 @@ public class EventCmd implements TasksCmd {
     private static final int IDX_TO = 2;
 
     /**
-     * Creates a event task.
+     * Creates an event task.
      */
     public String parse(String input, TaskList tasks, CommandColor cmdColor) {
         if (input.matches(CmdConst.TASK_EVENT.getString())) {
@@ -98,13 +98,16 @@ public class EventCmd implements TasksCmd {
         String from = validateString(reader.readLine());
         String to = validateString(reader.readLine());
         String name = validateString(reader.readLine());
-        Boolean mark = validateAndParseBool(reader.readLine());
+        boolean mark = validateAndParseBool(reader.readLine());
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
         DateParser dateParser = new DateParser();
+        Optional<LocalDateTime> startDateTimeOpt = dateParser.parseDateTime(from);
+        Optional<LocalDateTime> endDateTimeOpt = dateParser.parseDateTime(to);
+        startBeforeEnd(startDateTimeOpt, endDateTimeOpt);
 
         Task task = new Events(name, mark, from, to,
-                dateParser.parseDateTime(from), dateParser.parseDateTime(to), createDate);
+                startDateTimeOpt, endDateTimeOpt, createDate);
         tasks.add(task);
     }
 

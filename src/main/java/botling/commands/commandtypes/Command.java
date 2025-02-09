@@ -14,5 +14,5 @@ public interface Command {
      * @param cmdColor Text meant for GUI.
      * @return Message string used in JUnit testing.
      */
-    public String parse(String input, TaskList tasks, CommandColor cmdColor);
+    String parse(String input, TaskList tasks, CommandColor cmdColor);
 }
