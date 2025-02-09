@@ -27,8 +27,13 @@ public class MainWindow extends AnchorPane {
     @FXML
     private Button sendButton;
     private Botling botling;
+    // Image adapted from:
+    // https://stock.adobe.com/search?k=manta+cartoon&asset_id=1024077717
     private Image userImage = new Image(this.getClass()
             .getResourceAsStream("/images/MantaRayUser.png"));
+    // Image adapted from:
+    // https://www.freepik.com/premium-ai-image/cute-cartoon-sea-turtle-
+    // swimming-underwater-colorful-coral-reefs_344370416.htm
     private Image botlingImage = new Image(this.getClass()
             .getResourceAsStream("/images/TurtleBot.png"));
 

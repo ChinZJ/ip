@@ -1,3 +1,6 @@
+/* Image adapted from
+https://www.freepik.com/premium-ai-image/illustration-with-deep-underwater-ocean-scene_347862215.htm
+*/
 .root {
     -fx-background-color: linear-gradient(to bottom, #E0F7FA, #B2EBF2, #80DEEA, #4DD0E1, #26C6DA);
     -fx-background-image: url('../images/Wallpaper.png');
@@ -47,6 +50,10 @@
     -fx-background-color: transparent;
 }
 
+/*
+Image adapted from
+https://www.shutterstock.com/image-vector/seamless-kakau-hawaiian-wave-pattern-tattoo-152529788
+ */
 .scroll-bar .thumb {
     /* Use your image as the background */
     -fx-background-image: url('../images/InvertWaves.png');
