@@ -133,7 +133,7 @@ By default, Botling comes with a basic sorting function to help you prioritize y
   
 ### Data Storage
   
-The data is located under [`./data/history.txt`]("../data").  
+The data is located under [`./data/history.txt`](../data).  
 This file can be ported between different applications to be used by Botling.
  
 ## Known Issues
