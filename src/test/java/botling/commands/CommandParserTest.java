@@ -6,15 +6,41 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import botling.TaskList;
+import botling.TaskListWriter;
 import botling.messagegenerator.MsgGen;
 import botling.tasks.Deadlines;
 import botling.tasks.Events;
 import botling.tasks.ToDo;
 
 public class CommandParserTest {
+
+    @BeforeAll
+    public static void setUp() {
+        TaskListWriter.createTemp();
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        TaskListWriter.restoreTemp();
+    }
+
+    @Test
+    public void startTest() {
+        CommandParser cmdParse = new CommandParser();
+        CommandColor cmdColor = new CommandColor();
+        TaskList tasks = new TaskList();
+        TaskListWriter.recreateFile();
+        String output = CommandParser.start(tasks, cmdColor);
+
+        assertEquals("Attempting to retrieve history...\nData folder found!\n"
+                + "History file found! Restoring data...\n\nHey! I'm Botling!\n"
+                + "What can I do for you?", output);
+    }
 
     @Test
     public void byeTest() {

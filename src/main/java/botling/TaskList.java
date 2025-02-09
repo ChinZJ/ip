@@ -24,6 +24,9 @@ public class TaskList {
         isActive = TaskList.TASK_IS_DONE;
     }
 
+    /**
+     * Deletes all tasks.
+     */
     public void clear() {
         tasks.clear();
     }
@@ -32,10 +35,10 @@ public class TaskList {
      * Scans through all tasks present in the list, and returns them in String format.
      */
     public String[] list() {
-        String[] items = new String[this.size()];
-        for (int i = 0; i < this.size(); i++) {
-            String entry = " " + (i + 1) + ". " + this.get(i).getTaskStatus();
-            if (i != this.size() - 1) {
+        String[] items = new String[size()];
+        for (int i = 0; i < size(); i++) {
+            String entry = " " + (i + 1) + ". " + get(i).getTaskStatus();
+            if (i != size() - 1) {
                 entry += "\n";
             }
             items[i] = entry;
@@ -47,11 +50,11 @@ public class TaskList {
      * Scans through all tasks and returns only those that matches the input String.
      */
     public String[] find(String input) {
-        String[] items = new String[this.size()];
+        String[] items = new String[size()];
         Task task;
         boolean isNotFirst = false;
-        for (int i = 0; i < this.size(); i++) {
-            task = this.get(i);
+        for (int i = 0; i < size(); i++) {
+            task = get(i);
             String entry = ""; // Dummy initialization.
             if (task.toString().toLowerCase().contains(input.toLowerCase())) {
                 if (!isNotFirst) {
@@ -59,7 +62,7 @@ public class TaskList {
                 } else {
                     items[i - 1] += "\n";
                 }
-                entry += " " + (i + 1) + ". " + this.get(i).getTaskStatus();
+                entry += " " + (i + 1) + ". " + get(i).getTaskStatus();
             }
             items[i] = entry;
         }
@@ -147,9 +150,9 @@ public class TaskList {
      */
     public String fileString() {
         StringBuilder strCreator = new StringBuilder();
-        for (int i = 0; i < this.size(); i++) {
-            strCreator.append(this.get(i).getTaskData());
-            if (i != this.size() - 1) {
+        for (int i = 0; i < size(); i++) {
+            strCreator.append(get(i).getTaskData());
+            if (i != size() - 1) {
                 strCreator.append("\n");
             }
         }

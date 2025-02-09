@@ -43,7 +43,7 @@ public abstract class Task {
      * <code>toString</code> method.
      */
     public String toString() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -51,7 +51,7 @@ public abstract class Task {
      */
     public String updateTask(boolean isDone) {
         this.isDone = isDone;
-        return " " + this.getTaskStatus();
+        return " " + getTaskStatus();
 
     }
 

@@ -1,15 +1,20 @@
 package botling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +23,17 @@ import botling.tasks.Events;
 import botling.tasks.ToDo;
 
 public class TaskListWriterTest {
+
+    @BeforeAll
+    public static void setUp() {
+        TaskListWriter.createTemp();
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        TaskListWriter.restoreTemp();
+    }
+
     /**
      * Used to overwrite the history.txt file for each test where applicable.
      */
@@ -181,5 +197,20 @@ public class TaskListWriterTest {
         String actual = tester.restore(testList);
 
         assertEquals(expectedMsg, actual);
+    }
+
+    @Test
+    public void writeTest() throws IOException {
+        TaskList tasks = new TaskList();
+        LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
+                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+        ToDo testTodo = new ToDo("new file", false, testTime);
+        tasks.add(testTodo);
+
+        assertFalse(Files.readString(Path.of("./data/history.txt")).equals(""));
+
+        TaskListWriter.write(tasks);
+        assertEquals("todo\nnew file\nfalse\n05 Feb 2025 1116",
+                Files.readString(Path.of("./data/history.txt")));
     }
 }
