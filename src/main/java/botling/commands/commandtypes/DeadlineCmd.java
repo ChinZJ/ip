@@ -32,7 +32,12 @@ public class DeadlineCmd implements TasksCmd {
             String deadlineName = splitInput[IDX_NAME];
             String by = splitInput[IDX_BY];
 
-            Optional<LocalDateTime> byDateTime = DateParser.parseDateTime(by);
+            DateParser dateParser = new DateParser();
+            Optional<LocalDateTime> byDateTime = dateParser.parseDateTime(by);
+            // If empty, check if syntax correct but invalid date time.
+            if (byDateTime.isEmpty() && dateParser.isInvalid()) {
+                return MsgGen.unknownDateTime(cmdColor);
+            }
             Task newTask = new Deadlines(deadlineName, by, byDateTime);
 
             // Add task.
@@ -73,7 +78,7 @@ public class DeadlineCmd implements TasksCmd {
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
         Task task = new Deadlines(name, mark, by,
-                DateParser.parseDateTime(by), createDate);
+                new DateParser().parseDateTime(by), createDate);
         tasks.add(task);
     }
 }

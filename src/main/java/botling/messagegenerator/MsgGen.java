@@ -182,4 +182,8 @@ public class MsgGen {
         return wrap(MsgGenConst.CORRUPT_FILE.getString(), cmdColor);
     }
 
+    public static String unknownDateTime(CommandColor cmdColor) {
+        return wrap(MsgGenConst.MSG_INVALID_DATETIME.getString(), cmdColor);
+    }
+
 }

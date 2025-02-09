@@ -66,7 +66,7 @@ public interface TasksCmd extends Command {
         if (input == null) {
             throw new InvalidInputException();
         }
-        Optional<LocalDateTime> createDate = DateParser.parseDateTime(input);
+        Optional<LocalDateTime> createDate = new DateParser().parseDateTime(input);
         if (createDate.isEmpty()) {
             throw new InvalidInputException();
         }

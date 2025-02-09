@@ -34,9 +34,18 @@ public class EventCmd implements TasksCmd {
             String eventFrom = splitCommands[IDX_FROM];
             String eventTo = splitCommands[IDX_TO];
 
+            DateParser startDateParser = new DateParser();
             // Check if eventFrom and eventTo are of valid LocalDateTime objects.
-            Optional<LocalDateTime> startDateTimeOpt = DateParser.parseDateTime(eventFrom);
-            Optional<LocalDateTime> endDateTimeOpt = DateParser.parseDateTime(eventTo);
+            Optional<LocalDateTime> startDateTimeOpt = startDateParser.parseDateTime(eventFrom);
+            if (startDateTimeOpt.isEmpty() && startDateParser.isInvalid()) {
+                return MsgGen.unknownDateTime(cmdColor);
+            }
+
+            DateParser endDateParser = new DateParser();
+            Optional<LocalDateTime> endDateTimeOpt = endDateParser.parseDateTime(eventTo);
+            if (startDateTimeOpt.isEmpty() && endDateParser.isInvalid()) {
+                return MsgGen.unknownDateTime(cmdColor);
+            }
             // Use the negation instead so that it reads clearer.
             // If the start date and end date are valid,
             // such that the start date is after the end date,
@@ -92,14 +101,10 @@ public class EventCmd implements TasksCmd {
         Boolean mark = validateAndParseBool(reader.readLine());
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
-        Optional<LocalDateTime> startDateTimeOpt = DateParser
-                .parseDateTime(from);
-        Optional<LocalDateTime> endDateTimeOpt = DateParser
-                .parseDateTime(to);
-        startBeforeEnd(startDateTimeOpt, endDateTimeOpt);
+        DateParser dateParser = new DateParser();
 
         Task task = new Events(name, mark, from, to,
-                DateParser.parseDateTime(from), DateParser.parseDateTime(to), createDate);
+                dateParser.parseDateTime(from), dateParser.parseDateTime(to), createDate);
         tasks.add(task);
     }
 
