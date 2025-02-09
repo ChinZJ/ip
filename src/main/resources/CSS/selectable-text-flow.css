@@ -19,11 +19,6 @@
     -fx-vbar-policy: NEVER !important;
     -fx-fit-to-width: true !important;
     -fx-fit-to-height: true !important;
-    -fx-font-family: inherit;
-    -fx-pref-width: -1;
-    -fx-pref-height: -1;
-    -fx-min-width: -1;
-    -fx-min-height: -1;
 }
 
 .selectable-text-flow .text-area .scroll-pane {
