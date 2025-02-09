@@ -12,7 +12,7 @@ All your tasks are automatically saved, and even sorted according to priority.
    1. [Bye](#bye-command)  
    1. [List](#list-command)
    1. [Find](#find-command)
-   1. [Mark / Unmark / Delete](#mark-unmark-delete-commands)  
+   1. [Mark / Unmark / Delete](#mark-/-unmark-/-delete-commands)  
    1. [To-Dos](#to-do-command)  
    1. [Deadlines](#deadline-command)
    1. [Events](#event-command)
