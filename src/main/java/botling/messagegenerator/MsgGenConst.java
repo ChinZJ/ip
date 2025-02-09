@@ -32,6 +32,8 @@ public enum MsgGenConst {
     MSG_INVALID_CMD_P2(" should be "),
     MSG_INVALID_UNKNOWN("Yikes!!! This command is still up for discussion.\n"
             + "Type 'help' for a list of commands and their syntax!"),
+    MSG_INVALID_DATETIME("That date time looks awkwardly wrong...\n"
+            + "I think this is suitable for peer help!"),
 
     // For corrupt files
     CORRUPT_FILE("Please enter 'y' for yes and 'n' for no.");

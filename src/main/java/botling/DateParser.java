@@ -32,11 +32,23 @@ public class DateParser {
         DATE_MAPPER = Collections.unmodifiableMap(tempMap);
     }
 
+    private static final String INVALID = "Invalid";
+
+    private boolean invalidDateTime;
+
+    /**
+     * Default constructor.
+     * Created to store boolean of whether parseable invalid date time was detected.
+     */
+    public DateParser() {
+        invalidDateTime = false;
+    }
+
     /**
      * Checks if given input matches date time syntax required.
      * If successfully parsed, returns an Optional with a LocalDate object inside it.
      */
-    public static Optional<LocalDateTime> parseDateTime(String input) {
+    public Optional<LocalDateTime> parseDateTime(String input) {
         return DATE_MAPPER.entrySet()
                 .stream()
                 .map(entry ->
@@ -46,7 +58,7 @@ public class DateParser {
                 .orElse(Optional.empty());
     }
 
-    private static Optional<LocalDateTime> tryParse(String input,
+    private Optional<LocalDateTime> tryParse(String input,
             Map.Entry<String, DateTimeFormatter> entry) {
         try {
             if (entry.getKey().contains("HHmm")) {
@@ -56,8 +68,15 @@ public class DateParser {
             }
         } catch (DateTimeParseException e) {
             // Do nothing, will return Optional empty if invalid date
+            if (e.getMessage().contains(INVALID)) {
+                invalidDateTime = true;
+            }
         }
         return Optional.empty();
+    }
+
+    public boolean isInvalid() {
+        return invalidDateTime;
     }
 
 }
