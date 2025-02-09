@@ -1,0 +1,9 @@
+title: "Botling"
+theme: merlot
+
+markdown: kramdown
+
+repository: "ChinZJ/ip"
+
+plugins:
+  - jemoji
