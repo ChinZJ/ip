@@ -12,7 +12,7 @@ All your tasks are automatically saved, and even sorted according to priority.
    1. [Bye](#bye-command)  
    1. [List](#list-command)
    1. [Find](#find-command)
-   1. [Mark / Unmark / Delete](#mark-/-unmark-/-delete-commands)  
+   1. [Mark / Unmark / Delete](#mark-unmark-delete-commands)  
    1. [To-Dos](#to-do-command)  
    1. [Deadlines](#deadline-command)
    1. [Events](#event-command)
@@ -83,7 +83,7 @@ Lists all current tasks that is recorded by Botling.
 Lists all recorded tasks that contains `<name>` within its task name.  
 This method is **case-insensitive**.  
 
-### Mark / Unmark / Delete Commands
+### Mark / Unmark / Delete Commands <a name="mark-unmark-delete-commands"></a>
 
 `mark <X>`, `unmark <X>`, `delete <X>`    
 These commands follow the same format, where only the index of the task needs to be specified.  
