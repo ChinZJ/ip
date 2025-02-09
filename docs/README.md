@@ -2,7 +2,7 @@
 
 ![Botling demo](Ui.png)
 
-Botling is a task management chatbot that helps you track your todos, deadlines, and events via simple yet effective text commands.
+Botling is a task management chatbot that helps you track your to-dos, deadlines, and events via simple yet effective text commands.
 All your tasks are automatically saved, and even sorted according to priority.
 
 ## **Table of Contents**
