@@ -15,6 +15,7 @@ public enum MsgGenConst {
     MSG_CURRENT_SIZE_P2(" tasks polluting my waters!"),
     MSG_CURRENT_TASKS("Here's whats sinking:\n"),
     MSG_EMPTY_LIST("Oceans clean, I'm free!"),
+    MSG_USER_EMPTY_LIST("You have no tasks!"),
     MSG_FIND_TASKS("I chewed on some, but here's the remnants:\n"),
     MSG_NO_TASKS("Don't see any, check the landfill!"),
 

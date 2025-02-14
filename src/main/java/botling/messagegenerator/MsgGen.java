@@ -36,6 +36,10 @@ public class MsgGen {
         return wrap(MsgGenConst.MSG_FAREWELL.getString(), cmdColor);
     }
 
+    public static String emptyList(CommandColor cmdColor) {
+        return wrap(MsgGenConst.MSG_USER_EMPTY_LIST.getString(), cmdColor);
+    }
+
     /**
      * Provides a wrapper for TaskList list() message.
      */

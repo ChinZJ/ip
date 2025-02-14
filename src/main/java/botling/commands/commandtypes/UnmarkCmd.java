@@ -30,8 +30,13 @@ public class UnmarkCmd implements Command {
             // Do nothing. Falls through to unknown syntax.
             // Exception arises from attempting to parse the string as an integer.
         }
-        return MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
-                CmdConst.MSG_INVALID_CMD_MARK.getString()
-                        + String.valueOf(tasks.size()), cmdColor);
+
+        if (tasks.size() != 0) {
+            return MsgGen.unknownSyntax(CmdConst.CMD_UNMARK.getString(),
+                    CmdConst.MSG_INVALID_CMD_MARK.getString()
+                            + String.valueOf(tasks.size()), cmdColor);
+        }
+
+        return MsgGen.emptyList(cmdColor);
     }
 }

@@ -52,10 +52,8 @@ public class CommandParserTest {
         String result = "Shell-be seeing you!";
         assertEquals(result, cmdParse.parse("bye", tasks, cmdColor));
 
-        // Invalid input.
         tasks.hasOpen();
-        result = "Yikes!!! This command is still up for discussion.\n"
-            + "Type 'help' for a list of commands and their syntax!";
+        result = "Shell-be seeing you!";
         assertEquals(result, cmdParse.parse("bye ", tasks, cmdColor));
     }
 
@@ -86,8 +84,6 @@ public class CommandParserTest {
                 + " 1. [T][X] mark";
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
-        // Invalid input.
-        result = MsgGen.unknownCmd(cmdColor);
         assertEquals(result, cmdParse.parse("list ", tasks, cmdColor));
     }
 
@@ -165,8 +161,8 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("mark 1", tasks, cmdColor));
 
         // Exceed size.
-        result = "Yikes!!! The format of mark should be mark <X>"
-                + ", where X is a positive integer <= 1";
+        result = "Yikes!!! The format of mark should be mark <X>, "
+                + "where X is a positive integer <= 1";
         assertEquals(result, cmdParse.parse("mark 9", tasks, cmdColor));
 
         // Float.
@@ -197,8 +193,8 @@ public class CommandParserTest {
         assertEquals(result, cmdParse.parse("unmark 1", tasks, cmdColor));
 
         // Exceed size.
-        result = "Yikes!!! The format of unmark should be unmark <X>"
-                + ", where X is a positive integer <= 1";
+        result = "Yikes!!! The format of unmark should be unmark <X>, "
+                + "where X is a positive integer <= 1";
         assertEquals(result, cmdParse.parse("unmark 9", tasks, cmdColor));
 
         // Float.
@@ -227,8 +223,8 @@ public class CommandParserTest {
 
         // Exceed size.
         tasks.add(task);
-        result = "Yikes!!! The format of delete should be delete <X>"
-                + ", where X is a positive integer <= 1";
+        result = "Yikes!!! The format of delete should be delete <X>,"
+                + " where X is a positive integer <= 1";
         assertEquals(result, cmdParse.parse("delete 9", tasks, cmdColor));
 
         // Float.
@@ -296,8 +292,8 @@ public class CommandParserTest {
 
         // Invalid input.
         result = "Yikes!!! The format of deadline should be deadline <name> /by <deadline>.\n"
-                + "Date: 'yy(yy)-MM-dd HHmm', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)', "
-                + "optionally with HHmm in 24hour format.";
+                + "Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
+                + "(month in short form e.g. Jan), optionally with HHmm in 24hour format.";
         assertEquals(result, cmdParse.parse("deadline", tasks, cmdColor));
     }
 
@@ -367,8 +363,8 @@ public class CommandParserTest {
         // Doubles as invalid input.
         result = "Yikes!!! The format of event should be event <name> /from <start> /to <end>.\n"
                 + " <start> should be before or equal to <end> if dates are inputs.\n"
-                + "Date: 'yy(yy)-MM-dd HHmm', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)', "
-                + "optionally with HHmm in 24hour format.";
+                + "Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
+                + "(month in short form e.g. Jan), optionally with HHmm in 24hour format.";
         assertEquals(result, cmdParse.parse("event a /to b /to c /from d /from e",
                 tasks, cmdColor));
 

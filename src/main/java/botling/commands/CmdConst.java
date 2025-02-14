@@ -30,7 +30,8 @@ public enum CmdConst {
     TASK_UNMARK("unmark -?\\d+"),
 
     // Expected Syntax.
-    MSG_INVALID_CMD_DATE("Date: 'yy(yy)-MM-dd HHmm', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)', "
+    MSG_INVALID_CMD_DATE("Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
+            + "(month in short form e.g. Jan), "
             + "optionally with HHmm in 24hour format."),
     MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline>.\n"),
     MSG_INVALID_CMD_EVENT(" <name> /from <start> /to <end>.\n"),
