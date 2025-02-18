@@ -7,13 +7,40 @@ import org.junit.jupiter.api.Test;
 import botling.TaskList;
 import botling.commands.CommandColor;
 import botling.gui.ColorNames;
+import botling.tasks.Task;
 import botling.tasks.ToDo;
 
 public class MsgGenTest {
+    private CommandColor cmdColor;
+    private TaskList tasks;
+
+    /**
+     * Resets all private variables.
+     */
+    private void resetVariables() {
+        cmdColor = new CommandColor();
+        tasks = new TaskList();
+    }
+
+    /**
+     * Adds a varying number of <code>Task</code> objects to tasks.
+     */
+    private void addTasks(Task... toAddTasks) {
+        for (Task task : toAddTasks) {
+            tasks.add(task);
+        }
+    }
+
+    private void setUpTasks() {
+        ToDo markTodo = new ToDo("markTodo");
+        markTodo.updateTask(true);
+        ToDo unmarkTodo = new ToDo("unmarkTodo");
+        addTasks(markTodo, unmarkTodo);
+    }
 
     @Test
     public void wrapTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.wrap("wrapTest", cmdColor);
 
         assertEquals("wrapTest", output);
@@ -24,7 +51,7 @@ public class MsgGenTest {
 
     @Test
     public void greetTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.greet("greetTest", cmdColor);
 
         assertEquals("greetTest\nHey! I'm Botling!\nWhat can I do for you?", output);
@@ -36,7 +63,7 @@ public class MsgGenTest {
 
     @Test
     public void byeTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.bye(cmdColor);
 
         assertEquals("Shell-be seeing you!", output);
@@ -47,9 +74,8 @@ public class MsgGenTest {
     }
 
     @Test
-    public void listFindTest() {
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+    public void listTestEmpty() {
+        resetVariables();
 
         String[] message = tasks.list();
         String output = MsgGen.list(message, cmdColor);
@@ -58,15 +84,16 @@ public class MsgGenTest {
         assertEquals("Oceans clean, I'm free!",
                 cmdColor.getMessages()[0]);
         assertEquals(ColorNames.COLOR_BLACK.getIndex(), cmdColor.getLines()[0]);
+    }
 
-        cmdColor.reset();
-        ToDo markTodo = new ToDo("markTodo");
-        markTodo.updateTask(true);
-        ToDo unmarkTodo = new ToDo("unmarkTodo");
-        tasks.add(markTodo);
-        tasks.add(unmarkTodo);
-        message = tasks.list();
-        output = MsgGen.list(message, cmdColor);
+    @Test
+    public void findTestAddTask() {
+        resetVariables();
+
+        setUpTasks();
+
+        String[] message = tasks.list();
+        String output = MsgGen.list(message, cmdColor);
         assertEquals("Here's whats sinking:\n 1. [T][X] markTodo\n 2. [T][ ] unmarkTodo",
                 output);
         assertEquals(3, cmdColor.getMessages().length);
@@ -76,12 +103,18 @@ public class MsgGenTest {
         assertEquals(ColorNames.COLOR_BLACK.getIndex(), cmdColor.getLines()[0]);
         assertEquals(ColorNames.COLOR_GREEN.getIndex(), cmdColor.getLines()[1]);
         assertEquals(ColorNames.COLOR_RED.getIndex(), cmdColor.getLines()[2]);
+    }
 
-        cmdColor.reset();
-        message = tasks.find("to");
-        output = MsgGen.find(message, cmdColor);
+    @Test
+    public void findTestWithTaskSuccess() {
+        resetVariables();
+
+        setUpTasks();
+
+        String[] message = tasks.find("to");
+        String output = MsgGen.find(message, cmdColor);
         assertEquals("I chewed on some, but here's the remnants:\n"
-            + " 1. [T][X] markTodo\n 2. [T][ ] unmarkTodo",
+                        + " 1. [T][X] markTodo\n 2. [T][ ] unmarkTodo",
                 output);
         assertEquals(3, cmdColor.getMessages().length);
         assertEquals("I chewed on some, but here's the remnants:\n", cmdColor.getMessages()[0]);
@@ -101,10 +134,16 @@ public class MsgGenTest {
         assertEquals(" 2. [T][ ] unmarkTodo", cmdColor.getMessages()[1]);
         assertEquals(ColorNames.COLOR_BLACK.getIndex(), cmdColor.getLines()[0]);
         assertEquals(ColorNames.COLOR_RED.getIndex(), cmdColor.getLines()[1]);
+    }
 
-        cmdColor.reset();
-        message = tasks.find("sss");
-        output = MsgGen.find(message, cmdColor);
+    @Test
+    public void findTestWithTaskFail() {
+        resetVariables();
+
+        setUpTasks();
+
+        String[] message = tasks.find("sss");
+        String output = MsgGen.find(message, cmdColor);
         assertEquals("Don't see any, check the landfill!",
                 output);
         assertEquals(1, cmdColor.getMessages().length);
@@ -114,7 +153,7 @@ public class MsgGenTest {
 
     @Test
     public void markTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.mark("markTest", cmdColor);
 
         assertEquals("Nice! I've swallowed this task:\nmarkTest", output);
@@ -127,7 +166,7 @@ public class MsgGenTest {
 
     @Test
     public void unmarkTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.unmark("unmarkTest", cmdColor);
 
         assertEquals("Yuck, I've spat out this task:\nunmarkTest", output);
@@ -140,7 +179,7 @@ public class MsgGenTest {
 
     @Test
     public void addTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.add("addTest", 500, cmdColor);
 
         assertEquals("You threw this into the ocean:\naddTest\n"
@@ -158,7 +197,7 @@ public class MsgGenTest {
 
     @Test
     public void deleteTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.delete("deleteTest", 500, cmdColor);
 
         assertEquals("This task has degraded into nothingness:\ndeleteTest\n"
@@ -176,7 +215,7 @@ public class MsgGenTest {
 
     @Test
     public void unknownTest() {
-        CommandColor cmdColor = new CommandColor();
+        resetVariables();
         String output = MsgGen.unknownCmd(cmdColor);
 
         assertEquals("Yikes!!! This command is still up for discussion.\n"
@@ -213,8 +252,5 @@ public class MsgGenTest {
         assertEquals("That date time looks awkwardly wrong...\n"
                 + "I think this is suitable for peer help!", cmdColor.getMessages()[0]);
         assertEquals(ColorNames.COLOR_BLACK.getIndex(), cmdColor.getLines()[0]);
-
-
-
     }
 }

@@ -11,6 +11,11 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 public class DeadlinesTest {
+    private final LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+
+    private final LocalDateTime endTime = LocalDateTime.parse("05 Feb 2026 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
 
     /**
      * Test constructor.
@@ -18,9 +23,7 @@ public class DeadlinesTest {
      * and is thus not tested here.
      */
     @Test
-    public void defaultTest() {
-        LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+    public void noDateUnmarkTest() {
         Deadlines testDeadlines = new Deadlines("yes", false, "startDate",
                 Optional.empty(), testTime);
 
@@ -39,8 +42,11 @@ public class DeadlinesTest {
                 testDeadlines.updateTask(true));
         assertEquals(" [D][ ] yes (by: startDate)",
                 testDeadlines.updateTask(false));
+    }
 
-        testDeadlines = new Deadlines("yes", true, "startDate",
+    @Test
+    public void noDateMarkTest() {
+        Deadlines testDeadlines = new Deadlines("yes", true, "startDate",
                 Optional.empty(), testTime);
 
         assertEquals("[D][X] yes (by: startDate)",
@@ -51,10 +57,11 @@ public class DeadlinesTest {
         assertEquals(testTime.toString(), testDeadlines.getCreateDate().toString());
         assertEquals(testTime.toString(), testDeadlines.getStartDate().toString());
         assertEquals(testTime.toString(), testDeadlines.getEndDate().toString());
+    }
 
-        LocalDateTime endTime = LocalDateTime.parse("05 Feb 2026 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
-        testDeadlines = new Deadlines("yes", false, "startDate",
+    @Test
+    public void dateTaskTest() {
+        Deadlines testDeadlines = new Deadlines("yes", false, "startDate",
                 Optional.of(endTime), testTime);
         assertEquals("[DATE] [D][ ] yes (by: 05 Feb 2026 1116)",
                 testDeadlines.getTaskStatus());

@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
  */
 public abstract class Task {
     private static final String DATE_FORMAT = "dd MMM yyyy HHmm";
-    private static final boolean TASK_UNDONE = false;
+    private static final boolean TASK_NOT_DONE = false;
 
     private final String name;
     private boolean isDone;
@@ -23,7 +23,7 @@ public abstract class Task {
      * @param name Name of task.
      */
     public Task(String name) {
-        this(name, Task.TASK_UNDONE, LocalDateTime.now());
+        this(name, Task.TASK_NOT_DONE, LocalDateTime.now());
     }
 
     /**
@@ -31,17 +31,15 @@ public abstract class Task {
      * Allows for full specification of Task object construction.
      *
      * @param name Name of task.
-     * @param done Status of task.
+     * @param isDone Status of task.
      */
-    public Task(String name, boolean done, LocalDateTime createDate) {
+    public Task(String name, boolean isDone, LocalDateTime createDate) {
         this.name = name;
-        this.isDone = done;
+        this.isDone = isDone;
         this.createDate = createDate;
     }
 
-    /**
-     * <code>toString</code> method.
-     */
+    @Override
     public String toString() {
         return name;
     }
@@ -87,28 +85,31 @@ public abstract class Task {
     }
 
     /**
-     * To be overridden by <code>Task</code> objects with date.
+     * Checks if <code>Task</code> objects have a known recorded date.
+     * Not to be confused with date of creation.
      */
     public boolean hasDate() {
         return false;
     }
 
     /**
-     * Default methods for comparator class.
+     * Used by comparator class.
+     * Returns date <code>Task</code> object was created
      */
     public LocalDateTime getCreateDate() {
         return createDate;
     }
 
     /**
-     * Default methods for comparator class.
+     * Used by comparator class.
+     * Returns start date of <code>Task</code>
      */
     public LocalDateTime getStartDate() {
         return createDate;
     }
 
     /**
-     * Default method for comparator class.
+     * Used by comparator class.
      */
     public LocalDateTime getEndDate() {
         return createDate;

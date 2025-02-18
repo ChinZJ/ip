@@ -11,6 +11,12 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 public class EventsTest {
+    private final LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+    private final LocalDateTime startTime = LocalDateTime.parse("05 Feb 2024 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+    private final LocalDateTime endTime = LocalDateTime.parse("05 Feb 2026 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
 
     /**
      * Test constructor.
@@ -18,9 +24,7 @@ public class EventsTest {
      * and is thus not tested here.
      */
     @Test
-    public void defaultTest() {
-        LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+    public void noDateUnmarkTest() {
         Events testEvents = new Events("yes", false, "startDate", "endDate",
                 Optional.empty(), Optional.empty(), testTime);
 
@@ -39,8 +43,11 @@ public class EventsTest {
                 testEvents.updateTask(true));
         assertEquals(" [E][ ] yes (from: startDate to: endDate)",
                 testEvents.updateTask(false));
+    }
 
-        testEvents = new Events("yes", true, "startDate", "endDate",
+    @Test
+    public void noDateMarkTest() {
+        Events testEvents = new Events("yes", true, "startDate", "endDate",
                 Optional.empty(), Optional.empty(), testTime);
 
         assertEquals("[E][X] yes (from: startDate to: endDate)",
@@ -51,10 +58,11 @@ public class EventsTest {
         assertEquals(testTime.toString(), testEvents.getCreateDate().toString());
         assertEquals(testTime.toString(), testEvents.getStartDate().toString());
         assertEquals(testTime.toString(), testEvents.getEndDate().toString());
+    }
 
-        LocalDateTime endTime = LocalDateTime.parse("05 Feb 2026 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
-        testEvents = new Events("yes", false, "startDate", "endDate",
+    @Test
+    public void singleDateTest() {
+        Events testEvents = new Events("yes", false, "startDate", "endDate",
                 Optional.empty(), Optional.of(endTime), testTime);
         assertEquals("[DATE] [E][ ] yes (from: startDate to: 05 Feb 2026 1116)",
                 testEvents.getTaskStatus());
@@ -64,10 +72,11 @@ public class EventsTest {
         assertEquals(testTime.toString(), testEvents.getCreateDate().toString());
         assertEquals(testTime.toString(), testEvents.getStartDate().toString());
         assertEquals(endTime.toString(), testEvents.getEndDate().toString());
+    }
 
-        LocalDateTime startTime = LocalDateTime.parse("05 Feb 2024 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
-        testEvents = new Events("yes", false, "startDate", "endDate",
+    @Test
+    public void doubleDateTest() {
+        Events testEvents = new Events("yes", false, "startDate", "endDate",
                 Optional.of(startTime), Optional.empty(), testTime);
         assertEquals("[DATE] [E][ ] yes (from: 05 Feb 2024 1116 to: endDate)",
                 testEvents.getTaskStatus());

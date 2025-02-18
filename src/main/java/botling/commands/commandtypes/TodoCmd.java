@@ -43,10 +43,10 @@ public class TodoCmd implements TasksCmd {
     public void restore(BufferedReader reader, TaskList tasks)
             throws InvalidInputException, IOException {
         String name = validateString(reader.readLine());
-        boolean mark = validateAndParseBool(reader.readLine());
+        boolean isDone = validateAndParseBool(reader.readLine());
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
-        Task task = new ToDo(name, mark, createDate);
+        Task task = new ToDo(name, isDone, createDate);
         tasks.add(task);
     }
 }

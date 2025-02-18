@@ -119,7 +119,6 @@ public class DateParserTest {
         assertEquals(Optional.empty(), dateParser.parseDateTime(invalidMonth));
         assertTrue(dateParser.isInvalid());
 
-
         // Invalid time.
         dateParser = new DateParser();
         String invalidTime = "2023-12-03 2500";

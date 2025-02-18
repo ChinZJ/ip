@@ -12,12 +12,56 @@ import org.junit.jupiter.api.Test;
 
 import botling.TaskList;
 import botling.TaskListWriter;
-import botling.messagegenerator.MsgGen;
 import botling.tasks.Deadlines;
 import botling.tasks.Events;
+import botling.tasks.Task;
 import botling.tasks.ToDo;
 
 public class CommandParserTest {
+    private static final String NEW_FILE_MESSAGE = "Attempting to retrieve history...\n"
+            + "Data folder found!\n"
+            + "History file found! Restoring data...\n\nHey! I'm Botling!\n"
+            + "What can I do for you?";
+    private static final String BYE_MESSAGE = "Shell-be seeing you!";
+    private static final String UNKNOWN_MESSAGE = "Yikes!!! "
+            + "This command is still up for discussion.\n"
+            + "Type 'help' for a list of commands and their syntax!";
+    private static final String NO_TASK_MESSAGE = "";
+    private static final String DATE_FORMAT_MESSAGE = "If using a date, "
+            + "the accepted format are as follows:\n"
+            + "'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
+            + "(month in short form e.g. Jan), optionally with HHmm in 24hour format.\n"
+            + "Else, normal text is accepted as well!";
+
+    private CommandParser cmdParse;
+    private CommandColor cmdColor;
+    private TaskList tasks;
+
+    /**
+     * Resets all private variables.
+     */
+    private void resetVariables() {
+        cmdParse = new CommandParser();
+        cmdColor = new CommandColor();
+        tasks = new TaskList();
+    }
+
+    /**
+     * Adds a varying number of <code>Task</code> objects to tasks.
+     */
+    private void addTasks(Task... toAddTasks) {
+        for (Task task : toAddTasks) {
+            tasks.add(task);
+        }
+    }
+
+    /**
+     * Generates the message when a <code>Task</code> is added to the <code>TaskList</code>.
+     */
+    private String addTaskMessage(String taskName, int tasksSize) {
+        return "You threw this into the ocean:\n"
+                + taskName + "Now you have " + tasksSize + " tasks polluting my waters!";
+    }
 
     @BeforeAll
     public static void setUp() {
@@ -31,67 +75,60 @@ public class CommandParserTest {
 
     @Test
     public void startTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
         TaskListWriter.recreateFile();
         String output = CommandParser.start(tasks, cmdColor);
 
-        assertEquals("Attempting to retrieve history...\nData folder found!\n"
-                + "History file found! Restoring data...\n\nHey! I'm Botling!\n"
-                + "What can I do for you?", output);
+        assertEquals(NEW_FILE_MESSAGE, output);
     }
 
     @Test
     public void byeTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
 
         // Valid input.
-        String result = "Shell-be seeing you!";
-        assertEquals(result, cmdParse.parse("bye", tasks, cmdColor));
+        assertEquals(BYE_MESSAGE, cmdParse.parse("bye", tasks, cmdColor));
 
         tasks.hasOpen();
-        result = "Shell-be seeing you!";
-        assertEquals(result, cmdParse.parse("bye ", tasks, cmdColor));
+        assertEquals(BYE_MESSAGE, cmdParse.parse("bye ", tasks, cmdColor));
+
+        // Invalid input.
+        tasks.hasOpen();
+        assertEquals(UNKNOWN_MESSAGE, cmdParse.parse("bye/", tasks, cmdColor));
     }
 
     @Test
     public void listTest() {
         // Tasks in list are not rigorously tested.
         // They should be tested in their respective classes.
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
 
         // Empty list.
         String result = "Oceans clean, I'm free!";
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
         // List with item.
-        ToDo task = new ToDo("unmark", false, LocalDateTime.now());
-        tasks.add(task);
+        ToDo unmarkTodo = new ToDo("unmark", false, LocalDateTime.now());
+        addTasks(unmarkTodo);
         result = "Here's whats sinking:\n"
                 + " 1. [T][ ] unmark";
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
         // List with marked item.
         tasks.remove(0);
-        task = new ToDo("mark", true, LocalDateTime.now());
-        tasks.add(task);
+        ToDo markTodo = new ToDo("mark", true, LocalDateTime.now());
+        addTasks(markTodo);
         result = "Here's whats sinking:\n"
                 + " 1. [T][X] mark";
         assertEquals(result, cmdParse.parse("list", tasks, cmdColor));
 
-        assertEquals(result, cmdParse.parse("list ", tasks, cmdColor));
+        // Invalid input.
+        assertEquals(UNKNOWN_MESSAGE, cmdParse.parse("list/", tasks, cmdColor));
     }
 
     @Test
     public void findTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
 
         // Find upper and lower case
         // Simultaneously test for special characters and spaces
@@ -108,11 +145,7 @@ public class CommandParserTest {
         Events task5 = new Events("!@#$%^&*(", "2024-01-02 0000", "2024-01-02 0000",
                 Optional.of(time), Optional.of(time));
 
-        tasks.add(task1);
-        tasks.add(task2);
-        tasks.add(task3);
-        tasks.add(task4);
-        tasks.add(task5);
+        addTasks(task1, task2, task3, task4, task5);
 
         // Spaces.
         String result = "I chewed on some, but here's the remnants:\n"
@@ -138,19 +171,21 @@ public class CommandParserTest {
                 + " 2. [DATE] [D][ ] )(*&^%$#@! (by: 02 Jan 2024 0000)";
         assertEquals(result, cmdParse.parse("find !", tasks, cmdColor));
 
-        // Find invalid input
-        result = "Yikes!!! This command is still up for discussion.\n"
-                + "Type 'help' for a list of commands and their syntax!";
-        assertEquals(result, cmdParse.parse("find", tasks, cmdColor));
+        // Invalid input
+        assertEquals(UNKNOWN_MESSAGE, cmdParse.parse("find", tasks, cmdColor));
     }
 
     @Test
     public void markTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
+
+        // Testing empty list
+        assertEquals("Yikes!!! The format of mark should be mark <X>, "
+                + "though you have no tasks!",
+                cmdParse.parse("mark 1", tasks, cmdColor));
+
         ToDo task = new ToDo("unmark", false, LocalDateTime.now());
-        tasks.add(task);
+        addTasks(task);
 
         // Correct input.
         String result = "Nice! I've swallowed this task:\n"
@@ -177,11 +212,14 @@ public class CommandParserTest {
 
     @Test
     public void unmarkTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
+
+        // Testing empty list
+        assertEquals("Yikes!!! The format of unmark should be unmark <X>, "
+                + "though you have no tasks!", cmdParse.parse("unmark 1", tasks, cmdColor));
+
         ToDo task = new ToDo("unmark", true, LocalDateTime.now());
-        tasks.add(task);
+        addTasks(task);
 
         // Correct input.
         String result = "Yuck, I've spat out this task:\n"
@@ -209,9 +247,12 @@ public class CommandParserTest {
 
     @Test
     public void deleteTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
+        resetVariables();
+
+        // Testing empty list
+        assertEquals("Yikes!!! The format of unmark should be unmark <X>, "
+                + "though you have no tasks!", cmdParse.parse("unmark 1", tasks, cmdColor));
+
         ToDo task = new ToDo("delete", false, LocalDateTime.now());
         tasks.add(task);
 
@@ -239,10 +280,7 @@ public class CommandParserTest {
 
     @Test
     public void todoTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
-        // ToDo task = new ToDo(" ", false);
+        resetVariables();
 
         // Valid input.
         String result = "You threw this into the ocean:\n"
@@ -257,114 +295,72 @@ public class CommandParserTest {
 
     @Test
     public void deadlineTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
-        // Deadlines task = new Deadlines(" ", " ");
+        resetVariables();
 
         // Standard input.
-        String result = "You threw this into the ocean:\n"
-                + " [D][ ]   (by:  )\n"
-                + "Now you have 1 tasks polluting my waters!";
+        String result = addTaskMessage(" [D][ ]   (by:  )\n", 1);
         assertEquals(result, cmdParse.parse("deadline   /by  ", tasks, cmdColor));
 
         // Multiple /by commandtypes
         // Nested deadline commandtypes.
-        tasks.remove(0);
-        // task = new Deadlines("deadline", "deadline /by abc");
-        result = "You threw this into the ocean:\n"
-                + " [D][ ] deadline (by: deadline /by abc)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [D][ ] deadline (by: deadline /by abc)\n", 2);
         assertEquals(result, cmdParse.parse("deadline deadline /by deadline /by abc",
                 tasks, cmdColor));
 
         // deadline with date.
         // deadline with alternate time formats are not tested
         // because that is the functionality of DateParser object.
-        tasks.remove(0);
-        // DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-        // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
-        // DeadlineDate taskDate = new DeadlineDate(" ", time);
-        result = "You threw this into the ocean:\n"
-                + " [DATE] [D][ ]   (by: 02 Jan 2024 0000)\n"
-                + "Now you have 1 tasks polluting my waters!";
-        assertEquals(result, cmdParse.parse("deadline   /by 2024-01-02 0000", tasks, cmdColor));
+        result = addTaskMessage(" [DATE] [D][ ]   (by: 02 Jan 2024 0000)\n", 3);
+        assertEquals(result, cmdParse
+                .parse("deadline   /by 2024-01-02 0000", tasks, cmdColor));
 
         // Invalid input.
-        result = "Yikes!!! The format of deadline should be deadline <name> /by <deadline>.\n"
-                + "Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
-                + "(month in short form e.g. Jan), optionally with HHmm in 24hour format.";
+        result = "Yikes!!! The format of deadline should be deadline"
+                + " <name> /by <deadline (may be date)>.\n"
+                + DATE_FORMAT_MESSAGE;
         assertEquals(result, cmdParse.parse("deadline", tasks, cmdColor));
     }
 
     @Test
     public void eventTest() {
-        CommandParser cmdParse = new CommandParser();
-        CommandColor cmdColor = new CommandColor();
-        TaskList tasks = new TaskList();
-        // Events task = new Events(" ", " ", " ");
+        resetVariables();
 
         // Standard input.
-        String result = "You threw this into the ocean:\n"
-                + " [E][ ]   (from:   to:  )\n"
-                + "Now you have 1 tasks polluting my waters!";
+        String result = addTaskMessage(" [E][ ]   (from:   to:  )\n", 1);
         assertEquals(result, cmdParse.parse("event   /from   /to  ", tasks, cmdColor));
 
         // Nested event commandtypes.
-        tasks.remove(0);
-        // task = new Events(" ", "event ", "/from asd /to asd ");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ]   (from: event  to: /from asd /to asd )\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ]   (from: event  to: /from asd /to asd )\n",
+                2);
         assertEquals(result, cmdParse.parse("event   /from event  /to /from asd /to asd ",
                 tasks, cmdColor));
 
         // Multiple /from /to commandtypes.
-        tasks.remove(0);
-        // task = new Events("a", "b /from c", "d /to e");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ] a (from: b /from c to: d /to e)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ] a (from: b /from c to: d /to e)\n", 3);
         assertEquals(result, cmdParse.parse("event a /from b /from c /to d /to e",
                 tasks, cmdColor));
 
-        tasks.remove(0);
-        // task = new Events("a", "b", "c /from d /to e");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ] a (from: b to: c /from d /to e)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ] a (from: b to: c /from d /to e)\n", 4);
         assertEquals(result, cmdParse.parse("event a /from b /to c /from d /to e",
                 tasks, cmdColor));
 
-        tasks.remove(0);
-        // task = new Events("a", "b", "c /to d /from e");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ] a (from: b to: c /to d /from e)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ] a (from: b to: c /to d /from e)\n", 5);
         assertEquals(result, cmdParse.parse("event a /from b /to c /to d /from e",
                 tasks, cmdColor));
 
-        tasks.remove(0);
-        // task = new Events("a /to b", "c", "d /from e");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ] a /to b (from: c to: d /from e)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ] a /to b (from: c to: d /from e)\n", 6);
         assertEquals(result, cmdParse.parse("event a /to b /from c /to d /from e",
                 tasks, cmdColor));
 
-        tasks.remove(0);
-        // task = new Events("a /to b", "c /from d", "e");
-        result = "You threw this into the ocean:\n"
-                + " [E][ ] a /to b (from: c /from d to: e)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [E][ ] a /to b (from: c /from d to: e)\n", 7);
         assertEquals(result, cmdParse.parse("event a /to b /from c /from d /to e",
                 tasks, cmdColor));
 
         // Doubles as invalid input.
-        result = "Yikes!!! The format of event should be event <name> /from <start> /to <end>.\n"
-                + " <start> should be before or equal to <end> if dates are inputs.\n"
-                + "Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
-                + "(month in short form e.g. Jan), optionally with HHmm in 24hour format.";
+        result = "Yikes!!! The format of event should be event <name> /from <start "
+                + "(may be date)> /to <end (may be date)>.\n"
+                + "<start> should be before or equal to <end> if dates are inputs.\n"
+                + DATE_FORMAT_MESSAGE;
         assertEquals(result, cmdParse.parse("event a /to b /to c /from d /from e",
                 tasks, cmdColor));
 
@@ -375,15 +371,9 @@ public class CommandParserTest {
 
         // event with date.
         // Doubles to check that same date works, but not before.
-        tasks.remove(0);
-        // DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-        // LocalDateTime time = LocalDateTime.parse("2024-01-02 0000", format);
-        // EventDate taskDate = new EventDate(" ", time, time);
-        result = "You threw this into the ocean:\n"
-                + " [DATE] [E][ ]   (from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)\n"
-                + "Now you have 1 tasks polluting my waters!";
+        result = addTaskMessage(" [DATE] [E][ ]   "
+                + "(from: 02 Jan 2024 0000 to: 02 Jan 2024 0000)\n", 8);
         assertEquals(result, cmdParse.parse("event   /from 2024-01-02 /to 2024-01-02",
                 tasks, cmdColor));
     }
-
 }

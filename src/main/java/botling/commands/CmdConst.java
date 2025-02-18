@@ -30,14 +30,17 @@ public enum CmdConst {
     TASK_UNMARK("unmark -?\\d+"),
 
     // Expected Syntax.
-    MSG_INVALID_CMD_DATE("Date: 'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
+    MSG_INVALID_CMD_DATE("If using a date, the accepted format are as follows:\n"
+            + "'yy(yy)-MM-dd ', 'dd/MM/yy(yy)' or 'dd MMM yy(yy)'"
             + "(month in short form e.g. Jan), "
-            + "optionally with HHmm in 24hour format."),
-    MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline>.\n"),
-    MSG_INVALID_CMD_EVENT(" <name> /from <start> /to <end>.\n"),
-    MSG_INVALID_CMD_EVENT_DATE(" <start> should be before or equal to <end>"
+            + "optionally with HHmm in 24hour format.\n"
+            + "Else, normal text is accepted as well!"),
+    MSG_INVALID_CMD_DEADLINE(" <name> /by <deadline (may be date)>.\n"),
+    MSG_INVALID_CMD_EVENT(" <name> /from <start (may be date)> /to <end (may be date)>.\n"),
+    MSG_INVALID_CMD_EVENT_DATE("<start> should be before or equal to <end>"
             + " if dates are inputs.\n"),
-    MSG_INVALID_CMD_MARK(" <X>, where X is a positive integer <= "),
+    MSG_INVALID_CMD_INDEX(" <X>, where X is a positive integer <= "),
+    MSG_INVALID_CMD_INDEX_EMPTY_LIST(" <X>, though you have no tasks!"),
     MSG_INVALID_CMD_TODO(" <name>."),
 
     // For corrupted files.

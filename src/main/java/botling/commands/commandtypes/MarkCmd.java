@@ -33,10 +33,11 @@ public class MarkCmd implements Command {
 
         if (tasks.size() != 0) {
             return MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
-                    CmdConst.MSG_INVALID_CMD_MARK.getString()
+                    CmdConst.MSG_INVALID_CMD_INDEX.getString()
                             + String.valueOf(tasks.size()), cmdColor);
         }
-
-        return MsgGen.emptyList(cmdColor);
+        return MsgGen.unknownSyntax(CmdConst.CMD_MARK.getString(),
+                CmdConst.MSG_INVALID_CMD_INDEX_EMPTY_LIST.getString()
+                        + "", cmdColor);
     }
 }

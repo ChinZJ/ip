@@ -9,14 +9,14 @@ import java.time.format.DateTimeFormatter;
 import org.junit.jupiter.api.Test;
 
 public class ToDoTest {
+    private final LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
+            DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
 
     /**
      * Test constructor.
      */
     @Test
-    public void defaultTest() {
-        LocalDateTime testTime = LocalDateTime.parse("05 Feb 2025 1116",
-                DateTimeFormatter.ofPattern("dd MMM yyyy HHmm"));
+    public void unmarkTest() {
         ToDo testTodo = new ToDo("yes", false, testTime);
 
         assertEquals("yes", testTodo.toString());
@@ -29,8 +29,11 @@ public class ToDoTest {
         assertEquals(" [T][X] yes", testTodo.updateTask(true));
         assertEquals(" [T][X] yes", testTodo.updateTask(true));
         assertEquals(" [T][ ] yes", testTodo.updateTask(false));
+    }
 
-        testTodo = new ToDo("yes", true, testTime);
+    @Test
+    public void markTest() {
+        ToDo testTodo = new ToDo("yes", true, testTime);
 
         assertEquals("[T][X] yes", testTodo.getTaskStatus());
         assertEquals("todo\nyes\ntrue\n05 Feb 2025 1116", testTodo.getTaskData());

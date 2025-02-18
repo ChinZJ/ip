@@ -157,9 +157,9 @@ public class TaskListWriter {
 
         File tmpDir = new File("./tmp");
         File tmpHistoryFile = new File("./tmp/history.txt");
+        File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
         if (tmpDir.exists() && tmpHistoryFile.exists()) {
             try {
-                File historyFile = new File(TaskListWriter.HISTORY_DATA_PATH);
                 Files.copy(tmpHistoryFile.toPath(), historyFile.toPath(),
                         StandardCopyOption.REPLACE_EXISTING);
                 tmpHistoryFile.delete();
@@ -167,6 +167,8 @@ public class TaskListWriter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            historyFile.delete();
         }
     }
 

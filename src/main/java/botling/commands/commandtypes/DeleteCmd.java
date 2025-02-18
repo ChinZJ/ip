@@ -16,8 +16,8 @@ public class DeleteCmd implements Command {
      * Deletes task.
      */
     public String parse(String input, TaskList tasks, CommandColor cmdColor) {
-        try {
-            if (input.matches(CmdConst.TASK_DELETE.getString())) {
+        if (input.matches(CmdConst.TASK_DELETE.getString())) {
+            try {
                 // Recall to convert to 1 based indexing
                 // NumberFormatException may be thrown here during int parsing
                 int index = Integer.parseInt(
@@ -30,18 +30,19 @@ public class DeleteCmd implements Command {
                     TaskListWriter.write(tasks);
                     return MsgGen.delete(message, tasks.size(), cmdColor);
                 }
+            } catch (NumberFormatException e) {
+                // Do nothing. Falls through to unknown syntax.
+                // Exception arises from attempting to parse the string as an integer.
             }
-        } catch (NumberFormatException e) {
-            // Do nothing. Falls through to unknown syntax.
-            // Exception arises from attempting to parse the string as an integer.
         }
 
         if (tasks.size() != 0) {
             return MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
-                    CmdConst.MSG_INVALID_CMD_MARK.getString()
+                    CmdConst.MSG_INVALID_CMD_INDEX.getString()
                             + String.valueOf(tasks.size()), cmdColor);
         }
-
-        return MsgGen.emptyList(cmdColor);
+        return MsgGen.unknownSyntax(CmdConst.CMD_DELETE.getString(),
+                CmdConst.MSG_INVALID_CMD_INDEX_EMPTY_LIST.getString()
+                        + "", cmdColor);
     }
 }

@@ -98,7 +98,7 @@ public class EventCmd implements TasksCmd {
         String from = validateString(reader.readLine());
         String to = validateString(reader.readLine());
         String name = validateString(reader.readLine());
-        boolean mark = validateAndParseBool(reader.readLine());
+        boolean isDone = validateAndParseBool(reader.readLine());
         LocalDateTime createDate = validateAndParseDate(reader.readLine());
 
         DateParser dateParser = new DateParser();
@@ -106,7 +106,7 @@ public class EventCmd implements TasksCmd {
         Optional<LocalDateTime> endDateTimeOpt = dateParser.parseDateTime(to);
         startBeforeEnd(startDateTimeOpt, endDateTimeOpt);
 
-        Task task = new Events(name, mark, from, to,
+        Task task = new Events(name, isDone, from, to,
                 startDateTimeOpt, endDateTimeOpt, createDate);
         tasks.add(task);
     }

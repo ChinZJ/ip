@@ -34,14 +34,14 @@ public class DateParser {
 
     private static final String INVALID = "Invalid";
 
-    private boolean invalidDateTime;
+    private boolean isInvalidDateTime;
 
     /**
      * Default constructor.
      * Created to store boolean of whether parseable invalid date time was detected.
      */
     public DateParser() {
-        invalidDateTime = false;
+        isInvalidDateTime = false;
     }
 
     /**
@@ -69,14 +69,14 @@ public class DateParser {
         } catch (DateTimeParseException e) {
             // Do nothing, will return Optional empty if invalid date
             if (e.getMessage().contains(INVALID)) {
-                invalidDateTime = true;
+                isInvalidDateTime = true;
             }
         }
         return Optional.empty();
     }
 
     public boolean isInvalid() {
-        return invalidDateTime;
+        return isInvalidDateTime;
     }
 
 }
