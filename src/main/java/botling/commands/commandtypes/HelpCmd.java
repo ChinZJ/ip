@@ -14,8 +14,7 @@ public class HelpCmd implements Command {
      * Returns a list of all available commands.
      */
     public String parse(String input, TaskList tasks, CommandColor cmdColor) {
-        if (input.equals(CmdConst.CMD_HELP.getString())
-                || input.strip().equals(CmdConst.CMD_HELP.getString())) {
+        if (input.trim().equals(CmdConst.CMD_HELP.getString())) {
             String message = CmdConst.CMD_BYE.getString() + "\n\n"
                     + CmdConst.CMD_LIST.getString() + "\n\n"
                     + CmdConst.CMD_FIND.getString() + CmdConst.MSG_INVALID_CMD_TODO.getString()

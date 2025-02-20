@@ -66,7 +66,8 @@ public class CommandParser {
 
         if (tasks.isOpen()) {
             return COMMANDS.entrySet().stream()
-                    .filter(entry -> input.startsWith(entry.getKey()))
+                    .filter(entry -> input
+                            .stripLeading().startsWith(entry.getKey()))
                     .findFirst()
                     .map(entry -> entry.getValue().parse(input, tasks, cmdColor))
                     .orElseGet(() -> new UnknownCmd().parse(input, tasks, cmdColor));
